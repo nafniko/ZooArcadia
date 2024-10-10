@@ -1,3 +1,5 @@
+
+</main>
 <footer class="text-white">
         <div class="d-flex justify-content-between container ">
             
@@ -13,4 +15,8 @@
             </div>
                 
         </div>
-        </footer>
+</footer>
+
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        </body>
+</html>
