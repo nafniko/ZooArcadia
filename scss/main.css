@@ -12014,8 +12014,11 @@ main {
   z-index: 3;
   width: 100%;
   left: 0%;
-  top: 80%;
+  top: 65%;
   height: auto;
+}
+.nav-z-index :hover {
+  color: rgb(107, 142, 35);
 }
 
 .filter-z-index {
@@ -12042,6 +12045,7 @@ main {
 footer {
   background-color: rgb(75, 64, 51);
   width: 100%;
+  padding-bottom: 20px;
 }
 
 .lien-buttons {

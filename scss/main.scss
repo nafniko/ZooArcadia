@@ -54,8 +54,14 @@ body{
     z-index: 3; 
     width: 100%;
     left:0%;
-    top: 80%;
+    top: 65%;
     height: auto;
+    
+
+      :hover{
+       
+        color: rgba(107, 142, 35, 1);
+      }
   }
 .filter-z-index {
     position: absolute;
@@ -80,6 +86,7 @@ body{
 footer{
     background-color:rgba(75, 64, 51, 1) ;
     width: 100%;
+    padding-bottom: 20px;
   
     
 }
@@ -91,3 +98,4 @@ footer{
     padding: 1px 5px 1px 5px;
     color: white;
 }
+

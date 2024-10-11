@@ -3,11 +3,9 @@
     require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
    
 
-    var_dump(["REQUEST_URI"]);
-
-    foreach ($contentServices as $key=>$contentService) {
+    foreach ($contentHabitats as $key=>$contentHabitat) {
        
-            require "/xampp/htdocs/ZooArcadia/templates/_services.php";
+            require "/xampp/htdocs/ZooArcadia/templates/_habitat.php";
        
     };
 

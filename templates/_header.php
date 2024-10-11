@@ -1,3 +1,49 @@
+<?php
+
+$navLinks =[
+    [
+        "pages"=> "/index.php",
+        "head_title"=> "Acceuil : Zoo Arcadia",
+        "title"=> "Acceuil",
+        "meta-description"=>"Découvrez le Zoo Arcadia, un espace écologique dédié à la préservation des espèces et à l’éducation environnementale. Visitez des habitats naturels recréés et soutenez nos initiatives de conservation durable.",
+        "icons"=>'<i class="bi bi-house-door"></i>'
+    
+    ],
+    [
+        "pages"=> "/pages/services.php",
+        "head_title"=> "Services : Zoo Arcadia",
+        "title"=> "Services",
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
+        "icons"=>'<i class="bi bi-activity"></i>'
+    ],
+
+    [
+        "pages"=> "/pages/habitat.php",
+        "head_title"=> "Habitats : Zoo Arcadia",
+        "title"=> "Habitats",
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
+        "icons"=>'<i class="bi bi-app"></i>'
+    ],
+
+    [
+        "pages"=> "/pages/contact.php",
+        "head_title"=> "Contacts Zoo Arcadia",
+        "title"=> "Contact",
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
+        "icons"=>'<i class="bi bi-send"></i>'
+    ],
+    [
+        "pages"=> "/pages/connexion.php",
+        "head_title"=> "Connexion : Zoo Arcadia",
+        "title"=> "Connexion ",
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
+        "icons"=>'<i class="bi bi-person"></i>'
+    ],
+
+
+];
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -38,12 +84,14 @@
     </div>
     <div class="nav-z-index">
         <nav class="d-flex justify-content-center py-3">
-            <ul class="nav nav-pills">
-                <li class="nav-item "><a href="/index.php" class="nav-link text-white d-flex flex-column justify-content-center align-items-center"><i class="bi bi-house-door"></i>Acceuil</a></li>
-                <li class="nav-item"><a href="/pages/services.php" class="nav-link text-white d-flex flex-column justify-content-center align-items-center"><i class="bi bi-activity"></i>Services</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white d-flex flex-column justify-content-center align-items-center"><i class="bi bi-app"></i>Habitats</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white d-flex flex-column justify-content-center align-items-center"><i class="bi bi-send"></i>Contact</a></li>
-                <li class="nav-item"><a href="/pages/connexion.php" class="nav-link text-white d-flex flex-column justify-content-center align-items-center"><i class="bi bi-person"></i>Connexion</a></li>
+            <ul class="nav nav-pills fs-3">
+                <?php
+                foreach ($navLinks as $key => $navLink) {
+
+                ?>
+                <li class="nav-item "><a href= <?= $navLink["pages"] ?> class="nav-link text-white d-flex flex-column justify-content-center align-items-center ms-5"><?= $navLink["icons"] ?> <?= $navLink["title"] ?> </a></li>
+                <?php  } ?>
+           
             </ul>
         </nav>
     </div>
