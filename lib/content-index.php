@@ -23,13 +23,13 @@ $contents = [
     ], 
 
     [ 
-        "title" =>"Les animaux", 
+        "title" =>" Voici la galerie des animaux", 
         
         "content"=>"Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d'Afrique à l'élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.", 
         
         "image"=>"zoo-arcadia-accueil.png",
         
-        "link"=>"/pages/animaux.php",
+        "link"=>"/pages/alllinks.php?id=2",
     ],
 
 ];

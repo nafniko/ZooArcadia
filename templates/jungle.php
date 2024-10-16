@@ -41,7 +41,7 @@ $savanes= [[
 <div class="d-flex justify-content-center block-contain container rounded-4">
     <div class="row g-0  position-relative align-items-center text-center w-75">
     <div class="col-md-6 mb-md-0 p-md-4 d-flex justify-content-center align-items-center flex-column p-3 ">
-        <div class="card" style="width: 20rem;">
+        <div class="card mycard" style="width: 20rem;">
             <img src="/asset/panthere.jpeg" class="card-img-top imgcontents" alt="...">
             <h3>Penny</h3>
             <div class="card-body">
@@ -52,7 +52,7 @@ $savanes= [[
     </div>    
     <div class="col-md-6 mb-md-0 p-md-4 d-flex justify-content-center align-items-center flex-column ">
 
-    <div class=" card" style="width: 20rem;">
+    <div class=" card mycard" style="width: 20rem;">
                 <img src="/asset/ours.jpeg" class=" imgcontents  " alt="...">
                 <h3>Doudou</h3>
              <div class="card-body">
@@ -62,7 +62,7 @@ $savanes= [[
         </div>
 </div>
 <div class="col-md-6 mb-md-0 p-md-4 d-flex justify-content-center align-items-center flex-column p-3 ">
-        <div class="card" style="width: 20rem;">
+        <div class="card mycard" style="width: 20rem;">
             <img src="/asset/perroquet.jpeg" class="card-img-top imgcontents" alt="...">
             <h3>Paco</h3>
             <div class="card-body">
@@ -73,7 +73,7 @@ $savanes= [[
     </div>    
     <div class="col-md-6 mb-md-0 p-md-4 d-flex justify-content-center align-items-center flex-column ">
 
-    <div class=" card" style="width: 20rem;">
+    <div class=" card mycard" style="width: 20rem;">
                 <img src="/asset/gorille.jpeg" class=" imgcontents  " alt="...">
                 <h3>Gary</h3>
              <div class="card-body">
@@ -85,7 +85,7 @@ $savanes= [[
     </div>  
     <div class="col-md-6 mb-md-0 p-md-4 d-flex justify-content-center align-items-center flex-column ">
 
-<div class=" card" style="width: 20rem;">
+<div class=" card mycard" style="width: 20rem;">
             <img src="/asset/anacounda.jpeg" class=" imgcontents  " alt="...">
             <h3>Sily</h3>
          <div class="card-body">
@@ -97,7 +97,7 @@ $savanes= [[
 </div>
 <div class="col-md-6 mb-md-0 p-md-4 d-flex justify-content-center align-items-center flex-column ">
 
-<div class=" card" style="width: 20rem;">
+<div class=" card mycard" style="width: 20rem;">
             <img src="/asset/parresseux.jpg" class=" imgcontents  " alt="...">
             <h3>Papito</h3>
          <div class="card-body">

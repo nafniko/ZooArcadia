@@ -11965,6 +11965,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.mycard {
+  background-color: rgb(44, 95, 45);
+  color: white;
+}
+
 body {
   width: 100%;
   height: 100%;

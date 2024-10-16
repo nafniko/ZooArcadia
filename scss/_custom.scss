@@ -6,3 +6,13 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
+
+$primary :rgba(107, 142, 35, 1);
+$secondary :rgba(44, 95, 45, 1);
+
+
+
+.mycard{
+    background-color: $secondary;
+    color:white;
+}
