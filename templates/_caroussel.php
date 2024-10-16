@@ -30,7 +30,7 @@
         <div class="container ">
             <p class="text-white"><?= $carousselHabit["content"] ?></p>
             <div class="d-flex justify-content-center align-items-center">
-                <a href="#" class="lien-buttons text-center btn align-middle mb-4">Voir</a>
+                <a href="/pages/habitat.php" class="lien-buttons text-center btn align-middle mb-4">Voir</a>
             </div>
         </div>
     </div>

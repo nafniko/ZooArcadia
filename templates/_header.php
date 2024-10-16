@@ -1,39 +1,40 @@
 <?php
 
 $navLinks =[
-    [
-        "pages"=> "/index.php",
+    "index.php"=>[
+       
+        "path"=> "/index.php",
         "head_title"=> "Acceuil : Zoo Arcadia",
         "title"=> "Acceuil",
         "meta-description"=>"Découvrez le Zoo Arcadia, un espace écologique dédié à la préservation des espèces et à l’éducation environnementale. Visitez des habitats naturels recréés et soutenez nos initiatives de conservation durable.",
         "icons"=>'<i class="bi bi-house-door"></i>'
     
     ],
-    [
-        "pages"=> "/pages/services.php",
+    "services.php"=>[
+        "path"=> "/pages/services.php",
         "head_title"=> "Services : Zoo Arcadia",
         "title"=> "Services",
         "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
         "icons"=>'<i class="bi bi-activity"></i>'
     ],
 
-    [
-        "pages"=> "/pages/habitat.php",
+    "habitat.php"=>[
+        "path"=> "/pages/habitat.php",
         "head_title"=> "Habitats : Zoo Arcadia",
         "title"=> "Habitats",
         "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
         "icons"=>'<i class="bi bi-app"></i>'
     ],
 
-    [
-        "pages"=> "/pages/contact.php",
-        "head_title"=> "Contacts Zoo Arcadia",
+    "contact.php"=>[
+        "path"=> "/pages/contact.php",
+        "head_title"=> "Contacts : Zoo Arcadia",
         "title"=> "Contact",
         "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
         "icons"=>'<i class="bi bi-send"></i>'
     ],
-    [
-        "pages"=> "/pages/connexion.php",
+    "connexion.php"=>[
+        "path"=> "/pages/connexion.php",
         "head_title"=> "Connexion : Zoo Arcadia",
         "title"=> "Connexion ",
         "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
@@ -41,14 +42,18 @@ $navLinks =[
     ],
 
 
+
 ];
 
+    $currentpage=basename($_SERVER['SCRIPT_NAME']);
+   
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?=@$navLinks[$currentpage]["meta-description"]?>" >
    
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
@@ -56,7 +61,7 @@ $navLinks =[
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <title>Zoo Arcadia</title>
+    <title><?= $navLinks[$currentpage]["head_title"] ?></title>
 </head>
 <body>
 
@@ -89,7 +94,7 @@ $navLinks =[
                 foreach ($navLinks as $key => $navLink) {
 
                 ?>
-                <li class="nav-item "><a href= <?= $navLink["pages"] ?> class="nav-link text-white d-flex flex-column justify-content-center align-items-center ms-5"><?= $navLink["icons"] ?> <?= $navLink["title"] ?> </a></li>
+                <li class="nav-item "><a href="<?= $navLink['path'] ?>" class="nav-link text-white d-flex flex-column justify-content-center align-items-center ms-5"><?= $navLink["icons"] ?> <?= $navLink["title"] ?> </a></li>
                 <?php  } ?>
            
             </ul>

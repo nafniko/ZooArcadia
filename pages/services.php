@@ -3,7 +3,7 @@
     require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
    
 
-    var_dump(["REQUEST_URI"]);
+ 
 
     foreach ($contentServices as $key=>$contentService) {
        

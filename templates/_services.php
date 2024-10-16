@@ -10,7 +10,7 @@
                 <p class="text-white alltitle"><?= $contentService["content"] ?></p>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-                <a href="<?= $contentService["link"] ?>" class="lien-buttons text-center <?php if( $key===0){ echo "visually-hidden";}; ?> btn align-middle mb-4">Voir</a>
+                <a href="<?= $contentService["link"] ?>" class="lien-buttons text-center <?php if( $key===0||$key===2||$key===3){ echo "visually-hidden";}; ?> btn align-middle mb-4">Voir</a>
             </div>
         </div>
     </div>

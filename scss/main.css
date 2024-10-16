@@ -12045,7 +12045,7 @@ main {
 footer {
   background-color: rgb(75, 64, 51);
   width: 100%;
-  padding-bottom: 20px;
+  padding: 20px;
 }
 
 .lien-buttons {
@@ -12054,4 +12054,11 @@ footer {
   border-radius: 5px;
   padding: 1px 5px 1px 5px;
   color: white;
+}
+
+.imgcontents {
+  width: 318px;
+  height: 240px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=main.css.map */

@@ -12,12 +12,10 @@
             require "./templates/_content.php";
         }
     } 
- 
    
     foreach ($carousselHabits as $key=>$carousselHabit) {
         require "./templates/_caroussel.php";
     }
-    
        
     foreach ($contents as $key=>$content) {
         if ($key===2) {
