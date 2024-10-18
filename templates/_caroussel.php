@@ -1,5 +1,5 @@
             
-<h2 class="text-center text-white mt-4"><?= $carousselHabit ["title"] ?></h2>
+<h2 class="text-center text-white mt-4"><?= $carousselHabit ["habitat_nom"] ?></h2>
 <div class="d-flex block-contain container rounded-4">
     <div class=" align-items-center d-flex flex-column justify-content-center">
         <div class="col-md-6 mb-md-0 p-md-4 d-flex ">
@@ -28,7 +28,7 @@
             
         </div>
         <div class="container ">
-            <p class="text-white"><?= $carousselHabit["content"] ?></p>
+            <p class="text-white"><?= $carousselHabit["descriptions"] ?></p>
             <div class="d-flex justify-content-center align-items-center">
                 <a href="/pages/habitat.php" class="lien-buttons text-center btn align-middle mb-4">Voir</a>
             </div>

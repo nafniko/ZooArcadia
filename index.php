@@ -11,13 +11,16 @@ $query=$pdo->prepare("SELECT *,images.chemin FROM contenu LEFT JOIN images ON co
 $query->execute() ; 
 $contents=$query->fetchAll(PDO::FETCH_ASSOC) ;
 
-
+$query=$pdo->prepare("SELECT *,images.chemin FROM habitat LEFT JOIN images ON habitat.id_habitat = images.id_images") ;
+$query->execute() ; 
+$carousselHabits=$query->fetchAll(PDO::FETCH_ASSOC) ;
 
 ?>
  
  <h1 class="container text-white pt-4 ">Bienvenue Au Zoo Arcadia</h1>
  
  <?php    
+        var_dump(  $carousselHabits );
     foreach ($contents as $key=>$content) {
         if ($key===0 || $key===1) {
             require "./templates/_content.php";
@@ -25,8 +28,12 @@ $contents=$query->fetchAll(PDO::FETCH_ASSOC) ;
     } 
     
     foreach ($carousselHabits as $key=>$carousselHabit) {
-        require "./templates/_caroussel.php";
+        if ($key===0) {
+            require "./templates/_caroussel.php";
+        } 
+    
     }
+
     
     foreach ($contents as $key=>$content) {
         if ($key===2) {
@@ -37,7 +44,6 @@ $contents=$query->fetchAll(PDO::FETCH_ASSOC) ;
     require_once "templates/_avis.php";
     
     
-    var_dump(  $contents );
     require_once "templates/_footer.php";?>
 
 

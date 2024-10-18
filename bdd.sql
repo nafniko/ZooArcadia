@@ -92,9 +92,22 @@
 --     foreign key (image_id) REFERENCES images(id_images)
 -- );
 
--- INSERT INTO contenu (titre, descriptions, liens) VALUES
+INSERT INTO contenu (titre, descriptions, liens) VALUES
 -- ('Le Zoo', 'Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de Plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d''Afrique à l''élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.', NULL),
 -- ('Les services', 'Au Zoo Arcadia, nous mettons à votre disposition plusieurs services pour rendre votre visite inoubliable, tout en respectant notre engagement écologique. Restauration éco-responsable : Faites une pause gourmande dans notre espace de restauration, où nous privilégions des produits locaux et biologiques. Profitez de plats savoureux tout en contribuant à la réduction de notre empreinte environnementale. Visites guidées des habitats : Explorez les différents habitats du zoo avec un guide expert, gratuitement. Découvrez les espèces animales dans leur environnement recréé, et apprenez-en plus sur leurs comportements et les efforts de conservation. Balade en petit train : Montez à bord de notre petit train écologique pour une visite relaxante à travers le zoo. Une manière amusante et tranquille de découvrir tous nos animaux sans trop marcher !', '/pages/services.php');
+("Les animaux","À la rencontre des animaux du Zoo Arcadia
+                    Le Zoo Arcadia vous invite à découvrir la richesse de la faune à travers trois écosystèmes fascinants : la savane, le marais et la jungle.
+
+                    Les animaux de la savane
+                    Traversez les vastes étendues de la savane et rencontrez ses majestueux habitants. Du lion, roi des animaux, aux éléphants imposants en passant par les élégantes girafes, chaque espèce vous fascine par son adaptation à cet environnement aride.
+
+                    Les habitants des marais
+                    Dans les marais, un monde discret mais captivant vous attend. Observez les crocodiles se prélassant au soleil, les oiseaux aquatiques glissant sur l'eau, et découvrez la faune surprenante des zones humides, où la biodiversité est riche et variée.
+
+                    Les créatures de la jungle
+                    Pénétrez dans l’épaisse végétation tropicale de la jungle pour y découvrir des espèces colorées et exotiques. Singes agiles, serpents mystérieux et oiseaux multicolores font de cet environnement une aventure inoubliable, où chaque pas révèle une nouvelle espèce fascinante.","#");
+
+
 -- INSERT INTO images (chemin, pages) VALUES 
 -- ('/asset/zoo-arcadia-accueil.png', '/pages/zoo.php');
 
@@ -111,50 +124,41 @@
 --     foreign key (idImages) REFERENCES images(id_images)
 -- );
 
+-- ALTER TABLE service 
+-- ADD COLUMN liens varchar(255);
+
+-- ALTER TABLE habitat
+-- ADD COLUMN liens varchar(255);
 
 
+-- INSERT INTO service ( serviceNom, descriptionService,liens) VALUES
+-- ('Visite guidé des habitats','Visite Guidée des Habitats au Zoo Arcadia
+-- Profitez d''une expérience unique avec notre visite guidée gratuite des habitats au Zoo Arcadia !
+-- Explorez les différents écosystèmes du zoo avec nos guides passionnés qui vous plongeront au cœur de la biodiversité. Chaque visite vous offre l''occasion d''en apprendre davantage sur les animaux qui y résident et leur habitat naturel.Au cours de cette expérience enrichissante, vous découvrirez les adaptations étonnantes des espèces, leurs comportements et les efforts de conservation déployés pour protéger ces animaux dans la nature. Que vous soyez un amoureux des animaux ou simplement curieux d''en savoir plus, cette visite guidée est l''occasion parfaite pour explorer et apprécier la beauté de la faune.Rejoignez-nous pour une aventure éducative et inoubliable au Zoo Arcadia !','#'),
+-- ('Les Restaurants','Nos Restaurants au Zoo Arcadia
+-- Lors de votre visite au Zoo Arcadia, profitez d''une expérience culinaire unique grâce à nos trois restaurants thématiques, chacun inspiré par un écosystème naturel.Au Marais
+-- Immergez-vous dans l’atmosphère paisible des zones humides tout en savourant des plats à base de produits locaux et frais. Ce restaurant propose une cuisine saine, idéale pour les amateurs de nature et de tranquillité.
+-- À la Savane
+-- Voyagez au cœur de l’Afrique avec une cuisine aux saveurs épicées et exotiques. Ce restaurant est parfait pour les aventuriers à la recherche de plats qui évoquent la chaleur et les traditions des grandes plaines africaines.
+-- Dans la Jungle
+-- Entrez dans une ambiance tropicale, où vous pourrez déguster des plats exotiques, riches en fruits et légumes. Ce restaurant est un véritable voyage sensoriel, au milieu d''une végétation luxuriante.','/pages/Restaurants.php'),
+-- ('Visitez avec le petit train','Visite du Zoo en Petit Train
+-- Envie de découvrir le Zoo Arcadia de manière ludique et confortable ? Montez à bord de notre petit train et laissez-vous guider à travers les différents habitats !
+
+-- Cette promenade paisible est idéale pour toute la famille. Vous traverserez la savane, les marais et la jungle tout en profitant de vues imprenables sur les animaux et la nature environnante. Les guides présents à bord vous fourniront des informations fascinantes sur les espèces que vous croiserez, rendant cette visite à la fois amusante et éducative.
+
+-- Montez à bord du petit train et partez pour une aventure inoubliable à travers le monde fascinant des animaux au Zoo Arcadia !','#');
 
 
+-- INSERT INTO habitat(habitat_nom, descriptions, liens) VALUES
+-- ('Les Habitats', 'Visite Guidée des Habitats au Zoo Arcadia. Profitez d''une expérience unique avec notre visite guidée gratuite des habitats au Zoo Arcadia ! Explorez les différents écosystèmes du zoo avec nos guides passionnés qui vous plongeront au cœur de la biodiversité. Chaque visite vous offre l''occasion d''en apprendre davantage sur les animaux qui y résident et leur habitat naturel.', '/pages/habitat.php'),
 
+-- ('Voici la galerie des animaux', 'Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de Plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d''Afrique à l''élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.', '/pages/alllinks.php?id=2'),
 
+-- ('La savane', 'Explorez la Savane au Zoo Arcadia. La savane est un écosystème vaste et ouvert, rempli de vie sauvage fascinante. Lors de votre visite, vous aurez l''occasion de rencontrer des animaux emblématiques tels que les lions majestueux, les éléphants imposants et les élégantes girafes.', '#'),
 
+-- ('La jungle', 'Immersion dans la Jungle. Entrez dans le monde luxuriant de la jungle au Zoo Arcadia, un habitat tropical riche en biodiversité. Ici, la végétation dense abrite une multitude d''espèces colorées et exotiques.', '#'),
+-- ('Le marais', 'À la Découverte du Marais. Le marais, avec son écosystème humide et riche, est un habitat unique à explorer au Zoo Arcadia.', '#');
 
-
-
-INSERT INTO habitat(habitat_nom, descriptions, images) VALUES
-('Les Habitats', 'Visite Guidée des Habitats au Zoo Arcadia. Profitez d''une expérience unique avec notre visite guidée gratuite des habitats au Zoo Arcadia ! Explorez les différents écosystèmes du zoo avec nos guides passionnés qui vous plongeront au cœur de la biodiversité. Chaque visite vous offre l''occasion d''en apprendre davantage sur les animaux qui y résident et leur habitat naturel.', '/pages/habitat.php'),
-
-
-('La savane', 'Explorez la Savane au Zoo Arcadia. La savane est un écosystème vaste et ouvert, rempli de vie sauvage fascinante. Lors de votre visite, vous aurez l''occasion de rencontrer des animaux emblématiques tels que les lions majestueux, les éléphants imposants et les élégantes girafes.', '#'),
-
-
-('La jungle', 'Immersion dans la Jungle. Entrez dans le monde luxuriant de la jungle au Zoo Arcadia, un habitat tropical riche en biodiversité. Ici, la végétation dense abrite une multitude d''espèces colorées et exotiques.', '#'),
-('Le marais', 'À la Découverte du Marais. Le marais, avec son écosystème humide et riche, est un habitat unique à explorer au Zoo Arcadia.', '#');
-
-('Voici la galerie des animaux', 'Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de Plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d''Afrique à l''élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.', '/pages/alllinks.php?id=2'),
-
-('La savane', 'Explorez la Savane au Zoo Arcadia. La savane est un écosystème vaste et ouvert, rempli de vie sauvage fascinante. Lors de votre visite, vous aurez l''occasion de rencontrer des animaux emblématiques tels que les lions majestueux, les éléphants imposants et les élégantes girafes.', '#'),
-('La jungle', 'Immersion dans la Jungle. Entrez dans le monde luxuriant de la jungle au Zoo Arcadia, un habitat tropical riche en biodiversité. Ici, la végétation dense abrite une multitude d''espèces colorées et exotiques.', '#'),
-('Le marais', 'À la Découverte du Marais. Le marais, avec son écosystème humide et riche, est un habitat unique à explorer au Zoo Arcadia.', '#');
-
-INSERT INTO contenu (titre, descriptions, liens) VALUES
-('Les Restaurants','Nos Restaurants au Zoo Arcadia
-Lors de votre visite au Zoo Arcadia, profitez d''une expérience culinaire unique grâce à nos trois restaurants thématiques, chacun inspiré par un écosystème naturel.Au Marais
-Immergez-vous dans l’atmosphère paisible des zones humides tout en savourant des plats à base de produits locaux et frais. Ce restaurant propose une cuisine saine, idéale pour les amateurs de nature et de tranquillité.
-À la Savane
-Voyagez au cœur de l’Afrique avec une cuisine aux saveurs épicées et exotiques. Ce restaurant est parfait pour les aventuriers à la recherche de plats qui évoquent la chaleur et les traditions des grandes plaines africaines.
-Dans la Jungle
-Entrez dans une ambiance tropicale, où vous pourrez déguster des plats exotiques, riches en fruits et légumes. Ce restaurant est un véritable voyage sensoriel, au milieu d''une végétation luxuriante.','/pages/Restaurants.php'),
-
-('Visite guidé des habitats','Visite Guidée des Habitats au Zoo Arcadia
-Profitez d''une expérience unique avec notre visite guidée gratuite des habitats au Zoo Arcadia !
-Explorez les différents écosystèmes du zoo avec nos guides passionnés qui vous plongeront au cœur de la biodiversité. Chaque visite vous offre l''occasion d''en apprendre davantage sur les animaux qui y résident et leur habitat naturel.Au cours de cette expérience enrichissante, vous découvrirez les adaptations étonnantes des espèces, leurs comportements et les efforts de conservation déployés pour protéger ces animaux dans la nature. Que vous soyez un amoureux des animaux ou simplement curieux d''en savoir plus, cette visite guidée est l''occasion parfaite pour explorer et apprécier la beauté de la faune.Rejoignez-nous pour une aventure éducative et inoubliable au Zoo Arcadia !','#'),
-
-('Visitez avec le petit train','Visite du Zoo en Petit Train
-Envie de découvrir le Zoo Arcadia de manière ludique et confortable ? Montez à bord de notre petit train et laissez-vous guider à travers les différents habitats !
-
-Cette promenade paisible est idéale pour toute la famille. Vous traverserez la savane, les marais et la jungle tout en profitant de vues imprenables sur les animaux et la nature environnante. Les guides présents à bord vous fourniront des informations fascinantes sur les espèces que vous croiserez, rendant cette visite à la fois amusante et éducative.
-
-Montez à bord du petit train et partez pour une aventure inoubliable à travers le monde fascinant des animaux au Zoo Arcadia !','#');
 
 
