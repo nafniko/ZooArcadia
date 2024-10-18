@@ -7,14 +7,14 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade">
                 <div class="carousel-inner rounded-4 mt-4 mb-2">
                     <div class="carousel-item active">
-                        <img src=<?= $carousselHabit["savane"] ?> class="d-block w-100" alt="photo de la savane">
+                        <img src= <?= $carousselHabits[2]["chemin"] ?> class="d-block rounded-4 w-100" alt="photo de la savane">
                     </div>
                     <div class="carousel-item">
-                        <img src=<?= $carousselHabit["jungle"] ?> class="d-block w-100" alt="photo de la jungle">
+                        <img src= <?= $carousselHabits[0]["chemin"] ?> class="d-block rounded-4 w-100" alt="photo de la jungle">
                     </div>
                     <div class="carousel-item">
-                        <img src=<?= $carousselHabit["marais"] ?> class="d-block w-100" alt="photo des marais">
-                    </div>
+                        <img src= <?= $carousselHabits[1]["chemin"] ?> class="d-block rounded-4 rounded w-100" alt="photo des marais">
+                    </div> 
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

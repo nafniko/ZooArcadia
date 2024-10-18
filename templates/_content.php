@@ -13,7 +13,7 @@
                 <p class="text-white "><?= $content["descriptions"] ?></p>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-                <a href="<?= $content["id_images"]["liens"] ?>" class="lien-buttons <?php if( $key===0){ echo "visually-hidden";}; ?> text-center btn align-middle mb-4">Voir</a>
+                <a href="<?= $content["liens"] ?>" class="lien-buttons <?php if( $key===0){ echo "visually-hidden";}; ?> text-center btn align-middle mb-4">Voir</a>
             </div>
         </div>
     </div>
