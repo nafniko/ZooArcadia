@@ -50,6 +50,8 @@
 --     foreign key (images_path) REFERENCES images(id_images)
 -- );
 
+
+
 -- CREATE TABLE rapport
 -- (
 --     id_rapport integer AUTO_INCREMENT PRIMARY KEY,
@@ -99,7 +101,6 @@
 --     foreign key (idHabitat) REFERENCES habitat(id_Habitat),
 --     foreign key (idImages) REFERENCES images(id_images)
 -- );
-
 -- INSERT INTO contenu (titre, descriptions, liens) VALUES
 -- ('Le Zoo', 'Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de Plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d''Afrique à l''élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.', NULL),
 -- ('Les services', 'Au Zoo Arcadia, nous mettons à votre disposition plusieurs services pour rendre votre visite inoubliable, tout en respectant notre engagement écologique. Restauration éco-responsable : Faites une pause gourmande dans notre espace de restauration, où nous privilégions des produits locaux et biologiques. Profitez de plats savoureux tout en contribuant à la réduction de notre empreinte environnementale. Visites guidées des habitats : Explorez les différents habitats du zoo avec un guide expert, gratuitement. Découvrez les espèces animales dans leur environnement recréé, et apprenez-en plus sur leurs comportements et les efforts de conservation. Balade en petit train : Montez à bord de notre petit train écologique pour une visite relaxante à travers le zoo. Une manière amusante et tranquille de découvrir tous nos animaux sans trop marcher !', '/pages/services.php'),
@@ -186,4 +187,80 @@
 -- (1, 2),(2,10),(3,9);
 
 -- INSERT INTO habitat_images (idHabitat, idImages)
--- VALUES (1, 32),(1, 31),(1, 30); 
+-- VALUES (1, 32),(1, 31),(1, 30);
+
+-- CREATE TABLE service_image
+-- (
+--     idService integer,
+--     idImages integer,
+--     primary key (idService,idImages),
+--     foreign key (idService) REFERENCES service(id),
+--     foreign key (idImages) REFERENCES images(id_images)
+-- );
+
+-- INSERT INTO service_image (idService, idImages)
+-- VALUES 
+-- (1, 4),(2,3),(3,7);
+
+-- alter TABLE rapport
+-- add column id_employé integer,
+-- add constraint fk_employé foreign key (id_employé) references users(id_user);
+
+-- INSERT INTO animaux (prénom, race, nom_habitat, images_path)
+-- VALUES 
+-- ('Giny', 'Girafe Masai', 3, 20),
+-- ('zaza', 'zebre ', 3, 33 ),
+-- ('eli', 'Elephant Loxodonta africana', 3, 17 ),
+-- ('leo', 'lion de l''Atlas', 3, 23 ),
+-- ('Adi', 'Aigle', 3, 11),
+-- ('Bagy', 'Guepard', 3, 22 ),
+-- ('Penny', 'Panthere', 4, 25 ),
+-- ('Doudou', 'ours ', 4,24 ),
+-- ('Paco', 'Perroquet ', 4, 12 ),
+-- ('Gary', 'Gorilles ', 4, 21 ),
+-- ('Sily', 'Serpent ', 4, 14 ),
+-- ('Papito', 'Parresseux', 4, 26),
+-- ('Camille', 'caïman noir ', 5, 16 ),
+-- ('Brutus', 'buffle', 5, 15 ),
+-- ('Rachelle', 'Ragondin ', 5, 27 ),
+-- ('Flamy', 'Flament rose ', 5, 18 ),
+-- ('Samy', 'Salamandre ', 5, 29 ),
+-- ('Rene', 'Rainette ', 5, 28 );
+
+
+-- CREATE USER 'employee'@'localhost' IDENTIFIED BY 'OK';
+-- GRANT SELECT, INSERT, UPDATE, DELETE ON zooarcadia.* TO 'employee'@'localhost';
+-- GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
+
+-- INSERT INTO roles (nom) 
+-- VALUES
+-- ('veterinaire'),('employee'),('admin') ;
+
+
+-- INSERT INTO users (email, user_Password, role_id) 
+-- VALUES
+-- ('veto@zoo.com', 'Azerty11@', 1),
+-- ('emp@zoo.com', 'Azerty12@', 2 ),
+-- ('admin@zoo.com', 'Azerty13@', 3);
+
+
+
+-- INSERT INTO rapport (etat, nourriture, grammage, dates, detail_animal, commentaire, id_veto)
+-- VALUES 
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 1, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 2, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 3, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 4, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 5, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 6, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 7, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 8, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 9, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 10, 'cette animal pète la forme', 1),('En forme', 'poisson', '5kg', '1999-10-20', 11, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 12, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 13, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 14, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 15, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 16, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 17, 'cette animal pète la forme', 1),
+-- ('En forme', 'poisson', '5kg', '1999-10-20', 18, 'cette animal pète la forme', 1);

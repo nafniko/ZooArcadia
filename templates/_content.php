@@ -1,5 +1,11 @@
+<?php
+// if ($content["chemin"]===null){
+//     $imagePath = "/asset/default.png";
+// }else{
+//     $imagePath=
+// }
 
-
+?>
 
 <h2 class="text-center text-white pt-4 mb-4"><?= $content["titre"] ?></h2>
 <div class="d-flex justify-content-center">

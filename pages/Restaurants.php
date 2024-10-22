@@ -4,7 +4,7 @@
    
 ?>
  
-<h1 class="text-center text-white pt-4 mb-4">Les restaurants</h1>
+<h1 class="text-center text-white pt-4 mb-4">Les Restaurants</h1>
 <div class="pb-3 ">
     
     <div class=" block-contain container rounded-4 mb-3">
