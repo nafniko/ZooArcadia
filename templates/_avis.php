@@ -3,24 +3,7 @@
 $avis= htmlentities($_POST["avis"]);
 $pseudo= htmlentities($_POST["pseudo"]);
 
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <h2 class="container text-white mt-4 ">Les Avis</h2>
             
             <div class=" container d-flex flex-row mb-3  pb-2">

@@ -57,30 +57,22 @@ $contentHabitats = [
 
 function getContents($pdo){
 
-    $query=$pdo->prepare("SELECT* FROM contenu LEFT JOIN contenu_images ON contenu.id_contenu = contenu_images.contenu_id
-     LEFT JOIN images ON contenu_images.image_id = images.id_images;") ;
+    $query=$pdo->prepare("SELECT * FROM `contenu` Left JOIN images on contenu.images =images.id;") ;
     $query->execute() ; 
     $contents=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $contents;
 };
-function getContentCarousselHabitats($pdo){
-    $query=$pdo->prepare("SELECT *FROM habitat LEFT JOIN habitat_images ON habitat.id_Habitat =habitat_images.idHabitat 
-LEFT JOIN images ON habitat_images.idImages = images.id_images;") ;
-$query->execute() ; 
-$carousselHabits=$query->fetchAll(PDO::FETCH_ASSOC) ;
-return $carousselHabits;
-};
+function getContentHabitat($pdo){
 
-function getContentService($pdo){
-
-    $query=$pdo->prepare("SELECT *FROM service LEFT JOIN service_image ON service_image.idService = service.id LEFT JOIN images ON service_image.idImages = images.id_images;") ;
+    $query=$pdo->prepare("SELECT * FROM `habitat` Left JOIN images on habitat.images =images.id;") ;
     $query->execute() ; 
-    $contentServices=$query->fetchAll(PDO::FETCH_ASSOC) ;
-    return $contentServices;
+    $contentHabitats=$query->fetchAll(PDO::FETCH_ASSOC) ;
+    return $contentHabitats;
 };
+
 function getContentImages($pdo){
 
-    $query=$pdo->prepare("SELECT chemin,id_images FROM `images` ") ;
+    $query=$pdo->prepare("SELECT chemin,id FROM `images` ") ;
     $query->execute() ; 
     $contentimages=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $contentimages;
@@ -96,8 +88,8 @@ function getAnimaux($pdo){
 function getAnimauxSavane($pdo){
 
     $query=$pdo->prepare("SELECT * FROM `animaux` 
-LEFT JOIN rapport on rapport.detail_animal = animaux.id_animal
-LEFT JOIN images on images.id_images= animaux.images_path WHERE animaux.nom_habitat= 3;") ;
+LEFT JOIN rapport on rapport.detail_animal = animaux.id
+LEFT JOIN images on images.id = animaux.images WHERE animaux.habitat= 1;") ;
     $query->execute() ; 
     $animauxSavane=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $animauxSavane;
@@ -105,8 +97,8 @@ LEFT JOIN images on images.id_images= animaux.images_path WHERE animaux.nom_habi
 function getAnimauxJungle($pdo){
 
     $query=$pdo->prepare("SELECT * FROM `animaux` 
-LEFT JOIN rapport on rapport.detail_animal = animaux.id_animal
-LEFT JOIN images on images.id_images= animaux.images_path WHERE animaux.nom_habitat= 4;") ;
+LEFT JOIN rapport on rapport.detail_animal = animaux.id
+LEFT JOIN images on images.id = animaux.images WHERE animaux.habitat= 2;") ;
     $query->execute() ; 
     $animauxJungle=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $animauxJungle;
@@ -114,8 +106,8 @@ LEFT JOIN images on images.id_images= animaux.images_path WHERE animaux.nom_habi
 function getAnimauxMarais($pdo){
 
     $query=$pdo->prepare("SELECT * FROM `animaux` 
-LEFT JOIN rapport on rapport.detail_animal = animaux.id_animal
-LEFT JOIN images on images.id_images= animaux.images_path WHERE animaux.nom_habitat= 5;") ;
+LEFT JOIN rapport on rapport.detail_animal = animaux.id
+LEFT JOIN images on images.id = animaux.images WHERE animaux.habitat= 3;") ;
     $query->execute() ; 
     $animauxMarais=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $animauxMarais;

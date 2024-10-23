@@ -2,21 +2,11 @@
    
    require_once "./lib/config.php";
    require_once "./lib/pdo.php";
-   
    require_once "./lib/content-index.php";
-
    require_once "./templates/_header.php";
-
-
-
-
     
  $contents= getContents($pdo);
-
-
- $carousselHabits= getContentCarousselHabitats($pdo);
-
- 
+ $contentimages=getContentImages($pdo);
 
 ?>
  
@@ -26,14 +16,14 @@
         
         
     foreach ($contents as $key=>$content) {
-        if ($key===0 || $key===1) {
+        if ($key===0 ) {
            
             require "./templates/_content.php";
         }
     } 
     
-    foreach ($carousselHabits as $key=>$carousselHabit) {
-        if ($key===0) {
+    foreach ($contents as $key=>$content) {
+        if ($key===6) {
             
             require "./templates/_caroussel.php";
             
@@ -50,9 +40,6 @@
     } 
     
     require_once "templates/_avis.php";
-
-
-
 
     require_once "templates/_footer.php";?>
 

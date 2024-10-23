@@ -5,11 +5,13 @@
     require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
    
     
-    $contentServices=getContentService($pdo);
+    $contents= getContents($pdo);
 
-    foreach ($contentServices as $key=>$contentService) {
-       
+
+    foreach ($contents as $key=>$content) {
+        if($key===1 || $key===3 || $key===4 || $key===5){
             require "/xampp/htdocs/ZooArcadia/templates/_services.php";
        
     };
+};
     require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php"; 
