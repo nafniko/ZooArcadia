@@ -1,4 +1,4 @@
-<h2 class="text-center text-white pt-4 mb-4"><?= $content["titre"] ?></h2>
+<h1 class="text-center text-white pt-4 mb-4"><?= $content["titre"] ?></h1>
 <div class="d-flex justify-content-center pb-3">
     
     <div class="d-flex justify-content-center block-contain container  rounded-4">

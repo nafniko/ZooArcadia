@@ -1,9 +1,5 @@
 <?php
-// if ($content["chemin"]===null){
-//     $imagePath = "/asset/default.png";
-// }else{
-//     $imagePath=
-// }
+
 
 ?>
 

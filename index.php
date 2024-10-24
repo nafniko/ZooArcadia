@@ -16,7 +16,7 @@
         
         
     foreach ($contents as $key=>$content) {
-        if ($key===0 ) {
+        if ($key===0 ||$key===1) {
            
             require "./templates/_content.php";
         }

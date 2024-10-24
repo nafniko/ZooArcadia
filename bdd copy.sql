@@ -85,6 +85,7 @@ CREATE TABLE contenu
     descriptions text,
     images integer,
     liens varchar(250),
+    idHabitat int
     foreign key (images) REFERENCES images(id)
 
 );
@@ -249,9 +250,9 @@ Soufflé glacé au citron vert - 7,50 €',2, '#');
 
 INSERT INTO habitat (titre, images, liens)
 VALUES 
-('savane',10, '/templates/savane.php'),
-('jungle',6 , '/templates/jungle.php'),
-('marais',8, '/templates/marais.php');
+('savane',10, '/pages/habitats.php?id=1'),
+('jungle',6 , '/pages/habitats.php?id=2'),
+('marais',8, '/pages/habitats.php?id=3');
 
 
 
@@ -277,40 +278,45 @@ VALUES
 ('Rene', 'Rainette ', 3, 30 );
 
 
--- CREATE USER 'employee'@'localhost' IDENTIFIED BY 'OK';
--- GRANT SELECT, INSERT, UPDATE, DELETE ON zooarcadia.* TO 'employee'@'localhost';
--- GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
+CREATE USER 'employee'@'localhost' IDENTIFIED BY 'OK';
+GRANT SELECT, INSERT, UPDATE, DELETE ON zooarcadia.* TO 'employee'@'localhost';
+GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
 
--- INSERT INTO roles (nom) 
--- VALUES
--- ('veterinaire'),('employee'),('admin') ;
-
-
--- INSERT INTO users (email, user_Password, role_id) 
--- VALUES
--- ('veto@zoo.com', 'Azerty11@', 1),
--- ('emp@zoo.com', 'Azerty12@', 2 ),
--- ('admin@zoo.com', 'Azerty13@', 3);
+INSERT INTO roles (nom) 
+VALUES
+('veterinaire'),('employee'),('admin') ;
 
 
+INSERT INTO users (email, Passwords, roles) 
+VALUES
+('veto@zoo.com', 'Azerty11@', 1),
+('emp@zoo.com', 'Azerty12@', 2 ),
+('admin@zoo.com', 'Azerty13@', 3);
 
--- INSERT INTO rapport (etat, nourriture, grammage, dates, detail_animal, commentaire, id_veto)
--- VALUES 
--- ('En forme', 'poisson', '5kg', '1999-10-20', 1, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 2, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 3, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 4, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 5, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 6, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 7, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 8, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 9, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 10, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 11, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 12, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 13, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 14, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 15, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 16, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 17, 'cette animal pète la forme', 1),
--- ('En forme', 'poisson', '5kg', '1999-10-20', 18, 'cette animal pète la forme', 1);
+
+
+INSERT INTO rapport (etat, nourriture, grammage, dates, detail_animal, commentaire, veto)
+VALUES 
+('En forme', 'poisson', '5kg', '1999-10-20', 1, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 2, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 3, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 4, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 5, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 6, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 7, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 8, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 9, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 10, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 11, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 12, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 13, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 14, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 15, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 16, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 17, 'cette animal pète la forme', 1),
+('En forme', 'poisson', '5kg', '1999-10-20', 18, 'cette animal pète la forme', 1);
+
+alter table contenu 
+
+add column idHabitat integer,
+

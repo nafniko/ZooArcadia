@@ -8,10 +8,13 @@ require_once "/xampp/htdocs/ZooArcadia/templates/_header.php";
 require "/xampp/htdocs/ZooArcadia/lib/content-index.php"; 
 
 
+$error = false;
 
-$id = $_GET["id"];
-
-$conten =$contents[$id];
+$article = getArticleById($pdo, $id);
+    $_GET["id"];
+    $id = $_GET["id"];
+    
+   
 
 ?>
 
