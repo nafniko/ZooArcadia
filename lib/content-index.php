@@ -1,14 +1,14 @@
 <?php
 function getContents($pdo){
 
-    $query=$pdo->prepare("SELECT * FROM `contenu` Left JOIN images on contenu.images =images.id;") ;
+    $query=$pdo->prepare("SELECT contenu.id AS idcontent,titre,descriptions,images.chemin,liens FROM `contenu` Left JOIN images on contenu.images =images.id;") ;
     $query->execute() ; 
     $contents=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $contents;
 };
 function getContentHabitat($pdo){
 
-    $query=$pdo->prepare("SELECT * FROM `habitat` Left JOIN images on habitat.images =images.id;") ;
+    $query=$pdo->prepare("SELECT * FROM habitat Left JOIN images on habitat.images =images.id;") ;
     $query->execute() ; 
     $contentHabitats=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $contentHabitats;
@@ -95,5 +95,22 @@ function getAnimauxById($pdo,$id) {
     $animauxById=$query->fetchAll(PDO::FETCH_ASSOC);
     return $animauxById;
 };
+function verifyUsers($pdo,$email,$password):array|bool {
+
+    $query=$pdo->prepare("SELECT * FROM users where email= :email");
+    $query->bindValue(":email",$email,PDO::PARAM_STR);
+    $query->execute();
+    $user=$query->fetch(PDO ::FETCH_ASSOC);
+   
+    if ($user && password_verify($password, $user["Passwords"])) {
+       echo "ca marche";
+        return $user;
+    } else {
+        echo 'ca marche pas';
+        return false ;
+    }
+};
+
+
 
 

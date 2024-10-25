@@ -1,11 +1,8 @@
-<?php require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
-
-
-
-
-
-
-
+<?php 
+    require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
+    require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
+    require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
+    require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
 
 ?>
 

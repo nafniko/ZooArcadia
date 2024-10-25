@@ -37,7 +37,6 @@ foreach ($contents as $key=>$content) {
  ?>
 
 
-
 <h2 class="text-center text-white pt-4 mb-4"> Voici les Animaux du Park</h2>
 
 <div class="d-flex justify-content-center mb-4">

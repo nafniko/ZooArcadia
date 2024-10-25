@@ -316,7 +316,6 @@ VALUES
 ('En forme', 'poisson', '5kg', '1999-10-20', 17, 'cette animal pète la forme', 1),
 ('En forme', 'poisson', '5kg', '1999-10-20', 18, 'cette animal pète la forme', 1);
 
-alter table contenu 
-
-add column idHabitat integer,
-
+UPDATE users SET Passwords = '$2y$10$U/XvmUFZjeGcLj2WX0mUV.jkIRV5Y3q/OovAJO7Ox2LgCJldwcua2' WHERE users.id = 1;
+UPDATE users SET Passwords = '$2y$10$SRwKHIJZA.etsB2ywT5cIuwQDYQnPms2WBCX/45uQ75eAy3.c.pb.' WHERE users.id = 2;
+UPDATE users SET Passwords = '$2y$10$ffxdhIlHgPjmDjrPdZy47OFPB02zcZoNRZKTw0OQlH8FacyTOUV6i' WHERE users.id = 3;

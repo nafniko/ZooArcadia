@@ -1,6 +1,6 @@
 <?php
 
-define("_DOMAIN_", ".zooarcadia.local");
+define("_DOMAIN_", "localhost");
 define("_DB_SERVER_", "localhost");
 define("_DB_NAME_", "zooarcadia2");
 define("_DB_USER_", "root");
