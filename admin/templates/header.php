@@ -11,7 +11,7 @@ if(!isset($_SESSION['user']) ) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,37 +25,50 @@ if(!isset($_SESSION['user']) ) {
 </head>
 
 <body>
-<header class="d-flex">
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+
+
+
+<header class=" d-flex float-start ">
+
+    <div class="d-flex flex-column flex-shrink-1 p-3 text-bg-dark" style="width: 280px;">
+        <a href="/admin/index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <i class="bi pe-none me-2"></i>
-            <span class="fs-4">Dashboard</span>
+            <span class="fs-4"><i class="bi bi-speedometer2"></i> Dashboard</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
-                    <i class="bi bi-speedometer2"></i></i>
-                    Home
+                <a href="/admin/templates/employee.php" class="nav-link active" aria-current="page"> creer un utilisateur
                 </a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white">
-                    <i class="bi pe-none me-2"></i>
-                    Dashboard
+                    <i class="bi pe-none me-2"></i>mails
                 </a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                    Orders
+                    
+                    statistique
                 </a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                    Products
+                   compte rendu 
+                    
+                </a>
+            </li>
+             <li>
+                <a href="/admin/templates/rapport.php";class="nav-link text-white">
+                  rapport animaux
+                    
+                </a>
+            </li>
+            <li>
+                <a href="/xampp/htdocs/ZooArcadia/admin/templates/rapport.php";class="nav-link text-white">
+                 repas animaux
+                    
                 </a>
             </li>
             <li>
@@ -81,4 +94,5 @@ if(!isset($_SESSION['user']) ) {
         </div>
     </div>
 </header>
-    <main>
+
+    <main class="float ">

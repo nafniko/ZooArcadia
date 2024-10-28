@@ -52,7 +52,7 @@
                 <input type="password" name="Passwords" class="form-control" id="Passwords" required>
             </div>
         </div>
-        <button type="submit" value="connxion" name="connexion" class="btn btn-primary ">connectez-vous</button>
+        <button type="submit" value="connexion" name="connexion" class="btn btn-primary ">connectez-vous</button>
     </form>
     </div>
 </div>

@@ -49,7 +49,7 @@ foreach ($contents as $key=>$content) {
 <div class="col-md-6 mb-md-0 p-md-4 d-flex justify-content-center align-items-center flex-column ">
 
 <div class=" card mycard mb-4 mt-4" style="width: 20rem;">
-            <img src="<?=$animauxByIdx["chemin"]?>" class="imgcontents img-fluid " alt="...">
+            <img src="<?=$animauxByIdx["image_path"]?>" class="imgcontents img-fluid " alt="...">
             <h3><?= $animauxByIdx["prénom"]?></h3>
          <div class="card-body">
             <p class="card-text">Race :<br> <?=$animauxByIdx["race"]?></p>
@@ -58,7 +58,7 @@ foreach ($contents as $key=>$content) {
     </div>
 </div> 
 <?php 
- };
+ }; 
 ?>
 <div class="d-flex justify-content-evenly">
      <?php    

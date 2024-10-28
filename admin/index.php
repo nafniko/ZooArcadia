@@ -8,7 +8,7 @@ $contents= getContents($pdo);
 
 
 ?>
-<div class="container">
+<div class="container float-start ">
 <h1 class="text-white">Bienvenue sur le dasboard</h1>
 <a href="/index.php">acceuil</a>
 <h2 class="text-white">Listes des articles</h2>

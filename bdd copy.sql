@@ -53,6 +53,8 @@ CREATE TABLE animaux
 CREATE TABLE rapport
 (
     id integer AUTO_INCREMENT PRIMARY KEY,
+     prenom VARCHAR(250),
+    race VARCHAR(250),
     etat varchar(250) null,
     nourriture varchar(250),
     grammage varchar(250),
@@ -64,6 +66,7 @@ CREATE TABLE rapport
     foreign key (detail_animal) REFERENCES animaux(id),
     foreign key (employee) REFERENCES users(id),
     foreign key (veto) REFERENCES users(id)
+   
 );
 
 CREATE TABLE animal_images 
@@ -295,27 +298,10 @@ VALUES
 
 
 
-INSERT INTO rapport (etat, nourriture, grammage, dates, detail_animal, commentaire, veto)
-VALUES 
-('En forme', 'poisson', '5kg', '1999-10-20', 1, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 2, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 3, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 4, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 5, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 6, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 7, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 8, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 9, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 10, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 11, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 12, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 13, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 14, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 15, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 16, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 17, 'cette animal pète la forme', 1),
-('En forme', 'poisson', '5kg', '1999-10-20', 18, 'cette animal pète la forme', 1);
+
 
 UPDATE users SET Passwords = '$2y$10$U/XvmUFZjeGcLj2WX0mUV.jkIRV5Y3q/OovAJO7Ox2LgCJldwcua2' WHERE users.id = 1;
 UPDATE users SET Passwords = '$2y$10$SRwKHIJZA.etsB2ywT5cIuwQDYQnPms2WBCX/45uQ75eAy3.c.pb.' WHERE users.id = 2;
 UPDATE users SET Passwords = '$2y$10$ffxdhIlHgPjmDjrPdZy47OFPB02zcZoNRZKTw0OQlH8FacyTOUV6i' WHERE users.id = 3;
+
+
