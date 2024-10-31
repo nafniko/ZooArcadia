@@ -10,6 +10,7 @@ $contentById=getContentById( $pdo,  $id);
 $animauxById=getAnimauxById( $pdo,  $id);
 $contentHabitats=getContentHabitat($pdo);
 $contents= getContents($pdo);
+$rapports=getRapport($pdo);
 
 
 ?>
@@ -54,7 +55,7 @@ foreach ($contents as $key=>$content) {
          <div class="card-body">
             <p class="card-text">Race :<br> <?=$animauxByIdx["race"]?></p>
         </div>
-        <div><p>l'avis du veterinaire :<br> <?=$animauxByIdx["commentaire"]?></p></div>
+        <div><p>l'avis du veterinaire :<br> <?=$animauxByIdx["commentaire_veto"]?></p></div>
     </div>
 </div> 
 <?php 

@@ -58,14 +58,12 @@ CREATE TABLE rapport
     etat varchar(250) null,
     nourriture varchar(250),
     grammage varchar(250),
-    dates date not null ,
+    dates date,
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP, 
     detail_animal integer,
     commentaire text,
-    veto integer,
-    employee integer,
-    foreign key (detail_animal) REFERENCES animaux(id),
-    foreign key (employee) REFERENCES users(id),
-    foreign key (veto) REFERENCES users(id)
+    foreign key (detail_animal) REFERENCES animaux(id)
+
    
 );
 
@@ -305,3 +303,28 @@ UPDATE users SET Passwords = '$2y$10$SRwKHIJZA.etsB2ywT5cIuwQDYQnPms2WBCX/45uQ75
 UPDATE users SET Passwords = '$2y$10$ffxdhIlHgPjmDjrPdZy47OFPB02zcZoNRZKTw0OQlH8FacyTOUV6i' WHERE users.id = 3;
 
 
+CREATE TABLE avis_veto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    veto_id INT NOT NULL,               
+    animal_id INT NOT NULL,               
+    commentaire TEXT NOT NULL,            
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    FOREIGN KEY (veto_id) REFERENCES veterinaires(id) , 
+    FOREIGN KEY (animal_id) REFERENCES animaux(id) 
+);
+
+CREATE TABLE repas (
+    id_repas INT AUTO_INCREMENT PRIMARY KEY,          
+    repas
+    animal_id INT,                                    
+    nourriture VARCHAR(255) NOT NULL,                
+    quantite INT NOT NULL,                           
+    date_repas DATETIME NOT NULL,                   
+    employe_id INT,                                   
+    commentaire TEXT,                                
+    CONSTRAINT fk_animal FOREIGN KEY (animal_id) REFERENCES animaux(id),
+    CONSTRAINT fk_employe FOREIGN KEY (employe_id) REFERENCES user(id_user)
+);
+
+
+   

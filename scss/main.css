@@ -11990,6 +11990,7 @@ main {
   background-image: url("../asset/feuilles.png"), url("../asset/branc.png");
   background-repeat: no-repeat, no-repeat;
   background-position: top left, bottom right -10%;
+  padding-bottom: 10%;
 }
 
 .myimg {
@@ -12050,7 +12051,7 @@ main {
 footer {
   background-color: rgb(75, 64, 51);
   width: 100%;
-  padding: 20px;
+  padding: 2%;
 }
 
 .lien-buttons {
