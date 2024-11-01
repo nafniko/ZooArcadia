@@ -9,10 +9,10 @@
  $contentimages=getContentImages($pdo);
 
 ?>
- 
- <h1 class="container text-white pt-4 ">Bienvenue Au Zoo Arcadia</h1>
- 
- <?php    
+
+<h1 class=" text-center text-white mb-4 ">Bienvenue Au Zoo Arcadia</h1>
+
+<?php    
         
         
     foreach ($contents as $key=>$content) {
@@ -42,5 +42,3 @@
     require_once "templates/_avis.php";
 
     require_once "templates/_footer.php";?>
-
-

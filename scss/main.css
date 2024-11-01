@@ -11965,11 +11965,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.mycard {
-  background-color: rgb(44, 95, 45);
-  color: white;
-}
-
 body {
   width: 100%;
   height: 100%;
@@ -11991,6 +11986,11 @@ main {
   background-repeat: no-repeat, no-repeat;
   background-position: top left, bottom right -10%;
   padding-bottom: 10%;
+  padding-top: 2%;
+}
+
+h1, .h1, h2, .h2 {
+  text-shadow: rgba(0, 0, 0, 0.37) 0px 5px 7px;
 }
 
 .myimg {
@@ -12022,9 +12022,6 @@ main {
   left: 0%;
   top: 65%;
   height: auto;
-}
-.nav-z-index :hover {
-  color: rgb(107, 142, 35);
 }
 
 .filter-z-index {
@@ -12067,6 +12064,7 @@ footer {
   height: 240px;
   -o-object-fit: cover;
      object-fit: cover;
+  box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2);
 }
 
 .habitat-img {
@@ -12076,4 +12074,15 @@ footer {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10%;
+}
+
+.myhover :hover {
+  transition: all 400ms cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  transform: scale(1.1);
+}
+
+.mycard {
+  border: 0px;
+  background-color: rgb(107, 142, 35);
+  color: white;
 }/*# sourceMappingURL=main.css.map */

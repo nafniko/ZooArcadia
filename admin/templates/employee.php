@@ -6,6 +6,15 @@ require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
 require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
 require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
 
+
+
+
+
+
+
+
+
+
 ?>
 
 

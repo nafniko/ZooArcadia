@@ -1,120 +1,43 @@
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
+    require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
+    require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
+    require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
+    require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
+ $getAnimal= getAnimal($pdo);
 
-$contents= getContents($pdo);
-
-if(isset($_GET['updateArticle'])){
-  var_dump($_GET);  
-}
 ?>
 
-<div class="container text-center">
-    <div class="row mb-4">
-        <div class="col">
-            <h1 class="text-white">Bienvenue sur le dashboard</h1>
+    <div class="d-flex justify-content-center block-contain container rounded-4 " >
+        <div class="row g-0 position-relative align-items-center text-center w-75 ">
+            <?php foreach ($getAnimal as $key => $getAnimals) { ?>
+                <div class="col-md-6 mb-md-0 p-md-4 d-flex justify-content-center myhover align-items-center flex-column">
+                    <div class="card mycard myhover mb-4 mt-4" style="width: 20rem;" onclick="toggleDetails(this)">
+                    <div class="">
+                       
+                    <img src="<?=$getAnimals["image_path"]?>" class="imgcontents rounded-4  img-fluid" alt="...">
+                        <h3 class="mt-4"><?= $getAnimals["prénom"]?></h3>
+                        </div>
+                    
+                        <div class="details visually-hidden-focusable ">
+
+                        <div class="card-body  ">
+                            <p class="card-text mycard">Race :<br> <?=$getAnimals["race"]?></p>
+                        </div>
+                        <div class="">
+                            <p>L'avis du vétérinaire :<br> <?=$getAnimals["commentaire_veto"]?></p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
-    <div class="row">
-        <div class="col mb-4">
-            <div class="table-responsive container block-contain rounded-4">
-                <h2 class="text-white">Listes des articles</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">titre</th>
-                            <th scope="col-3">descriptions</th>
-                            <th scope="col">image</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($contents as $key => $content) { ?>
-                        <tr>
-                            <th scope="row"><?= $content["idcontent"] ?></th>
-                            <td><?= $content["titre"] ?></td>
-                            <td><?= $content["descriptions"] ?></td>
-                            <td><img class="w-50 h-25" src="<?= $content["chemin"] ?>" alt="Image"></td>
-                            <td>
-                                <button type="submit" name="modifier" class="btn btn-primary m-1">modifier</button>
-                                <button type="submit" name="supprimer" class="btn btn-danger m-1">supprimer</button>
-                            </td>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <div class="col-6">
-            <div class="container block-contain rounded-4">
-                <form action="" method="post" class="text-white">
-                    <div class="mb-3 pt-3">
-                        <label for="titreArticle" class="form-label">article</label>
-                        <select class="form-select" name="titreArticle" id="titreArticle">
-                            <option selected>choisir l'article à modifier</option>
-                            <?php foreach ($contents as $content) { ?>
-                            <option value="<?= $content["idcontent"] ?>"><?= $content["titre"] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nourriture" class="form-label">titre</label>
-                        <input type="text" class="form-control" id="nourriture" name="nourriture"
-                            placeholder="choisir un nouveau titre">
-                    </div>
-                    <div class="mb-3 pt-3">
-                        <label for="descriptionsArticle" class="form-label">contenu</label>
-                        <textarea class="form-control" id="descriptionsArticle" name="descriptionsArticle"
-                            placeholder="Rédiger l'article !" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="imageUpload" class="form-label">Image de l'article</label>
-                        <input class="form-control" type="file" id="imageUpload" name="imageUpload">
-                    </div>
-                    <div class="col-auto mt-4">
-                        <button type="submit" name="createArticle" class="btn btn-primary mb-3">Créer l'article</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="col-6">
-            <div class="container block-contain rounded-4">
-                <form method="GET" class="text-white">
-                    <div class="mb-3 pt-3">
-                        <label for="titreArticle" class="form-label">article</label>
-                        <select class="form-select" name="titreArticle" id="titreArticle">
-                            <option selected>choisir l'article à modifier</option>
-                            <?php foreach ($contents as $content) { ?>
-                            <option value="<?= $content["idcontent"] ?>"><?= $content["titre"] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nourriture" class="form-label">titre</label>
-                        <input type="text" class="form-control" id="nourriture" name="nourriture"
-                            placeholder="choisir un nouveau titre">
-                    </div>
-                    <div class="mb-3 pt-3">
-                        <label for="descriptionsArticle" class="form-label">contenu</label>
-                        <textarea class="form-control" id="descriptionsArticle" name="descriptionsArticle"
-                            placeholder="Rédiger l'article !" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="imageUpload" class="form-label">Image de l'article</label>
-                        <input class="form-control" type="file" id="imageUpload" name="imageUpload">
-                    </div>
-                    <div class="col-auto mt-4">
-                        <button type="submit" name="updateArticle" class="btn btn-primary mb-3">Modifier l'article</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 
+<script>
+
+</script>
+
+
+
+  <?php  require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php"; 

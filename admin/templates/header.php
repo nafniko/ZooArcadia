@@ -73,10 +73,15 @@ if(!isset($_SESSION['user']) ) {
                     </a>
                 </li>
                 <li>
+                    <a href="/admin/templates/animauxcrud.php" class="nav-link text-white">
+                        <i class="bi-table bi pe-none me-2"></i>
+                        animaux
+                    </a>
+                </li>
+                <li>
                     <a href="/admin/templates/mail.php" class="nav-link text-white">
                         <i class="bi-table bi pe-none me-2"></i>
                         mail
-                        
                     </a>
                 </li>
 
