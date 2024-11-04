@@ -1,4 +1,6 @@
 <?php 
+require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
+
   require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
 $emailregex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
 

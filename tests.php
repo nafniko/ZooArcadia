@@ -35,28 +35,10 @@ $navLinks =[
     ],
 
 ];
-require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
 
     $currentpage=basename($_SERVER['SCRIPT_NAME']);
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?=@$navLinks[$currentpage]["meta-description"]?>" >
-   
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/scss/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <title><?= $navLinks[$currentpage]["head_title"] ?></title>
-</head>
-<body>
-    <header class="wrapper-header">
+<header class="wrapper-header">
     <img src="/asset/zoo arcadia(2)1.png" alt="" class="logo img-fluid w-nav">
     <div class="mycaroussel-z-index">
         <div class="bg-danger">
@@ -79,12 +61,12 @@ require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
         </div>
     </div>
     <div class="nav-z-index">
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="justify-content-center collapse navbar-collapse nav " id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav fs-3">
                         <?php
                         foreach ($navLinks as $key => $navLink) { ?>
@@ -106,6 +88,3 @@ require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
     </div>
     <div class="filter-z-index"></div>
 </header>
-
-
-        <main> 

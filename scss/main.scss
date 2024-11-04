@@ -70,10 +70,21 @@ h1, h2{
     left:0%;
     top: 65%;
     height: auto;
-    
-
-  
   }
+nav a{
+  color: white !important;
+}
+nav a:hover{
+  color: $secondary !important;
+}
+
+.mynav{
+  background-color: $primary;
+}
+.navbar-collapse.show {
+  background-color: $primary;
+}
+
 .filter-z-index {
     position: absolute;
     z-index: 2; 

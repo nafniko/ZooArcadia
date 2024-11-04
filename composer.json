@@ -1,0 +1,17 @@
+{
+    "name": "pc/zoo-arcadia",
+    "autoload": {
+        "psr-4": {
+            "Pc\\ZooArcadia\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nafniko",
+            "email": "naffer@hotmail.fr"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.20"
+    }
+}

@@ -12034,6 +12034,22 @@ h1, .h1, h2, .h2 {
   height: auto;
 }
 
+nav a {
+  color: white !important;
+}
+
+nav a:hover {
+  color: rgb(44, 95, 45) !important;
+}
+
+.mynav {
+  background-color: rgb(107, 142, 35);
+}
+
+.navbar-collapse.show {
+  background-color: rgb(107, 142, 35);
+}
+
 .filter-z-index {
   position: absolute;
   z-index: 2;
