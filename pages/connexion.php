@@ -15,12 +15,12 @@
         $password=$_POST['Passwords'];
         $user=verifyUsers($pdo,$email,$password);
         if ($user){
- 
+            
             session_regenerate_id(true);
             $_SESSION["user"]= $user;
-        
+            
             header("location: /admin/index.php");
-        
+            // var_dump($user["roles"]);
         }else{
             $errors[]= "L'email ou le mot de passe est incorrect" ;
         }      

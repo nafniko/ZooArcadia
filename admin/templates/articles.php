@@ -10,9 +10,7 @@ $contents= getContents($pdo);
 if(isset($_POST['updateArticle'])){
     $updatesArticles= updatesArticles($pdo);
  
-  // $updatesArticles= updatesArticles($pdo);
-//   var_dump($_POST);
-  // var_dump($_FILES);
+
 
 }
 
@@ -47,7 +45,6 @@ $updatesImage= updatesImage($pdo);
                             <th scope="col">titre</th>
                             <th scope="col-3">descriptions</th>
                             <th scope="col">image</th>
-                            <th scope="col"> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,7 +56,7 @@ foreach ($contents as $key=>$content) {
                             <th scope="row"><?= $content["idcontent"] ?></th>
                             <td><?= $content["titre"] ?></td>
                             <td><?= $content["descriptions"] ?></td>
-                            <td><img class="w-50 h-25" src="<?= $content["chemin"]?>" </td>
+                            <td><img class="w-50 h-25" src="<?= $content["chemin"]?>"alt="image" </td>
                         </tr>
 
                         <?php }?>
@@ -175,6 +172,7 @@ foreach ($contents as $key=>$content) {
                     <div class="col-auto mt-4">
                         <button type="submit" name="updateimg" class="btn btn-primary mb-3">modifier
                             l'image</button>
+                    </div>
                     </div>
             </form>
         </div>

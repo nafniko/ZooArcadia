@@ -4,16 +4,10 @@
     require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
     require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
     require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
-$animaux=getAnimaux($pdo);
-$animauxcom=getAnimauxCom($pdo);
-
-
-
-
-
-
-
+    require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
+    $animaux=getAnimaux($pdo);
+    $animauxcom=getAnimauxCom($pdo);
+    $getRepas=getRepas($pdo);
 
 
 if(isset($_POST['submit'] )){
@@ -48,55 +42,36 @@ if(isset($_POST['submit'] )){
 
 <div class="container text-center">
     <div class="row align-items-start">
-        <h1 class="container text-white pt-4 ">Rapport</h1>
-    </div><div class="row align-items-start">
-    <form method="GET" class="m-4 d-flex justify-content-end">
-                        <button type="submit" name="recent" class="btn btn-primary m-1">plus recent </button>
-                        <button type="submit" name="ancien" class="btn btn-primary m-1">plus ancient</button>
-                        <button type="submit" name="race" class="btn btn-primary m-1">par race</button>
-
-                    </form>
+        <h1 class="container text-white m-5 pt-4 ">Rapport</h1>
+    </div>
+    <div class="row align-items-start">
+        <form method="GET" class="m-4 d-flex justify-content-end">
+            <button type="submit" name="recent" class="btn btn-primary m-1">plus recent </button>
+            <button type="submit" name="ancien" class="btn btn-primary m-1">plus ancient</button>
+            <button type="submit" name="race" class="btn btn-primary m-1">par race</button>
+        </form>
     </div>
 
-    <div class="row  align-items-start">
-        <div class="col block-contain rounded-4 p-4">
 
-            <div class="table-responsive">
-                <table class="table">
+    <div class="row  align-items-start">
+        <div class="col-md-12 mb-4">
+            <div class="table-responsive block-contain rounded-4 p-4">
+                <table class="table  ">
                     <thead>
                         <tr>
-
-                            <th scope="col">prenom</th>
-                            <th scope="col">race</th>
-                            <th scope="col">etat</th>
-                            <th scope="col-">nourriture</th>
-                            <th scope="col">grammage</th>
-                            <th scope="col">dates </th>
-                            <th scope="col">commentaire</th>
-                            <th scope="col">date de creation</th>
-                            <th scope="col"></th>
-
+                            <?php foreach (array_keys($rapports[0]) as $rapport) { ?>
+                            <th scope="col"><?= $rapport ?></th>
+                            <?php } ?>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($rapports as $rapport) { ?>
                         <tr>
-                            <?php 
-foreach ($rapports as $key=>$rapport) {
-   
-        ?>
-                            <td><?=$rapport["prenom"]?></td>
-                            <td><?=$rapport["race"]?></td>
-                            <td><?=$rapport["etat"]?></td>
-                            <td><?=$rapport["nourriture"]?></td>
-                            <td><?=$rapport["grammage"]?></td>
-                            <td><?=$rapport["dates"]?></td>
-                            <td><?=$rapport["commentaire"]?></td>
-                            <td><?=$rapport["date_creation"]?></td>
-                            <td>modifier|supprimer</td>
+                            <?php foreach ($rapport as $value) { ?>
+                            <td><?= htmlentities($value) ?></td>
+                            <?php } ?>
                         </tr>
-                        <?php 
- };
-?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -166,12 +141,13 @@ foreach ($rapports as $key=>$rapport) {
                         <label for="idanimal" class="form-label">animal</label>
                         <select class="form-select" name="idanimal" id="idanimal" aria-label="Default select example">
                             <option selected>choisir un animal</option>
+
                             <?php 
                     foreach ($animauxcom as $key=>$animauxcoms) {  ?>
                             <option value="<?= $animauxcoms["id"] ?>"><?= $animauxcoms["id"] ?> |
                                 <?= $animauxcoms["prénom"] ?>
-
                                 <?php }; ?>
+
                         </select>
                     </div>
                     <div class="mb-3 pt-3">
@@ -186,50 +162,31 @@ foreach ($rapports as $key=>$rapport) {
                 </div>
             </form>
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12">
-            <h2 class="container text-white pt-4 ">compte rendu des repas</h2>
-            <div class=" container  block-contain rounded-4 p-4">
-                <div class="table-responsive ">
-                    <table class="table  container ">
-                        <thead>
-                            <tr>
 
-                                <th scope="col">prenom</th>
-                                <th scope="col">race</th>
-                                <th scope="col-">nourriture</th>
-                                <th scope="col-">quantité</th>
-                              
-                                <th scope="col">dates </th>
-                            
-                        
-                           
+        <div class="col-lg-6 col-sm-12  mb-4">
+            <h2 class="text-white pt-4">Compte rendu des repas</h2>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <?php 
-foreach ($rapports as $key=>$rapport) {
-   
-        ?>
-                                <td><?=$rapport["prenom"]?></td>
-                                <td><?=$rapport["race"]?></td>
-                                <td><?=$rapport["nourriture"]?></td>
-                                <td><?=$rapport["nourriture"]?></td>
-                                <td><?=$rapport["dates"]?></td>
-                               
-                             
-                            
-                            </tr>
-                            <?php 
- };
-?>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="table-responsive block-contain rounded-4 p-4">
+                <table class="table  ">
+                    <thead>
+                        <tr>
+                            <?php foreach (array_keys($getRepas[0]) as $getRepa) { ?>
+                            <th scope="col"><?= $getRepa ?></th>
+                            <?php } ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($getRepas as $getRepa) { ?>
+                        <tr>
+                            <?php foreach ($getRepa as $value) { ?>
+                            <td><?= htmlentities($value) ?></td>
+                            <?php } ?>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
-
     </div>
 </div>
 <?php 

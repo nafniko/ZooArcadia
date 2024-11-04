@@ -13,13 +13,20 @@ function getContentHabitat($pdo){
     $contentHabitats=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $contentHabitats;
 };
+function getHabitat($pdo){
+
+    $query=$pdo->prepare("SELECT * FROM habitat ") ;
+    $query->execute() ; 
+    $contentHabitats=$query->fetchAll(PDO::FETCH_ASSOC) ;
+    return $contentHabitats;
+};
 
 function getContentImages($pdo){
 
     $query=$pdo->prepare("SELECT chemin,id FROM `images` ") ;
     $query->execute() ; 
-    $contentimages=$query->fetchAll(PDO::FETCH_ASSOC) ;
-    return $contentimages;
+    $getHabitat=$query->fetchAll(PDO::FETCH_ASSOC) ;
+    return $getHabitat;
 };
 
 function getAnimaux($pdo){
@@ -29,6 +36,14 @@ function getAnimaux($pdo){
     $animaux=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $animaux;
 };
+function getAnimauxList($pdo){
+
+    $query=$pdo->prepare("SELECT animaux.id,animaux.prénom,animaux.race,habitat.titre FROM animaux LEFT JOIN habitat ON habitat.id=animaux.habitat;
+") ;
+    $query->execute() ; 
+    $getAnimauxList=$query->fetchAll(PDO::FETCH_ASSOC) ;
+    return $getAnimauxList;
+};
 function getAnimauxCom($pdo){
 
     $query=$pdo->prepare("SELECT * FROM animaux ;") ;
@@ -36,60 +51,15 @@ function getAnimauxCom($pdo){
     $animauxcom=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $animauxcom;
 };
-function getAnimauxSavane($pdo){
-
-    $query=$pdo->prepare("SELECT * FROM `animaux` 
-LEFT JOIN rapport on rapport.detail_animal = animaux.id
-LEFT JOIN images on images.id = animaux.images WHERE animaux.habitat= 1;") ;
-    $query->execute() ; 
-    $animauxSavane=$query->fetchAll(PDO::FETCH_ASSOC) ;
-    return $animauxSavane;
-};
-function getAnimauxJungle($pdo){
-
-    $query=$pdo->prepare("SELECT * FROM `animaux` 
-LEFT JOIN rapport on rapport.detail_animal = animaux.id
-LEFT JOIN images on images.id = animaux.images WHERE animaux.habitat= 2;") ;
-    $query->execute() ; 
-    $animauxJungle=$query->fetchAll(PDO::FETCH_ASSOC) ;
-    return $animauxJungle;
-};
-function getAnimauxMarais($pdo){
-
-    $query=$pdo->prepare("SELECT * FROM `animaux` 
-LEFT JOIN rapport on rapport.detail_animal = animaux.id
-LEFT JOIN images on images.id = animaux.images WHERE animaux.habitat= :3;") ;
-    $query->execute() ; 
-    $animauxMarais=$query->fetchAll(PDO::FETCH_ASSOC) ;
-    return $animauxMarais;
-};
-
-function getArticleById(PDO $pdo, int $id)
-{
-    $sql = "SELECT * FROM contenu WHERE id = :id";
-
-    $query = $pdo->prepare($sql);
-    
-    $query->bindValue(":id", $id, PDO::PARAM_INT);
-
-
-    $query->execute();
-    $article = $query->fetch(PDO::FETCH_ASSOC);
-
-    return $article;
-}
-
 function getContentById(PDO $pdo, int $id): array|bool {
     $query = $pdo->prepare("SELECT * FROM contenu
             LEFT JOIN images ON contenu.images = images.id 
             WHERE contenu.id = :id");
     $query->bindValue(":id",  $id, PDO::PARAM_INT);
     $query->execute();
-    
     $contentById=$query->fetch(PDO::FETCH_ASSOC);
     return $contentById;
 };
-
 
 function verifyUsers($pdo,$email,$password):array|bool {
 
@@ -106,8 +76,6 @@ function verifyUsers($pdo,$email,$password):array|bool {
         return false ;
     }
 };
-
-
 function getRapport($pdo) {
     $query = $pdo->prepare("SELECT * FROM rapport
 
@@ -117,6 +85,26 @@ function getRapport($pdo) {
     return $rapports;
 
 };
+function getRepas($pdo) {
+    $query = $pdo->prepare("SELECT repas.animal_id, animaux.prénom, animaux.race, repas.nourriture, repas.quantite, repas.date_repas FROM repas LEFT JOIN animaux ON repas.animal_id = animaux.id;
+
+    ;");
+    $query->execute();
+    $getRepas=$query->fetchAll(PDO::FETCH_ASSOC);
+    return $getRepas;
+
+};
+function createRepas($pdo){
+
+    $query = $pdo->prepare("INSERT INTO repas ( animal_id, nourriture, quantite, date_repas) VALUES (:animal_id, :nourriture, :quantite, :date_repas)");
+    $query->bindValue(":animal_id",  $_POST['prenom'], PDO::PARAM_INT);
+    $query->bindValue(":nourriture",  $_POST['nourritureRepas'], PDO::PARAM_STR);
+    $query->bindValue(":quantite",  $_POST['quantiteRepas'], PDO::PARAM_INT);
+    $query->bindValue(":date_repas",  $_POST['dates'], PDO::PARAM_STR);
+    $query->execute();
+    $createRepas= $query;
+    return $createRepas;
+}
 
 
 function createRapport($pdo){
@@ -153,7 +141,6 @@ function getAnimauxById($pdo,$id) {
 };
 function getAnimal($pdo) {
     $query = $pdo->prepare("SELECT animaux.id AS animal_id, animaux.prénom, animaux.race, habitat.titre AS habitat_titre, avis_veto.commentaire AS commentaire_veto, avis_veto.date_creation AS date_avis, images.chemin AS image_path FROM habitat LEFT JOIN animaux ON animaux.habitat = habitat.id LEFT JOIN images ON images.id = animaux.images LEFT JOIN avis_veto ON avis_veto.animal_id = animaux.id AND avis_veto.date_creation = ( SELECT MAX(date_creation) FROM avis_veto AS av WHERE av.animal_id = animaux.id );
-        
     ");
     $query->execute();
     
@@ -172,15 +159,6 @@ function createAvis($pdo){
 }
 
 
-function getCommentaire($pdo) {
-    $query = $pdo->prepare("SELECT * FROM avis_veto LEFT JOIN animaux on animaux.id=avis_veto.idanimal;
-
-    ;");
-    $query->execute();
-    $commentaireveto=$query->fetchAll(PDO::FETCH_ASSOC);
-    return $commentaireveto;
-
-};
 function getRapportAsc($pdo) {
     $query = $pdo->prepare("SELECT * FROM `rapport` ORDER BY `rapport`.`date_creation` DESC
 
@@ -207,7 +185,6 @@ function getRapportRace($pdo) {
     return $rapports;
 
 };
-
 function updatesArticles($pdo) {
     $query = $pdo->prepare("UPDATE contenu SET titre = :titre, descriptions = :descriptions  WHERE id = :titreid");
     $query->bindValue(":titreid",  $_POST['titreid'], PDO::PARAM_INT);
@@ -224,7 +201,7 @@ function updatesImage($pdo) {
         $upload=$path.$image;
         $chemin='/asset/'.$image;
         move_uploaded_file (  $_FILES['imageUpload']['tmp_name'] ,  $upload );
-        // if()
+      
         $query = $pdo->prepare("INSERT INTO images (chemin) VALUES (:chemin)");
         $query->bindValue(":chemin",$chemin, PDO::PARAM_STR);
         $query->execute();
@@ -236,20 +213,62 @@ function updatesImage($pdo) {
         $query->execute();
         $updatesImage= $query;
         return $updatesImage;
+
     }
 };
+function getrole($pdo){
+    $query = $pdo->prepare(" SELECT * from roles  ");
+    $query->execute();
+    $getrole= $query;
+    return $getrole;
+};
 
-//  CREATE USER 'admin'@'localhost' IDENTIFIED BY 'OK';
-//  GRANT SELECT, INSERT, UPDATE, DELETE ON zooarcadia.* TO 'admin'@'localhost';
 
-//  function createUser($pdo) {
-//     $query = $pdo->prepare(" CREATE USER 'admin'@'localhost' IDENTIFIED BY 'OK';
-//  GRANT SELECT, INSERT, UPDATE, DELETE ON zooarcadia.* TO 'admin'@'localhost';");
-//     $query->bindValue(":titreid",  $_POST['titreid'], PDO::PARAM_INT);
-//     $query->bindValue(":titre",  $_POST['titre'], PDO::PARAM_INT);
-//     $query->bindValue(":descriptions",  $_POST['descriptionsArticle'], PDO::PARAM_STR);
-//     $query->bindValue(":chemin",  $_POST['chemin'], PDO::PARAM_STR);
-//     $query->execute();
-//     $updatesArticles= $query;
-//     return $updatesArticles;
-// };
+ function createUser($pdo) {
+    $passwordhash=password_hash($_POST['Passwords'],PASSWORD_DEFAULT);
+    $query = $pdo->prepare("INSERT into users (email, Passwords, roles) values (:email, :passwords, :roles)");
+    $query->bindValue(":email",  $_POST['email'], PDO::PARAM_STR);
+    $query->bindValue(":passwords",  $passwordhash, PDO::PARAM_STR);
+    $query->bindValue(":roles",  $_POST['role'], PDO::PARAM_INT);
+    $query->execute();
+    $createUser= $query;
+    return $createUser;
+};
+function CreateAnimaux($pdo) {
+    $query = $pdo->prepare("INSERT INTO animaux ( prénom, race, habitat) VALUES (:prenom, :race, :habitat )");
+    $query->bindValue(":prenom",  $_POST['prenomAnimal'], PDO::PARAM_STR);
+    $query->bindValue(":race",  $_POST['raceAnimal'], PDO::PARAM_STR);
+    $query->bindValue(":habitat",  $_POST['habitats'], PDO::PARAM_INT);
+    $query->execute();
+    $animalId  = $pdo->lastInsertId();
+    
+    $image= basename($_FILES['imageUpload']['name']);
+    $path='C:/xampp/htdocs/ZooArcadia/asset/';
+    $upload=$path.$image;
+    $chemin='/asset/'.$image;
+    move_uploaded_file (  $_FILES['imageUpload']['tmp_name'] ,  $upload );
+
+    $query = $pdo->prepare("INSERT INTO images (chemin) VALUES (:chemin)");
+    $query->bindValue(":chemin",$chemin, PDO::PARAM_STR);
+    $query->execute();
+    $imageId  = $pdo->lastInsertId();
+
+    $query = $pdo->prepare("UPDATE animaux SET images = :images  WHERE id = :id");
+    $query->bindValue(":images",  $imageId , PDO::PARAM_INT);
+    $query->bindValue(":id", $animalId, PDO::PARAM_INT);
+    $query->execute();
+
+    $CreateAnimaux= $query;
+    return $CreateAnimaux;
+
+    }
+
+function getUser($pdo){
+    $query = $pdo->prepare(" SELECT users.email,users.Passwords,roles.nom FROM `users` LEFT join roles on roles.id=users.roles; ");
+    $query->execute();
+    $getUser=$query->fetchAll(PDO::FETCH_ASSOC);
+
+     return $getUser;
+
+
+}
