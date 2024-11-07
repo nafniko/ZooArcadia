@@ -1,48 +1,14 @@
 <?php
 
-    require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-    require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-    require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
-    require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
     require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
     $animaux=getAnimaux($pdo);
     $animauxcom=getAnimauxCom($pdo);
     $getRepas=getRepas($pdo);
-
-
-if(isset($_POST['submit'] )){
-    
-        $newRapports=createRapport($pdo);
-        
-    };
-    if(isset($_POST['com'] )){
-
-        $createAvis=createAvis($pdo);
-         var_dump( $_POST);  
-        };
-    
-
-    
     $rapports=getRapport($pdo);
-
-
-    if(isset($_GET['recent'])){
-        $rapports=getRapportASC($pdo);  
-      };
-      if(isset($_GET['ancien'])){
-        $rapports=getRapportDesc($pdo);  
-      };
-      if(isset($_GET['race'])){
-        $rapports=getRapportRace($pdo);  
-      };
-      
-      
     ?>
-
-
-<div class="container text-center">
+<div class="container-fluid text-center">
     <div class="row align-items-start">
-        <h1 class="container text-white m-5 pt-4 ">Rapport</h1>
+        <h1 class="container text-white mt-5 mb-5 pt-4 ">Rapport</h1>
     </div>
     <div class="row align-items-start">
         <form method="GET" class="m-4 d-flex justify-content-end">
@@ -52,30 +18,12 @@ if(isset($_POST['submit'] )){
         </form>
     </div>
 
+    <?php
 
-    <div class="row  align-items-start">
-        <div class="col-md-12 mb-4">
-            <div class="table-responsive block-contain rounded-4 p-4">
-                <table class="table  ">
-                    <thead>
-                        <tr>
-                            <?php foreach (array_keys($rapports[0]) as $rapport) { ?>
-                            <th scope="col"><?= $rapport ?></th>
-                            <?php } ?>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($rapports as $rapport) { ?>
-                        <tr>
-                            <?php foreach ($rapport as $value) { ?>
-                            <td><?= htmlentities($value) ?></td>
-                            <?php } ?>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    require_once "/xampp/htdocs/ZooArcadia/admin/templates/_rapport.php";
+
+    ?>
+
         <div class="row  align-items-start">
             <div class=" col-lg-3 col-sm-12 ">
                 <h2 class="container text-white pt-4 ">Ajouter un rapport</h2>
@@ -132,7 +80,6 @@ if(isset($_POST['submit'] )){
                 </div>
             </div>
         </div>
-
         <div class="col-lg-3 col-sm-12">
             <h2 class="container text-white pt-4 "> un commentaire</h2>
             <form action="" method="post" class=" text-white">
@@ -141,13 +88,11 @@ if(isset($_POST['submit'] )){
                         <label for="idanimal" class="form-label">animal</label>
                         <select class="form-select" name="idanimal" id="idanimal" aria-label="Default select example">
                             <option selected>choisir un animal</option>
-
                             <?php 
                     foreach ($animauxcom as $key=>$animauxcoms) {  ?>
                             <option value="<?= $animauxcoms["id"] ?>"><?= $animauxcoms["id"] ?> |
                                 <?= $animauxcoms["prénom"] ?>
                                 <?php }; ?>
-
                         </select>
                     </div>
                     <div class="mb-3 pt-3">
@@ -158,14 +103,11 @@ if(isset($_POST['submit'] )){
                     <div class="col-auto ">
                         <button type="submit" name="com" class="btn btn-primary ">Envoyer</button>
                     </div>
-
                 </div>
             </form>
         </div>
-
         <div class="col-lg-6 col-sm-12  mb-4">
             <h2 class="text-white pt-4">Compte rendu des repas</h2>
-
             <div class="table-responsive block-contain rounded-4 p-4">
                 <table class="table  ">
                     <thead>

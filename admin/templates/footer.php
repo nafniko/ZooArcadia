@@ -1,11 +1,4 @@
 </main>
-
-
-
-
-
-
-
 </div>
 <footer>
     <div class="m-3">

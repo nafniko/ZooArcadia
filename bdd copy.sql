@@ -1,6 +1,6 @@
-CREATE DATABASE Zooarcadia2;
+CREATE DATABASE Zooarcadia;
 
-USE Zooarcadia2;
+USE Zooarcadia;
 
 CREATE TABLE roles
 (
@@ -76,8 +76,8 @@ CREATE TABLE animal_images
     foreign key (id_animal) references animaux(images)
 );
 
--- CREATE USER 'admin'@'localhost' IDENTIFIED BY 'OK';
--- GRANT SELECT, INSERT, UPDATE, DELETE ON zooarcadia.* TO 'admin'@'localhost';
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'OK';
+GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
 
 CREATE TABLE contenu
 (
@@ -109,6 +109,37 @@ CREATE TABLE contenu_habitat
     foreign key (id_habitat) REFERENCES service(id)
 
 );
+CREATE TABLE avis_veto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    veto_id INT NOT NULL,               
+    animal_id INT NOT NULL,               
+    commentaire TEXT NOT NULL,            
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    FOREIGN KEY (animal_id) REFERENCES animaux(id) 
+);
+
+CREATE TABLE repas (
+    id INT AUTO_INCREMENT PRIMARY KEY,          
+    repas VARCHAR(255),
+    animal_id INT,                                    
+    nourriture VARCHAR(255) NOT NULL,                
+    quantite INT NOT NULL,                           
+    date_repas DATETIME NOT NULL,                   
+    employe_id INT,                                   
+    commentaire TEXT,                                
+    FOREIGN KEY (animal_id) REFERENCES animaux(id)
+);
+CREATE TABLE mail (
+    id INT AUTO_INCREMENT PRIMARY KEY,          
+    email varchar(255) not null ,
+    subjects VARCHAR(255) NOT NULL,                
+    body TEXT NOT NULL,                           
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP, 
+);
+
+
+
+   
 
 INSERT INTO images (chemin, infos) VALUES 
 ('/asset/zoo arcadia(2)1.png', 'logo') ,
@@ -280,7 +311,6 @@ VALUES
 
 
 CREATE USER 'employee'@'localhost' IDENTIFIED BY 'OK';
-GRANT SELECT, INSERT, UPDATE, DELETE ON zooarcadia.* TO 'employee'@'localhost';
 GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
 
 INSERT INTO roles (nom) 
@@ -303,28 +333,3 @@ UPDATE users SET Passwords = '$2y$10$SRwKHIJZA.etsB2ywT5cIuwQDYQnPms2WBCX/45uQ75
 UPDATE users SET Passwords = '$2y$10$ffxdhIlHgPjmDjrPdZy47OFPB02zcZoNRZKTw0OQlH8FacyTOUV6i' WHERE users.id = 3;
 
 
-CREATE TABLE avis_veto (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    veto_id INT NOT NULL,               
-    animal_id INT NOT NULL,               
-    commentaire TEXT NOT NULL,            
-    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP, 
-    FOREIGN KEY (veto_id) REFERENCES veterinaires(id) , 
-    FOREIGN KEY (animal_id) REFERENCES animaux(id) 
-);
-
-CREATE TABLE repas (
-    id_repas INT AUTO_INCREMENT PRIMARY KEY,          
-    repas
-    animal_id INT,                                    
-    nourriture VARCHAR(255) NOT NULL,                
-    quantite INT NOT NULL,                           
-    date_repas DATETIME NOT NULL,                   
-    employe_id INT,                                   
-    commentaire TEXT,                                
-    CONSTRAINT fk_animal FOREIGN KEY (animal_id) REFERENCES animaux(id),
-    CONSTRAINT fk_employe FOREIGN KEY (employe_id) REFERENCES user(id_user)
-);
-
-
-   

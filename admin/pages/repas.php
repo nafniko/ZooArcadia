@@ -1,19 +1,8 @@
 <?php
-
-    require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-    require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-    require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
-    require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
 require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
 
 $getRepas=getRepas($pdo);
 $getAnimal=getAnimal($pdo);
-
-if(isset($_POST['repas'] )){
-
-    $createRepas=createRepas($pdo);
-    
-    };
 ?>
 <div class="container text-center">
     <div class="row align-items-start">
@@ -21,43 +10,16 @@ if(isset($_POST['repas'] )){
     </div>
     <div class="container text-center">
         <div class="row align-items-start">
-            <h2 class="container text-white pt-4 col-6">compte rendu des repas</h2>
-            <h2 class="container text-white pt-4 col-6 ">Ajouter un repas</h2>
-
-        </div>
-
-
-        <div class="col">
-            <div class="row align-items-start">
-                <div class="col-6  block-contain rounded-4 p-4">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <?php 
-                             
-                                foreach (array_keys($getRepas[0]) as $getRepa) { ?>
-                                    <th scope="col"><?=$getRepa ?></th>
-                                    <?php } ?>
+            <?php
+require_once "/xampp/htdocs/ZooArcadia/admin/templates/_repas.php";
+?>
 
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($getRepas as $getRepa) { ?>
-                                <tr>
-                                    <?php foreach ($getRepa as $value) { ?>
-                                    <td><?= htmlentities($value) ?></td>
-                                    <?php } ?>
-                                </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class=" text-center col-lg-6 col-md-12 col-sm-12">
 
-                <div class=" block-contain rounded-4 col-5  ms-3  ">
-                    <form action="" method="post" class=" text-white">
+                <h2 class=" text-white pt-4 ">Ajouter un repas</h2>
+                <div class=" block-contain rounded-4 m-1 ">
+                    <form action="" method="post" class=" text-white container">
                         <div class="mb-3 pt-3">
                             <label for="prenom" class="form-label">animal</label>
                             <select class="form-select" name="prenom" id="prenom" aria-label="Default select example">
@@ -92,9 +54,8 @@ if(isset($_POST['repas'] )){
 
         </div>
     </div>
-    </div>
+</div>
 
-
-    <?php 
+<?php 
 require_once "/xampp/htdocs/ZooArcadia/admin/templates/footer.php";
 ?>

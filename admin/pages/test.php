@@ -6,6 +6,27 @@ require_once "/xampp/htdocs/ZooArcadia/lib/mongodb.php";
 require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
 require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
 require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
+
+
+// if(!isset($_SESSION['user']) ) {
+//   header("location: /pages/connexion.php");
+// };
+//   switch($_SESSION['user']['roles']){
+//       case 1 :
+//         if($_SERVER['SCRIPT_NAME'] !== '/admin/index.php' && $_SERVER['SCRIPT_NAME'] !== '/admin/templates/rapport.php'){
+//             header('location: /admin/index.php');
+//             exit();
+//         };
+//         break;
+//         case 2 :
+//             if($_SERVER['SCRIPT_NAME'] === '/admin/templates/employee.php.php'&& $_SERVER['SCRIPT_NAME'] === '/admin/templates/rapport.php'){
+//                 header('location:/admin/index.php');
+//                 exit();
+//             };
+//             break;
+//             case 3 :
+//                 break;
+//     }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,18 +35,15 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/scss/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin/index.php">
                 <i class="bi bi-speedometer2 pe-none me-2"></i> Dashboard
@@ -42,27 +60,27 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/pages/employee.php">
+                        <a class="nav-link" href="/admin/templates/employee.php">
                             <i class="bi-table bi pe-none me-2"></i> Créer un utilisateur
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/pages/rapport.php">
+                        <a class="nav-link" href="/admin/templates/rapport.php">
                             <i class="bi-table bi pe-none me-2"></i> Rapport
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/pages/repas.php">
+                        <a class="nav-link" href="/admin/templates/repas.php">
                             <i class="bi-table bi pe-none me-2"></i> Repas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/pages/articles.php">
+                        <a class="nav-link" href="/admin/templates/articles.php">
                             <i class="bi-table bi pe-none me-2"></i> Articles
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/pages/animauxcrud.php">
+                        <a class="nav-link" href="/admin/templates/animauxcrud.php">
                             <i class="bi-table bi pe-none me-2"></i> Animaux
                         </a>
                     </li>
@@ -75,6 +93,8 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
             </div>
         </div>
     </nav>
+<?php 
 
 
-    <main class="d-flex px-4 col-12">
+
+ 

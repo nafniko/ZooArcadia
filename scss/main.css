@@ -11973,7 +11973,6 @@ textarea.form-control-lg {
 
 html {
   width: 100%;
-  height: 100%;
 }
 
 body {
@@ -12111,4 +12110,8 @@ footer {
   border: 0px;
   background-color: rgb(107, 142, 35);
   color: white;
+}
+
+.fix {
+  height: 300px;
 }/*# sourceMappingURL=main.css.map */

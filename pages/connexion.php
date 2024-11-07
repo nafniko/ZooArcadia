@@ -1,42 +1,15 @@
 
 <?php
 
-    require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-    require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-    require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
-    require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
-    
-    
-    $errors=[];
-    
-    if (isset($_POST["connexion"])){
-        
-        $email=$_POST['email'];
-        $password=$_POST['Passwords'];
-        $user=verifyUsers($pdo,$email,$password);
-        if ($user){
-            
-            session_regenerate_id(true);
-            $_SESSION["user"]= $user;
-            
-            header("location: /admin/index.php");
-            // var_dump($user["roles"]);
-        }else{
-            $errors[]= "L'email ou le mot de passe est incorrect" ;
-        }      
-    };
- 
-    // $pass='Azerty11@';
-    //   password_hash($pass,PASSWORD_DEFAULT);
-    //   echo password_hash($pass,PASSWORD_DEFAULT);
-    require_once "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
+
+require_once "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
+;
     ?>
 
 <div>
 
     <h1 class="text-white text-center pt-4 pb-4 ">Connexion</h1>
-    <div class="container mt-5 col-4 block-contain rounded-4 pt-2">
-
+    <div class="container mt-5 col-lg-6 col-sm-8 block-contain rounded-4 pt-2">
     
     <form action="" method="post" class=" p-4 mb-4 ">
         

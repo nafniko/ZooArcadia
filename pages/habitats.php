@@ -1,7 +1,5 @@
 <?php
-require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-require "/xampp/htdocs/ZooArcadia/lib/content-index.php"; 
+
 require_once "/xampp/htdocs/ZooArcadia/templates/_header.php";
 
 $_GET["id"];
@@ -43,7 +41,7 @@ foreach ($contents as $key=>$content) {
 <div class=" d-flex flex-wrap justify-content-center w-75 myhover container ">
     <?php foreach ($animauxById as $key => $animauxByIdx) { ?>
     <div class=" d-flex justify-content-center align-items-center  flex-column">
-        <div class="card mycard m-4  text-center rounded-4" onclick="toggleDetails(this)">
+        <div class="card mycard m-4 text-center rounded-4" onclick="toggleDetails(this)"data-animal-id="<?= $getAnimals['animal_id'] ?>" data-click-count="0">
 
 
             <img src="<?=$animauxByIdx["image_path"]?>" class="imgcontents rounded-4  img-fluid" alt="...">

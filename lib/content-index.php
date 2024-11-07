@@ -1,4 +1,40 @@
 <?php
+$navLinks =[
+    "index.php"=>[
+       
+        "path"=> "/index.php",
+        "head_title"=> "Acceuil : Zoo Arcadia",
+        "title"=> "Acceuil",
+        "meta-description"=>"Découvrez le Zoo Arcadia, un espace écologique dédié à la préservation des espèces et à l’éducation environnementale. Visitez des habitats naturels recréés et soutenez nos initiatives de conservation durable.",
+        "icons"=>'<i class="bi bi-house-door"></i>'
+    
+    ],
+    "services.php"=>[
+        "path"=> "/pages/services.php",
+        "head_title"=> "Services : Zoo Arcadia",
+        "title"=> "Services",
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
+        "icons"=>'<i class="bi bi-activity"></i>'
+    ],
+
+    "habitat.php"=>[
+        "path"=> "/pages/habitat.php",
+        "head_title"=> "Habitats : Zoo Arcadia",
+        "title"=> "Habitats",
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
+        "icons"=>'<i class="bi bi-app"></i>'
+    ],
+
+    "contact.php"=>[
+        "path"=> "/pages/contact.php",
+        "head_title"=> "Contacts : Zoo Arcadia",
+        "title"=> "Contact",
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
+        "icons"=>'<i class="bi bi-send"></i>'
+    ],
+
+];
+
 function getContents($pdo){
 
     $query=$pdo->prepare("SELECT contenu.id AS idcontent,titre,descriptions,images.chemin,liens FROM `contenu` Left JOIN images on contenu.images =images.id;") ;
@@ -267,8 +303,15 @@ function getUser($pdo){
     $query = $pdo->prepare(" SELECT users.email,users.Passwords,roles.nom FROM `users` LEFT join roles on roles.id=users.roles; ");
     $query->execute();
     $getUser=$query->fetchAll(PDO::FETCH_ASSOC);
-
      return $getUser;
+}
 
-
+function deleteAnimaux($pdo) {
+    $query = $pdo->prepare("DELETE FROM animaux WHERE animaux.id = :id »");
+    $query->bindValue(":prenom",  $_POST['prenomAnimal'], PDO::PARAM_STR);
+    $query->bindValue(":race",  $_POST['raceAnimal'], PDO::PARAM_STR);
+    $query->bindValue(":id",  $_POST['id'], PDO::PARAM_INT);
+    $query->execute();
+    $deleteAnimaux =$query;
+    return $deleteAnimaux;
 }

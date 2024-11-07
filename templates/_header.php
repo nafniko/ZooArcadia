@@ -1,43 +1,13 @@
 <?php
 
-$navLinks =[
-    "index.php"=>[
-       
-        "path"=> "/index.php",
-        "head_title"=> "Acceuil : Zoo Arcadia",
-        "title"=> "Acceuil",
-        "meta-description"=>"Découvrez le Zoo Arcadia, un espace écologique dédié à la préservation des espèces et à l’éducation environnementale. Visitez des habitats naturels recréés et soutenez nos initiatives de conservation durable.",
-        "icons"=>'<i class="bi bi-house-door"></i>'
-    
-    ],
-    "services.php"=>[
-        "path"=> "/pages/services.php",
-        "head_title"=> "Services : Zoo Arcadia",
-        "title"=> "Services",
-        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
-        "icons"=>'<i class="bi bi-activity"></i>'
-    ],
 
-    "habitat.php"=>[
-        "path"=> "/pages/habitat.php",
-        "head_title"=> "Habitats : Zoo Arcadia",
-        "title"=> "Habitats",
-        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
-        "icons"=>'<i class="bi bi-app"></i>'
-    ],
-
-    "contact.php"=>[
-        "path"=> "/pages/contact.php",
-        "head_title"=> "Contacts : Zoo Arcadia",
-        "title"=> "Contact",
-        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
-        "icons"=>'<i class="bi bi-send"></i>'
-    ],
-
-];
+require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
+require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
 require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
+require_once "/xampp/htdocs/ZooArcadia/lib/mongodb.php";
+require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
 
-    $currentpage=basename($_SERVER['SCRIPT_NAME']);
+$currentpage=basename($_SERVER['SCRIPT_NAME']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -88,16 +58,16 @@ require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
                     <ul class="navbar-nav fs-3">
                         <?php
                         foreach ($navLinks as $key => $navLink) { ?>
-                            <li class="nav-item">
+                            <li class="nav-item myhover">
                                 <a href="<?= $navLink['path'] ?>" class="nav-link d-flex flex-column justify-content-center align-items-center ms-5"><?= $navLink["icons"] ?> <?= $navLink["title"] ?> </a>
                             </li>
                         <?php } ?>
 
                         <?php if (isset($_SESSION['user'])) { ?>
-                            <li><a href="/admin/index.php" class="nav-link d-flex flex-column justify-content-center align-items-center ms-5"><i class="bi bi-person"></i>Dashboard</a></li>
-                            <li><a href="/pages/logout.php" class="nav-link d-flex flex-column justify-content-center align-items-center ms-5"><i class="bi bi-box-arrow-right"></i>Deconnexion</a></li>
+                            <li class="nav-item myhover"><a href="/admin/index.php" class="nav-link d-flex flex-column justify-content-center align-items-center ms-5"><i class="bi bi-person"></i>Dashboard</a></li>
+                            <li class="nav-item myhover"><a href="/pages/logout.php" class="nav-link d-flex flex-column justify-content-center myhover align-items-center ms-5"><i class="bi bi-box-arrow-right"></i>Deconnexion</a></li>
                         <?php } else { ?>
-                            <li><a href="/pages/connexion.php" class="nav-link d-flex flex-column justify-content-center align-items-center ms-5"><i class="bi bi-person"></i>connexion</a></li>
+                            <li class="nav-item myhover"><a href="/pages/connexion.php" class="nav-link myhover d-flex flex-column justify-content-center align-items-center ms-5"><i class="bi bi-person"></i>Connexion</a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -106,6 +76,4 @@ require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
     </div>
     <div class="filter-z-index"></div>
 </header>
-
-
         <main> 

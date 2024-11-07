@@ -1,7 +1,4 @@
 <?php 
-    require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-    require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-    require "/xampp/htdocs/ZooArcadia/lib/content-index.php";
     require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
 
 ?>
@@ -17,6 +14,10 @@
                             <div class="mb-3 pt-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Pierre@visteur.fr" required>
+                            </div>
+                            <div class="mb-3 pt-3">
+                                <label for="email" class="form-label">objet</label>
+                                <input type="objet" class="form-control" id="objet" name="objet" placeholder="objet" required>
                             </div>
                             <div class="mb-3 pt-3">
                                 <label for="message" class="form-label">Votre Message</label>

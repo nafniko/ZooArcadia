@@ -2,6 +2,7 @@
    
    require_once "./lib/config.php";
    require_once "./lib/pdo.php";
+   require_once "./lib/mongodb.php";
    require_once "./lib/content-index.php";
    require_once "./templates/_header.php";
     
