@@ -1,5 +1,5 @@
 <div class=" col-lg-6 col-sm-12 ">
-    <h2 class=" text-white pt-4 ">compte rendu des repas</h2>
+    <h2 class=" text-white pt-4 text-center ">compte rendu des repas</h2>
     
                 <div class=" block-contain m-1 rounded-4 p-4">
                     <div class=" text-center">

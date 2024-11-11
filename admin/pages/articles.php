@@ -7,22 +7,21 @@ $contents= getContents($pdo);
 
 <div class="container text-center">
     <div class="row mb-4">
-        <div class="col">
+        <div class="col-12">
             <h1 class="text-white">Bienvenue sur le dasboard</h1>
         </div>
 
     </div>
     <div class="row">
-        <div class="col mb-4">
+        <div class="col-12 mb-4">
             <div class=" table-responsive container block-contain rounded-4 ">
                 <h2 class="text-white">Listes des articles</h2>
-
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">id</th>
                             <th scope="col">titre</th>
-                            <th scope="col-3">descriptions</th>
+                            <th scope="col">descriptions</th>
                             <th scope="col">image</th>
                         </tr>
                     </thead>
@@ -30,10 +29,25 @@ $contents= getContents($pdo);
                         <tr>
                             <?php 
 foreach ($contents as $key=>$content) { ?>
-                            <th scope="row"><?= $content["idcontent"] ?></th>
-                            <td><?= $content["titre"] ?></td>
-                            <td><?= $content["descriptions"] ?></td>
-                            <td><img class="w-50 h-25" src="<?= $content["chemin"]?>" alt="image" </td>
+                            <th class="col-1 col-md-1" scope="row"><?= htmlentities($content["idcontent"] )?></th>
+                            <td class="col-1 col-md-1"><?= htmlentities($content["titre"]) ?></td>
+                            <td class="col-3 col-md-2">
+                                <p class="d-inline-flex gap-1">
+                                    <a class="btn btn-primary" data-bs-toggle="collapse"
+                                        href="#collapseExample<?= htmlentities($content["idcontent"] )?>" role="button"
+                                        value="<?= htmlentities($content["idcontent"] )?>" aria-expanded="false"
+                                        aria-controls="collapseExample<?= htmlentities($content["idcontent"] )?>">
+                                        descriptions
+                                    </a>
+                                </p>
+                                <div class="collapse" id="collapseExample<?= htmlentities($content["idcontent"] )?>">
+                                    <div>
+                                        <?= htmlentities($content["descriptions"]) ?>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-3 col-md-2"><img class="w-25" src="<?= htmlentities($content["chemin"])?>"
+                                    alt="image"></td>
                         </tr>
                         <?php }?>
                     </tbody>
@@ -41,41 +55,9 @@ foreach ($contents as $key=>$content) { ?>
             </div>
         </div>
         <div class="row ">
-            <div class="col-4">
-                <div class=" container block-contain rounded-4">
-                    <form action="" method="post" class=" text-white">
-                        <div class="mb-3 pt-3">
-                            <label for="titreArticle" class="form-label">article</label>
-                            <select class="form-select" name="titreArticle" id="titreArticle">
-                                <option selected>choisir l'article a modifier</option>
-                                <?php 
-     foreach ($contents as $key=>$content) {  ?>
-                                <option value="<?= $content["idcontent"] ?>"><?= $content["titre"] ?>
-                                    <?php };?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="nourriture" class="form-label">titre</label>
-                            <input type="text" class="form-control" id="nourriture" name="nourriture"
-                                placeholder="choisir un nouveau titre">
-                        </div>
-                        <div class="mb-3 pt-3">
-                            <label for="descriptionsArticle" class="form-label">contenu</label>
-                            <textarea class="form-control" id="descriptionsArticle" name="descriptionsArticle"
-                                placeholder="Rediger l'article !" rows="3" required></textarea>
-                            <div class="mb-3">
-                                <label for="imageUpload" class="form-label">Default file input example</label>
-                                <input class="form-control" type="file" id="imageUpload">
-                            </div>
-                            <div class="col-auto mt-4">
-                                <button type="submit" name="createArticle" class="btn btn-primary mb-3">creer
-                                    l'article</button>
-                            </div>
-                    </form>
-                </div>
-            </div>
+
         </div>
-        <div class="col-4">
+        <div class="col-sm-12 col-lg-6">
             <div class=" container block-contain rounded-4">
                 <form method="post" class=" text-white">
                     <div class="mb-3 pt-3">
@@ -84,7 +66,8 @@ foreach ($contents as $key=>$content) { ?>
                             <option selected>choisir l'article a modifier</option>
                             <?php 
      foreach ($contents as $key=>$content) {  ?>
-                            <option value="<?= $content["idcontent"] ?>"><?= $content["titre"] ?>
+                            <option value="<?= htmlentities($content["idcontent"]) ?>">
+                                <?= htmlentities($content["titre"] )?>
                                 <?php };?>
                         </select>
                     </div>
@@ -111,7 +94,7 @@ foreach ($contents as $key=>$content) { ?>
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-sm-12 col-lg-6">
         <div class=" container block-contain rounded-4">
 
             <form method="post" enctype="multipart/form-data" class=" text-white">
@@ -121,7 +104,8 @@ foreach ($contents as $key=>$content) { ?>
                         <option selected>choisir l'article a modifier</option>
                         <?php 
      foreach ($contents as $key=>$content) {  ?>
-                        <option value="<?= $content["idcontent"] ?>"><?= $content["titre"] ?>
+                        <option value="<?= htmlentities($content["idcontent"]) ?>">
+                            <?= htmlentities($content["titre"]) ?>
 
                             <?php };?>
                     </select>

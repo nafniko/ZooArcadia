@@ -1,6 +1,7 @@
 <?php
 
 require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
+
 $getUser=getUser($pdo);
 $getrole=getrole($pdo);
 ?>
@@ -11,9 +12,6 @@ $getrole=getrole($pdo);
             <h1 class="text-white text-center pt-4 pb-4 ">Connexion</h1>
         </div>
     </div>
-
- 
-
 
     <div class="row">
         <div class="col-lg-3 col-sm-12">
@@ -40,7 +38,7 @@ $getrole=getrole($pdo);
                             <option selected>choisir un Rôle</option>
                             <?php 
      foreach ($getrole as $key=>$getroles) {  ?>
-                            <option value="<?= $getroles["id"] ?>"><?= $getroles["nom"] ?>
+                            <option value="<?= $getroles["id"] ?>"><?= htmlentities($getroles["nom"] )?>
 
                                 <?php }; ?>
                         </select>
@@ -59,7 +57,7 @@ $getrole=getrole($pdo);
                     <thead>
                         <tr>
                             <?php foreach (array_keys($getUser[0]) as $getUsers) { ?>
-                            <th scope="col"><?= $getUsers ?></th>
+                            <th scope="col"><?= htmlentities($getUsers )?></th>
                             <?php } ?>
                         </tr>
                     </thead>

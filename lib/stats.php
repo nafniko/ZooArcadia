@@ -4,6 +4,7 @@ require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
 require_once "/xampp/htdocs/ZooArcadia/lib/mongodb.php";
 require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
 
+
 $collection = $bdd->animaux; 
 
 $data = json_decode(file_get_contents("php://input"), true);

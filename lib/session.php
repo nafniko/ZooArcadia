@@ -1,4 +1,11 @@
 <?php
 
-session_set_cookie_params (3600,  '/' ,  _DOMAIN_ , null , true);
+setcookie('cookie_name', 'cookie_value', [
+    'expires' => time() + 86400,
+    'path' => '/',
+    'domain' => _DOMAIN_,
+    'secure' => true, 
+    'httponly' => true, 
+    'samesite' => 'lax'
+]);
 session_start();

@@ -24,8 +24,8 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
         rel="stylesheet">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark color_dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin/index.php">
                 <i class="bi bi-speedometer2 pe-none me-2"></i> Dashboard
@@ -67,6 +67,16 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/admin/pages/stats.php">
+                            <i class="bi-table bi pe-none me-2"></i> Statistiques
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/pages/avis.php">
+                            <i class="bi-table bi pe-none me-2"></i> les avis
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/pages/logout.php">
                             <i class="bi bi-box-arrow-right"></i> Déconnexion
                         </a>
@@ -77,4 +87,4 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
     </nav>
 
 
-    <main class="d-flex px-4 col-12">
+    <main class="flex-grow-1 d-flex justify-content-center align-items-center px-4 ">

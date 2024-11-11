@@ -3,37 +3,98 @@ $navLinks =[
     "index.php"=>[
        
         "path"=> "/index.php",
-        "head_title"=> "Acceuil : Zoo Arcadia",
         "title"=> "Acceuil",
-        "meta-description"=>"Découvrez le Zoo Arcadia, un espace écologique dédié à la préservation des espèces et à l’éducation environnementale. Visitez des habitats naturels recréés et soutenez nos initiatives de conservation durable.",
         "icons"=>'<i class="bi bi-house-door"></i>'
     
     ],
     "services.php"=>[
         "path"=> "/pages/services.php",
-        "head_title"=> "Services : Zoo Arcadia",
         "title"=> "Services",
-        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
         "icons"=>'<i class="bi bi-activity"></i>'
     ],
 
     "habitat.php"=>[
         "path"=> "/pages/habitat.php",
-        "head_title"=> "Habitats : Zoo Arcadia",
         "title"=> "Habitats",
-        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
         "icons"=>'<i class="bi bi-app"></i>'
     ],
 
     "contact.php"=>[
         "path"=> "/pages/contact.php",
-        "head_title"=> "Contacts : Zoo Arcadia",
         "title"=> "Contact",
-        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation.",
         "icons"=>'<i class="bi bi-send"></i>'
     ],
 
 ];
+$route =[
+    "index.php"=>[
+       
+        "head_title"=> "Acceuil : Zoo Arcadia",
+      
+        "meta-description"=>"Découvrez le Zoo Arcadia, un espace écologique dédié à la préservation des espèces et à l’éducation environnementale. Visitez des habitats naturels recréés et soutenez nos initiatives de conservation durable."
+      
+    
+    ],
+    "services.php"=>[
+        "head_title"=> "services : Zoo Arcadia",
+      
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+       
+    ],
+
+    "habitat.php"=>[
+        "head_title"=> "habitat : Zoo Arcadia",
+        
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+      
+    ],
+
+    "habitats.php"=>[
+        "head_title"=> "habitats : Zoo Arcadia",
+
+        "Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+     ],
+  
+    "Restaurants.php"=>[
+        "head_title"=> "Restaurants : Zoo Arcadia",
+
+        "Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+     ],
+
+    "contact.php"=>[
+        "head_title"=> "Contacts : Zoo Arcadia",
+       
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+       
+    ],
+    "animaux.php"=>[
+        "head_title"=> "Animaux : Zoo Arcadia",
+       
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+       
+    ],
+    "contact-verif.php"=>[
+        "head_title"=> "Contacts : Zoo Arcadia",
+       
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+       
+    ],
+    "erreur.php"=>[
+        "head_title"=> "Erreur : Zoo Arcadia",
+       
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+       
+    ],
+    "connexion.php"=>[
+        "head_title"=> "connexion : Zoo Arcadia",
+       
+        "meta-description"=>"Profitez des services du Zoo Arcadia : restauration éco-responsable, visites guidées gratuites des habitats et balades en petit train pour explorer notre zoo engagé dans la conservation."
+       
+    ],
+    
+
+];
+
 
 function getContents($pdo){
 

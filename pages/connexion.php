@@ -1,9 +1,30 @@
 
 <?php
+require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
+require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
+require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
+require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
 
+
+$errors=[];
+
+if (isset($_POST["connexion"])){
+    $email=$_POST['email'];
+    $password=$_POST['Passwords'];
+    $user=verifyUsers($pdo,$email,$password);
+    if ($user){
+        
+        session_regenerate_id(true);
+        $_SESSION["user"]= $user;
+        
+        header("location: /admin/index.php");
+        
+    }else{
+        $errors[]= "L'email ou le mot de passe est incorrect" ;
+    }      
+};
 
 require_once "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
-;
     ?>
 
 <div>

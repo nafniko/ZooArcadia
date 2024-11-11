@@ -1,6 +1,5 @@
 </main>
-</div>
-<footer>
+<footer >
     <div class="m-3">
         Dashboard
     </div>

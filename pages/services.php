@@ -1,10 +1,11 @@
 <?php 
- 
-    require_once "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
-   
-    
-    $contents= getContents($pdo);
-    ?>
+
+
+require_once "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
+
+
+$contents= getContents($pdo);
+?>
 <h1 class="text-center text-white mb-4">Nos Services</h1>
 
 <?php 
@@ -14,4 +15,5 @@
        
     };
 };
+
     require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php"; 

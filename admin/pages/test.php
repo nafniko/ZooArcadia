@@ -27,7 +27,9 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
 //             case 3 :
 //                 break;
 //     }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -42,8 +44,8 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;900&display=swap" rel="stylesheet">
 </head>
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin/index.php">
                 <i class="bi bi-speedometer2 pe-none me-2"></i> Dashboard
@@ -60,27 +62,27 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/templates/employee.php">
+                        <a class="nav-link" href="/admin/pages/employee.php">
                             <i class="bi-table bi pe-none me-2"></i> Créer un utilisateur
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/templates/rapport.php">
+                        <a class="nav-link" href="/admin/pages/rapport.php">
                             <i class="bi-table bi pe-none me-2"></i> Rapport
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/templates/repas.php">
+                        <a class="nav-link" href="/admin/pages/repas.php">
                             <i class="bi-table bi pe-none me-2"></i> Repas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/templates/articles.php">
+                        <a class="nav-link" href="/admin/pages/articles.php">
                             <i class="bi-table bi pe-none me-2"></i> Articles
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/templates/animauxcrud.php">
+                        <a class="nav-link" href="/admin/pages/animauxcrud.php">
                             <i class="bi-table bi pe-none me-2"></i> Animaux
                         </a>
                     </li>
@@ -93,8 +95,94 @@ require_once "/xampp/htdocs/ZooArcadia/lib/gestionboutons.php";
             </div>
         </div>
     </nav>
-<?php 
+
+    <main class="flex-grow-1 d-flex justify-content-center align-items-center px-4">
+    <?php
 
 
+$getUser=getUser($pdo);
+$getrole=getrole($pdo);
+?>
 
- 
+<div class="container text-center">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 m-4">
+            <h1 class="text-white text-center pt-4 pb-4 ">Connexion</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-sm-12">
+        <div class="col ">
+            <h2 class="text-white pt-4">Crée un utilisateur</h2>
+        </div>
+            <div class="container block-contain rounded-4 pt-2">
+                <form action="" method="post" class=" p-4 mb-4 ">
+                    <div class="row mb-4 ">
+                        <label for="email" class=" col-form-label text-white ">Email</label>
+                        <div class="col">
+                            <input type="email" name="email" class="form-control" id="email" required>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <label for="Passwords" class=" col-form-label text-white">Password</label>
+                        <div class="col">
+                            <input type="password" name="Passwords" class="form-control" id="Passwords" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 pt-3">
+                        <label for="role" class="form-label text-white">Rôle</label>
+                        <select class="form-select" name="role" id="role" aria-label="Default select example">
+                            <option selected>choisir un Rôle</option>
+                            <?php 
+     foreach ($getrole as $key=>$getroles) {  ?>
+                            <option value="<?= $getroles["id"] ?>"><?= $getroles["nom"] ?>
+
+                                <?php }; ?>
+                        </select>
+                    </div>
+                    <button type="submit" value="connexion" name="createUser" class="btn btn-primary ">creer
+                        l'utilisateur</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-9 col-sm-12">
+        <div class="col-lg-9 col-sm-12">
+            <h2 class="text-white text-center pt-4 ">Les comptes</h2>
+        </div>
+            <div class="table-responsive block-contain rounded-4 p-4">
+                <table class="table  ">
+                    <thead>
+                        <tr>
+                            <?php foreach (array_keys($getUser[0]) as $getUsers) { ?>
+                            <th scope="col"><?= $getUsers ?></th>
+                            <?php } ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($getUser as $getUsers) { ?>
+                        <tr>
+                            <?php foreach ($getUsers as $value) { ?>
+                            <td><?= htmlentities($value) ?></td>
+                            <?php } ?>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <footer class="bg-dark text-center text-white mt-auto p-3">
+        Dashboard
+    </footer>
+
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/animations.js"></script>
+
+</body>
+
+</html>

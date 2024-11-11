@@ -9,6 +9,12 @@
  $contents= getContents($pdo);
  $contentimages=getContentImages($pdo);
 
+ use Symfony\Component\Security\Csrf\CsrfTokenManager;
+ use Symfony\Component\Security\Csrf\CsrfToken;
+ 
+ $csrfTokenManager = new CsrfTokenManager();
+ $csrfToken = $csrfTokenManager->getToken('avis_form')->getValue();
+
 ?>
 
 <h1 class=" text-center text-white mb-4 ">Bienvenue Au Zoo Arcadia</h1>

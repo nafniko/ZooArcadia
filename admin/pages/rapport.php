@@ -36,7 +36,7 @@
                                 <option selected>choisir un animal</option>
                                 <?php 
                               foreach ($animaux as $key=>$animal) {  ?>
-                                <option value="<?= $animal["prénom"] ?>"><?= $animal["prénom"] ?>
+                                <option value="<?= htmlentities($animal["prénom"]) ?>"><?= htmlentities($animal["prénom"]) ?>
 
                                     <?php }; ?>
                             </select>
@@ -47,7 +47,7 @@
                                 <option selected>choisir une race</option>
                                 <?php 
                               foreach ($animaux as $key=>$animal) {  ?>
-                                <option value="<?= $animal["race"] ?>"><?= $animal["race"] ?>
+                                <option value="<?= htmlentities($animal["race"] )?>"><?= $animal["race"] ?>
 
                                     <?php }; ?>
                             </select>
@@ -90,8 +90,8 @@
                             <option selected>choisir un animal</option>
                             <?php 
                     foreach ($animauxcom as $key=>$animauxcoms) {  ?>
-                            <option value="<?= $animauxcoms["id"] ?>"><?= $animauxcoms["id"] ?> |
-                                <?= $animauxcoms["prénom"] ?>
+                            <option value="<?= htmlentities($animauxcoms["id"]) ?>"><?= htmlentities($animauxcoms["id"]) ?> |
+                                <?= htmlentities($animauxcoms["prénom"] )?>
                                 <?php }; ?>
                         </select>
                     </div>
@@ -113,7 +113,7 @@
                     <thead>
                         <tr>
                             <?php foreach (array_keys($getRepas[0]) as $getRepa) { ?>
-                            <th scope="col"><?= $getRepa ?></th>
+                            <th scope="col"><?= htmlentities($getRepa )?></th>
                             <?php } ?>
                         </tr>
                     </thead>

@@ -4,19 +4,20 @@ if(!isset($_SESSION['user']) ) {
     header("location: /pages/connexion.php");
   };
     switch($_SESSION['user']['roles']){
-        case 1 :
+        case 1 : // role veterinaire
           if($_SERVER['SCRIPT_NAME'] !== '/admin/index.php' && $_SERVER['SCRIPT_NAME'] !== '/admin/pages/rapport.php'){
-              header('location: /admin/index.php');
+            header('Location: /erreur.php?error=erreur');
               exit();
           };
           break;
-          case 2 :
+          case 2 : // role employé
               if($_SERVER['SCRIPT_NAME'] === '/admin/pages/employee.php.php'&& $_SERVER['SCRIPT_NAME'] === '/admin/pages/rapport.php'){
-                  header('location:/admin/index.php');
+                header('Location: /erreur.php?error=erreur');
+
                   exit();
               };
               break;
-              case 3 :
+              case 3 : //role admin
                   break;
       }
       $errors=[];

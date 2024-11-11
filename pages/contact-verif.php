@@ -4,7 +4,6 @@ require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
 require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 

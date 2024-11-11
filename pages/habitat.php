@@ -12,9 +12,9 @@
 
             ?>
                 <div class="col-md-3 mb-md-0 p-md-4">
-                    <a href="<?= $contentHabitat["liens"] ?>" class="d-flex flex-column container-fluid justify-center link-offset-2 link-underline link-underline-opacity-0 custom-img image-link">
-                            <img src="<?= $contentHabitat["chemin"] ?>" class="habitat-img img-fluid" alt="image du zoo">
-                            <h2 class="text-center text-white"><?= $contentHabitat["titre"] ?></h2>
+                    <a href="<?= htmlentities($contentHabitat["liens"] )?>" class="d-flex flex-column container-fluid justify-center link-offset-2 link-underline link-underline-opacity-0 custom-img image-link">
+                            <img src="<?= htmlentities($contentHabitat["chemin"]) ?>" class="habitat-img img-fluid" alt="image du zoo">
+                            <h2 class="text-center text-white"><?= htmlentities($contentHabitat["titre"]) ?></h2>
                     </a>
                 </div> 
             <?php } ?>

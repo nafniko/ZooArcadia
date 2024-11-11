@@ -1,5 +1,7 @@
 <div class="col">
             <div class="col-md-12 col-sm-12 mb-4">
+<h2 class=" text-white pt-4 text-center ">Listes des animaux</h2>
+
                 <div class="table-responsive block-contain fix rounded-4 p-4">
                     <table class="table p-3 ">
                         <thead>

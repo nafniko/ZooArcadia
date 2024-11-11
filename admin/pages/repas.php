@@ -26,8 +26,8 @@ require_once "/xampp/htdocs/ZooArcadia/admin/templates/_repas.php";
                                 <option selected>choisir un animal</option>
                                 <?php 
      foreach ($getAnimal as $key=>$getAnimals) {  ?>
-                                <option value="<?= $getAnimals["animal_id"] ?>">
-                                    <?= $getAnimals["animal_id"] ?><?= $getAnimals["prénom"] ?>
+                                <option value="<?= htmlentities($getAnimals["animal_id"] )?>">
+                                    <?= htmlentities($getAnimals["animal_id"] )?><?= htmlentities($getAnimals["prénom"] )?>
                                     <?php }; ?>
                             </select>
                         </div>
