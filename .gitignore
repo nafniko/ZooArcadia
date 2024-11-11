@@ -1,3 +1,7 @@
 node_modules
+<<<<<<< HEAD
 vendor/
 .env
+=======
+.env
+>>>>>>> dev

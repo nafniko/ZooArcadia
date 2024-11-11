@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 require_once "/xampp/htdocs/ZooArcadia/vendor/autoload.php"; 
+=======
+require_once  "/xampp/htdocs/ZooArcadia/vendor/autoload.php"; 
+>>>>>>> dev
 
 
 header("X-Frame-Options: SAMEORIGIN"); 
@@ -23,7 +27,7 @@ define("_ASSETS_IMAGES", "/asset/");
 define("_STMP_PASSWORD_", "rjUImBqN7QMgXT5P");
 
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable('C:/xampp/htdocs/ZooArcadia');
 $dotenv->load();
 
 $dbHost = $_ENV['DB_HOST'];
