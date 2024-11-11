@@ -1,5 +1,6 @@
 <?php  
-require_once "/xampp/htdocs/ZooArcadia/vendor/autoload.php"; 
+require_once __DIR__ . '/../vendor/autoload.php';
+
 
 use Symfony\Component\Security\Csrf\CsrfTokenManager;
 use Symfony\Component\Security\Csrf\CsrfToken;

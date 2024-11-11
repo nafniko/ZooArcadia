@@ -1,13 +1,14 @@
 <?php 
 
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
+require_once __DIR__ . '../templates/header.php';
 $getAnimauxList= getAnimauxList($pdo );
 $getHabitat= getHabitat($pdo );
 ?>
 <div class="container text-center">
     <div class="row">
 
-        <?php require_once "/xampp/htdocs/ZooArcadia/admin/templates/_animaux.php"; ?>
+        <?php require_once __DIR__ . '../templates/_animaux.php';
+?>
 
         <div class="col">
             <h2 class="container text-white pt-4 "> Ajouter un animal</h2>
@@ -55,5 +56,6 @@ $getHabitat= getHabitat($pdo );
 </div>
 
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/footer.php";
+require_once __DIR__ . '../templates/footer.php';
+
 ?>

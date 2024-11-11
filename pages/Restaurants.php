@@ -1,5 +1,6 @@
 <?php 
-    require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
+require_once __DIR__ . '/../templates/_header.php';
+
  $contents= getContents($pdo);
 
 ?>
@@ -8,10 +9,12 @@
 foreach ($contents as $key=>$content) {
         if ($key===11 ||$key===12||$key===13) {
            
-            require "/xampp/htdocs/ZooArcadia/templates/_content.php";
+            require_once __DIR__ . '/../templates/_content.php';
+
         }
     } 
     ?>
 
 
-  <?php  require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php"; 
+<?php  
+require_once __DIR__ . '/../templates/_footer.php';

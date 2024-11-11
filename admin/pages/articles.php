@@ -1,6 +1,7 @@
 <?php 
 
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
+require_once __DIR__ . '../templates/header.php';
+
 
 $contents= getContents($pdo);
 ?>
@@ -127,5 +128,6 @@ foreach ($contents as $key=>$content) { ?>
 </div>
 
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/footer.php";
+require_once __DIR__ . '../templates/footer.php';
+
 ?>

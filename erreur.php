@@ -21,7 +21,8 @@ if ($error_code == '404' ) {
 
 
 
-require_once "/xampp/htdocs/ZooArcadia/templates/_header.php";
+require_once __DIR__ . '/../templates/_header.php';
+
 
 
 ?>
@@ -38,6 +39,6 @@ require_once "/xampp/htdocs/ZooArcadia/templates/_header.php";
     </div>
 </div>
 <?php
+require_once __DIR__ . '/../templates/_footer.php';
 
-require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php";
 ?>

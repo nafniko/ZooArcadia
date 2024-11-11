@@ -1,5 +1,6 @@
 <?php
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
+require_once __DIR__ . './../templates/header.php';
+
 
 $getRepas=getRepas($pdo);
 $getAnimal=getAnimal($pdo);
@@ -11,7 +12,8 @@ $getAnimal=getAnimal($pdo);
     <div class="container text-center">
         <div class="row align-items-start">
             <?php
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/_repas.php";
+require_once __DIR__ . '../templates/repas.php';
+
 ?>
 
 
@@ -57,5 +59,6 @@ require_once "/xampp/htdocs/ZooArcadia/admin/templates/_repas.php";
 </div>
 
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/footer.php";
+require_once __DIR__ . './../templates/footer.php';
+
 ?>

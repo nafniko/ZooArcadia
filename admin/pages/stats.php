@@ -1,7 +1,9 @@
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/vendor/autoload.php"; 
+require_once __DIR__ . '../../vendor/autoload.php';
 
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
+
+require_once __DIR__ . './../templates/header.php';
+
 $connexion = new MongoDB\Client("mongodb://localhost:27017");
 
 $bdd = $connexion->zooarcadia;
@@ -43,5 +45,6 @@ $collection = $bdd->animaux;
 
         
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/footer.php";
+require_once __DIR__ . './../templates/footer.php';
+
 ?>

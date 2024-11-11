@@ -1,7 +1,9 @@
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
+require_once __DIR__ . '/config.php';
 
-require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
+
+require_once __DIR__ . '/../templates/_header.php';
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -122,4 +124,4 @@ else{
  <?php
 };
 
-require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php";
+require_once __DIR__ . '/../templates/_footer.php';

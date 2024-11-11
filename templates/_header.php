@@ -1,12 +1,12 @@
 <?php
 
+require_once __DIR__ . '../lib/config.php';
+require_once __DIR__ . '../lib/pdo.php';
+require_once __DIR__ . '../lib/session.php';
+require_once __DIR__ . '../lib/mongodb.php';
+require_once __DIR__ . '../lib/route.php';
+require_once __DIR__ . '../lib/content-index.php';
 
-require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/mongodb.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/route.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
 
 $currentpage=basename($_SERVER['SCRIPT_NAME']);
 

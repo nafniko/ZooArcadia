@@ -1,9 +1,10 @@
 
 <?php
-require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
+require_once __DIR__ . '/../lib/config.php';
+require_once __DIR__ . '/../lib/pdo.php';
+require_once __DIR__ . '/../lib/session.php';
+require_once __DIR__ . '/../lib/content-index.php';
+
 
 
 $errors=[];
@@ -24,7 +25,8 @@ if (isset($_POST["connexion"])){
     }      
 };
 
-require_once "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
+require_once __DIR__ . '/../templates/_header.php';
+
     ?>
 
 <div>
@@ -52,4 +54,5 @@ require_once "/xampp/htdocs/ZooArcadia/templates/_header.php";
 </div>
 
 
-<?php require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php"; ?>
+<?php require_once __DIR__ . '/../templates/_footer.php';
+; ?>

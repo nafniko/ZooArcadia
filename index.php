@@ -20,14 +20,16 @@
     foreach ($contents as $key=>$content) {
         if ($key===0 ||$key===1) {
            
-            require "./templates/_content.php";
+            require_once __DIR__ . '/./templates/_content.php';
+
         }
     } 
     
     foreach ($contents as $key=>$content) {
         if ($key===6) {
             
-            require "./templates/_caroussel.php";
+    require_once __DIR__ . '/./templates/_caroussel.php';
+
             
         }
     
@@ -37,10 +39,11 @@
     foreach ($contents as $key=>$content) {
         if ($key===2) {
             
-            require "./templates/_content.php";
+            require_once __DIR__ . '/./templates/_content.php';
+
         }
     } 
     
-    require_once "templates/_avis.php";
+    require_once __DIR__ . '/./templates/_avis.php';
 
-    require_once "templates/_footer.php";?>
+    require_once __DIR__ . '/./templates/_footer.php';?>
