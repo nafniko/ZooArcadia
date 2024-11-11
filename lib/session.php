@@ -8,4 +8,6 @@ setcookie('cookie_name', 'cookie_value', [
     'httponly' => true, 
     'samesite' => 'lax'
 ]);
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}

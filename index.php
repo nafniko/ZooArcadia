@@ -8,12 +8,7 @@
     
  $contents= getContents($pdo);
  $contentimages=getContentImages($pdo);
-
- use Symfony\Component\Security\Csrf\CsrfTokenManager;
- use Symfony\Component\Security\Csrf\CsrfToken;
  
- $csrfTokenManager = new CsrfTokenManager();
- $csrfToken = $csrfTokenManager->getToken('avis_form')->getValue();
 
 ?>
 

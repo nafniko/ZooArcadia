@@ -14,6 +14,9 @@ if ($error_code == E_USER_ERROR || $error_code == E_ERROR) {
 if ($error_code == 'erreur' ) {
     $message = "Vous n'êtes pas autorisé à accéder à cette page. ";
 }
+if ($error_code == '404' ) {
+    $message = "La page est introuvable. ";
+}
 
 
 

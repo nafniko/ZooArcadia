@@ -5,7 +5,7 @@
     <div class=" row ">
         <div
             class=" block-contain rounded-4 m-2 d-flex justify-content-center flex-wrap  overflow-auto col-lg-7 col-sm-12">
-            <div class=" d-flex flex-wrap p-3 h-75 justify-content-center ">
+            <div class=" d-flex flex-wrap p-3 h-75 justify-content-between ">
 
                 <?php foreach($lesAvis as $Avis){
 
@@ -13,11 +13,11 @@
                 <div class="bg-light m-2 p-2 overflow-auto col-lg-3 col-sm-12 rounded-4 h-50">
                     <div class="mb-2">
                         <b>
-                            <?= htmlentities( $Avis['pseudo']) ?>
+                            <?=  $Avis['pseudo'] ?>
                         </b>
                     </div>
                     <div>
-                        <?=htmlentities( $Avis['avis']) ?>
+                        <?= $Avis['avis'] ?>
                     </div>
                 </div>
                 <?php  } ?>

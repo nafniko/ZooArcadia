@@ -11,7 +11,7 @@
             <?php foreach($contentHabitats as $key =>$contentHabitat){
 
             ?>
-                <div class="col-md-3 mb-md-0 p-md-4">
+                <div class="col-lg-3 col-sm-12 col-md-9 mb-md-0 p-md-4">
                     <a href="<?= htmlentities($contentHabitat["liens"] )?>" class="d-flex flex-column container-fluid justify-center link-offset-2 link-underline link-underline-opacity-0 custom-img image-link">
                             <img src="<?= htmlentities($contentHabitat["chemin"]) ?>" class="habitat-img img-fluid" alt="image du zoo">
                             <h2 class="text-center text-white"><?= htmlentities($contentHabitat["titre"]) ?></h2>
