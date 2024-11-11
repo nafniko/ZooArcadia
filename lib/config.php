@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-require_once "/xampp/htdocs/ZooArcadia/vendor/autoload.php"; 
-=======
 require_once  "/xampp/htdocs/ZooArcadia/vendor/autoload.php"; 
->>>>>>> dev
 
 
 header("X-Frame-Options: SAMEORIGIN"); 
