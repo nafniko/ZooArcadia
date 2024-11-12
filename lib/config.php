@@ -10,7 +10,6 @@ header("Content-Security-Policy: default-src 'self'; style-src 'self' https://fo
 header("Content-Type: text/html; charset=UTF-8"); 
 header("X-Content-Type-Options: nosniff"); 
 
-http_response_code(500);
 
 header_remove("X-Powered-By");
 

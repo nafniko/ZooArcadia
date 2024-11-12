@@ -38,6 +38,7 @@ require_once  '../templates/_header.php';
     <div class="container mt-5 col-lg-6 col-sm-8 block-contain rounded-4 pt-2">
     
     <form action="" method="post" class=" p-4 mb-4 ">
+    <input type="hidden" name="csrf_token" value="<?= $csrfToken ?>">
         
         <div class="row mb-4 ">
             <label for="email" class="col-sm-2 col-form-label text-white ">Email</label>

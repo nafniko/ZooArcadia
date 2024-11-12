@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/pdo.php';
-require_once __DIR__ . '/mongodb.php';
-require_once __DIR__ . '/content.php';
+require_once  '../../lib/config.php';
+require_once  '../../lib/pdo.php';
+require_once  '../../lib/mongodb.php';
+require_once  '../../lib/content-index.php';
 
 $getAnimal = getAnimal($pdo);
 $collection = $bdd->animaux;
