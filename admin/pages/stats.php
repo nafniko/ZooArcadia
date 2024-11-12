@@ -10,7 +10,8 @@ require_once  "../../lib/gestionboutons.php";
 require_once  './../templates/header.php';
 
 
-$connexion = new MongoDB\Client("mongodb://localhost:27017");
+$connexion = new MongoDB\Client($uri);
+
 
 $bdd = $connexion->zooarcadia;
 $collection = $bdd->animaux;
