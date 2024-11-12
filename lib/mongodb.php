@@ -6,7 +6,8 @@ use Symfony\Component\Security\Csrf\CsrfTokenManager;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use MongoDB\BSON\ObjectId;
 
-$connexion = new MongoDB\Client("mongodb://localhost:27017");
+$uri = getenv('MONGODB_URI');
+$connexion = new MongoDB\Client($uri);
 $bdd = $connexion->zooarcadia;
 $collection = $bdd->avis;
 $lesAvis = $collection->find(['validé' => true]);
