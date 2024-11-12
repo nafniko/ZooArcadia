@@ -13,12 +13,12 @@ header("X-Content-Type-Options: nosniff");
 
 header_remove("X-Powered-By");
 
-// define("_DOMAIN_", "localhost");
-// define("_DB_SERVER_", "	uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com");
-// define("_DB_NAME_", "zooarcadia");
-// define("_DB_USER_", "h3wn8n8g66i1rour");
-// define("_DB_PASSWORD_", "");
-// define("_ASSETS_IMAGES", "/asset/");
+define("_DOMAIN_", "uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com");
+define("_DB_SERVER_", "	uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com");
+define("_DB_NAME_", "sto2g9dado760ufv");
+define("_DB_USER_", "h3wn8n8g66i1rour");
+define("_DB_PASSWORD_", "i9j7we0uegcy6a5g");
+define("_ASSETS_IMAGES", "/asset/");
 define("_STMP_PASSWORD_", "rjUImBqN7QMgXT5P");
 
 
