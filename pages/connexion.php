@@ -1,9 +1,11 @@
 
 <?php
-require_once __DIR__ . '/../lib/config.php';
-require_once __DIR__ . '/../lib/pdo.php';
-require_once __DIR__ . '/../lib/session.php';
-require_once __DIR__ . '/../lib/content-index.php';
+require_once  '../lib/config.php';
+require_once  '../lib/pdo.php';
+require_once  '../lib/session.php';
+require_once  '../lib/mongodb.php';
+require_once  '../lib/route.php';
+require_once  '../lib/content-index.php';
 
 
 
@@ -25,7 +27,8 @@ if (isset($_POST["connexion"])){
     }      
 };
 
-require_once __DIR__ . '/../templates/_header.php';
+require_once  '../templates/_header.php';
+
 
     ?>
 

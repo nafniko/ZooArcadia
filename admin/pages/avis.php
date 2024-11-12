@@ -1,6 +1,13 @@
 <?php 
-require_once __DIR__ . '../../vendor/autoload.php';
-require_once __DIR__ . '../../lib/mongodb.php';
+require_once  '../../vendor/autoload.php';
+require_once  '../../lib/config.php';
+require_once  '../../lib/pdo.php';
+require_once  '../../lib/session.php';
+require_once  '../../lib/mongodb.php';
+require_once  '../../lib/route.php';
+require_once  '../../lib/content-index.php';
+require_once  "../../lib/gestionboutons.php";
+require_once  './../templates/header.php';
 
 
 
@@ -8,7 +15,6 @@ $lesAvis = $collection->find(['validé' => false]);
 
 
 
-require_once __DIR__ . '../templates/header.php';
 
 
 ?>
@@ -54,4 +60,5 @@ require_once __DIR__ . '../templates/header.php';
 
     </div>
     <?php
-require_once __DIR__ . '../templates/footer.php';
+require_once  './../templates/footer.php';
+

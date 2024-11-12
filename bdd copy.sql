@@ -332,4 +332,7 @@ UPDATE users SET Passwords = '$2y$10$U/XvmUFZjeGcLj2WX0mUV.jkIRV5Y3q/OovAJO7Ox2L
 UPDATE users SET Passwords = '$2y$10$SRwKHIJZA.etsB2ywT5cIuwQDYQnPms2WBCX/45uQ75eAy3.c.pb.' WHERE users.id = 2;
 UPDATE users SET Passwords = '$2y$10$ffxdhIlHgPjmDjrPdZy47OFPB02zcZoNRZKTw0OQlH8FacyTOUV6i' WHERE users.id = 3;
 
+INSERT INTO `rapport` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,'2024-11-04 20:23:43',NULL,NULL),(2,'choisir un animal','choisir une race','','','','0000-00-00','2024-11-07 10:53:59',NULL,'ok'),(3,'choisir un animal','choisir une race','','','','0000-00-00','2024-11-07 10:55:58',NULL,'ok'),(4,'choisir un animal','choisir une race','','','','0000-00-00','2024-11-07 10:56:50',NULL,'ok'),(5,'choisir un animal','choisir une race','','','','0000-00-00','2024-11-07 11:02:23',NULL,'ok');
 
+INSERT INTO `repas` VALUES (1,NULL,1,'banane',50,'2024-11-04 20:18:56',NULL,NULL),(2,NULL,2,'pomme',50,'2024-11-05 00:00:00',NULL,NULL),(3,NULL,7,'pomme',12,'2024-11-14 00:00:00',NULL,NULL);
+INSERT INTO `roles` VALUES (3,'admin'),(2,'employee'),(1,'veterinaire');

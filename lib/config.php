@@ -18,19 +18,12 @@ define("_DOMAIN_", "localhost");
 define("_DB_SERVER_", "localhost");
 define("_DB_NAME_", "zooarcadia");
 define("_DB_USER_", "root");
-define("_DB_PASSWORD_", "");
+define("_DB_PASSWORD_", "ok");
 define("_ASSETS_IMAGES", "/asset/");
 define("_STMP_PASSWORD_", "rjUImBqN7QMgXT5P");
 
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
 
-$dbHost = $_ENV['DB_HOST'];
-$dbUser = $_ENV['DB_USER'];
-$dbName = $_ENV['DB_NAME'];
-$dbPassword = $_ENV['DB_PASSWORD'];
-$mongoUri = $_ENV['MONGO_URI'];
 
 
 

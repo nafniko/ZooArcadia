@@ -1,8 +1,14 @@
 <?php 
-require_once __DIR__ . '../../vendor/autoload.php';
+require_once  '../../vendor/autoload.php';
+require_once  '../../lib/config.php';
+require_once  '../../lib/pdo.php';
+require_once  '../../lib/session.php';
+require_once  '../../lib/mongodb.php';
+require_once  '../../lib/route.php';
+require_once  '../../lib/content-index.php';
+require_once  "../../lib/gestionboutons.php";
+require_once  './../templates/header.php';
 
-
-require_once __DIR__ . './../templates/header.php';
 
 $connexion = new MongoDB\Client("mongodb://localhost:27017");
 
@@ -12,7 +18,6 @@ $collection = $bdd->animaux;
     $animaux = $collection->find();
 
 ?>
-
     
     <div class="row  align-items-start">
     <h1 class="col-12 text-white text-center m-3">Consulter les stats</h1>

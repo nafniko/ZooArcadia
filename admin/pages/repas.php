@@ -1,5 +1,13 @@
 <?php
-require_once __DIR__ . './../templates/header.php';
+require_once  '../../vendor/autoload.php';
+require_once  '../../lib/config.php';
+require_once  '../../lib/pdo.php';
+require_once  '../../lib/session.php';
+require_once  '../../lib/mongodb.php';
+require_once  '../../lib/route.php';
+require_once  '../../lib/content-index.php';
+require_once  "../../lib/gestionboutons.php";
+require_once  './../templates/header.php';
 
 
 $getRepas=getRepas($pdo);
@@ -12,7 +20,7 @@ $getAnimal=getAnimal($pdo);
     <div class="container text-center">
         <div class="row align-items-start">
             <?php
-require_once __DIR__ . '../templates/repas.php';
+require_once '../templates/_repas.php';
 
 ?>
 
@@ -59,6 +67,7 @@ require_once __DIR__ . '../templates/repas.php';
 </div>
 
 <?php 
-require_once __DIR__ . './../templates/footer.php';
+require_once  './../templates/footer.php';
+
 
 ?>
