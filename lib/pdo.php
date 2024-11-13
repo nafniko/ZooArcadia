@@ -17,21 +17,15 @@ require_once __DIR__ . '/config.php';
 //     die('Erreur MySQL : ' . $e->getMessage());
 // }
 
-$url = getenv('JAWSDB_URL');
-$dbparts = parse_url($url);
-
-$hostname = getenv('_DOMAIN_');
-$username = getenv('_DB_USER_');
-$password = getenv('_DB_PASSWORD_');
-$database = getenv('_DB_NAME_');
+$host = getenv('DB_HOST');
+$user = getenv('DB_USER');
+$password = getenv('DB_PASSWORD');
+$database = getenv('DB_NAME');
 
 try {
-    $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
-    // set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    $pdo = new PDO("mysql:host=$host;dbname=$database;charset=utf8mb4", $user, $password);
+} catch(Exception $e) {
+    die('Erreur MySQL : ' . $e->getMessage());
 }
 
 // Récupérer l'URL de la base de données depuis l'environnement (Heroku)
