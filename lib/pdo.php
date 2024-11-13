@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+ require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/config.php';
 
 // try {
@@ -20,20 +20,19 @@ require_once __DIR__ . '/config.php';
 $url = getenv('JAWSDB_URL');
 $dbparts = parse_url($url);
 
-$hostname = $dbparts['host'];
-$username = $dbparts['user'];
-$password = $dbparts['pass'];
-$database = ltrim($dbparts['path'],'/');
+$hostname = getenv('_DOMAIN_');
+$username = getenv('_DB_USER_');
+$password = getenv('_DB_PASSWORD_');
+$database = getenv('_DB_NAME_');
+
 try {
-    $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+    $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
     // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connected successfully";
-    }
-catch(PDOException $e)
-    {
+} catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
-    }
+}
 
 // Récupérer l'URL de la base de données depuis l'environnement (Heroku)
 // $dbUrl = getenv('JAWSDB_URL');

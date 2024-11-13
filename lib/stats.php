@@ -1,4 +1,4 @@
-<?php    
+<?php
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/pdo.php';
@@ -25,4 +25,4 @@ if (isset($data['animalId'])) {
     } catch (Exception $e) {
         echo json_encode(['message' => 'Erreur : ' . $e->getMessage()]);
     }
-} 
+}

@@ -8,6 +8,7 @@ use MongoDB\BSON\ObjectId;
 use Exception;
 
 $uri = getenv('MONGODB_URI');
+var_dump($uri);
 $connexion = new Client($uri);
 $bdd = $connexion->zooarcadia;
 $collection = $bdd->avis;
