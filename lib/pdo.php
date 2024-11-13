@@ -8,14 +8,32 @@ require_once __DIR__ . '/config.php';
 // } catch(Exception $e) {
 //     die('Erreur MySQL : ' . $e->getMessage());
 // }
-$uri = getenv('JAWSDB_URL');
+// $uri = getenv('JAWSDB_URL');
 
-try {
-    $pdo = new PDO($uri);
+// try {
+//     $pdo = new PDO($uri);
    
-} catch(Exception $e) {
-    die('Erreur MySQL : ' . $e->getMessage());
-}
+// } catch(Exception $e) {
+//     die('Erreur MySQL : ' . $e->getMessage());
+// }
+
+$url = getenv('JAWSDB_URL');
+$dbparts = parse_url($url);
+
+$hostname = $dbparts['host'];
+$username = $dbparts['user'];
+$password = $dbparts['pass'];
+$database = ltrim($dbparts['path'],'/');
+try {
+    $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
 
 // Récupérer l'URL de la base de données depuis l'environnement (Heroku)
 // $dbUrl = getenv('JAWSDB_URL');
