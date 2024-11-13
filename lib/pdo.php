@@ -8,20 +8,12 @@ require_once __DIR__ . '/config.php';
 // } catch(Exception $e) {
 //     die('Erreur MySQL : ' . $e->getMessage());
 // }
-$uri = getenv('JAWSDB_URL'); // Récupère l'URI de la variable d'environnement
-
-if ($uri === false) {
-    die('La variable d\'environnement JAWSDB_URL n\'est pas définie.');
-}
+$uri = getenv('JAWSDB_URL');
 
 try {
-    // Tentative de connexion à la base de données avec l'URI
     $pdo = new PDO($uri);
-    
-    // Active le mode d'affichage des erreurs de PDO
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (Exception $e) {
-    // Affiche l'erreur si la connexion échoue
+   
+} catch(Exception $e) {
     die('Erreur MySQL : ' . $e->getMessage());
 }
 
