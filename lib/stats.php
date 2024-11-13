@@ -5,7 +5,7 @@ require_once __DIR__ . '/pdo.php';
 require_once __DIR__ . '/mongodb.php';
 require_once __DIR__ . '/content-index.php';
 
-$collection = $bdd->animaux; 
+$collection = $bdd->animaux;
 
 $data = json_decode(file_get_contents("php://input"), true);
 if (isset($data['animalId'])) {
