@@ -7,7 +7,7 @@ use MongoDB\Client;
 use MongoDB\BSON\ObjectId;
 use Exception;
 
-$uri = 'mongodb+srv://zoo:Azerty11>@zooarcadia.njatc.mongodb.net/?retryWrites=true&w=majority&appName=zooarcadia';
+$uri = 'mongodb+srv://zoo:Azerty11@zooarcadia.njatc.mongodb.net/?retryWrites=true&w=majority&appName=zooarcadia';
 $connexion = new Client($uri);
 $bdd = $connexion->zooarcadia;
 $collection = $bdd->avis;
