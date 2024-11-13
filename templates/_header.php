@@ -1,12 +1,7 @@
 <?php
 
 
-require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/session.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/mongodb.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/route.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
+
 
 $currentpage=basename($_SERVER['SCRIPT_NAME']);
 
@@ -23,8 +18,6 @@ exit();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?=htmlentities( $route[$currentpage]["meta-description"]) ?>">
-
-
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">

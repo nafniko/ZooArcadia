@@ -1,5 +1,5 @@
 <?php
-require_once  "/xampp/htdocs/ZooArcadia/vendor/autoload.php"; 
+ require_once __DIR__ . '/../vendor/autoload.php';
 
 
 header("X-Frame-Options: SAMEORIGIN"); 
@@ -10,27 +10,19 @@ header("Content-Security-Policy: default-src 'self'; style-src 'self' https://fo
 header("Content-Type: text/html; charset=UTF-8"); 
 header("X-Content-Type-Options: nosniff"); 
 
-http_response_code(500);
 
 header_remove("X-Powered-By");
 
-define("_DOMAIN_", "localhost");
-define("_DB_SERVER_", "localhost");
-define("_DB_NAME_", "zooarcadia");
-define("_DB_USER_", "root");
-define("_DB_PASSWORD_", "");
+define("_DOMAIN_", "uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com");
+define("_DB_SERVER_", "	uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com");
+define("_DB_NAME_", "sto2g9dado760ufv");
+define("_DB_USER_", "h3wn8n8g66i1rour");
+define("_DB_PASSWORD_", "i9j7we0uegcy6a5g");
 define("_ASSETS_IMAGES", "/asset/");
 define("_STMP_PASSWORD_", "rjUImBqN7QMgXT5P");
 
 
-$dotenv = Dotenv\Dotenv::createImmutable('C:/xampp/htdocs/ZooArcadia');
-$dotenv->load();
 
-$dbHost = $_ENV['DB_HOST'];
-$dbUser = $_ENV['DB_USER'];
-$dbName = $_ENV['DB_NAME'];
-$dbPassword = $_ENV['DB_PASSWORD'];
-$mongoUri = $_ENV['MONGO_URI'];
 
 
 

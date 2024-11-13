@@ -1,6 +1,6 @@
-CREATE DATABASE Zooarcadia;
+-- CREATE DATABASE sto2g9dado760ufv;
 
-USE Zooarcadia;
+USE sto2g9dado760ufv;
 
 CREATE TABLE roles
 (
@@ -67,17 +67,16 @@ CREATE TABLE rapport
    
 );
 
-CREATE TABLE animal_images 
-(
-    id_animal integer ,
-    id_images integer ,
-    primary key (id_animal, id_images),
-    foreign key (id_images) references animaux(id),
-    foreign key (id_animal) references animaux(images)
+CREATE TABLE animal_images (
+    id_animal INT,
+    id_images INT,
+    PRIMARY KEY (id_animal, id_images),
+    FOREIGN KEY (id_animal) REFERENCES animaux(id),
+    FOREIGN KEY (id_images) REFERENCES images(id)
 );
 
-CREATE USER 'admin'@'localhost' IDENTIFIED BY 'OK';
-GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
+-- CREATE USER 'admin'@'localhost' IDENTIFIED BY 'OK';
+-- GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
 
 CREATE TABLE contenu
 (
@@ -86,7 +85,7 @@ CREATE TABLE contenu
     descriptions text,
     images integer,
     liens varchar(250),
-    idHabitat int
+    idHabitat int,
     foreign key (images) REFERENCES images(id)
 
 );
@@ -134,7 +133,7 @@ CREATE TABLE mail (
     email varchar(255) not null ,
     subjects VARCHAR(255) NOT NULL,                
     body TEXT NOT NULL,                           
-    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP 
 );
 
 
@@ -310,8 +309,8 @@ VALUES
 ('Rene', 'Rainette ', 3, 30 );
 
 
-CREATE USER 'employee'@'localhost' IDENTIFIED BY 'OK';
-GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
+-- CREATE USER 'employee'@'localhost' IDENTIFIED BY 'OK';
+-- GRANT ALL PRIVILEGES ON zooarcadia.* TO 'admin'@'localhost';
 
 INSERT INTO roles (nom) 
 VALUES
@@ -332,4 +331,6 @@ UPDATE users SET Passwords = '$2y$10$U/XvmUFZjeGcLj2WX0mUV.jkIRV5Y3q/OovAJO7Ox2L
 UPDATE users SET Passwords = '$2y$10$SRwKHIJZA.etsB2ywT5cIuwQDYQnPms2WBCX/45uQ75eAy3.c.pb.' WHERE users.id = 2;
 UPDATE users SET Passwords = '$2y$10$ffxdhIlHgPjmDjrPdZy47OFPB02zcZoNRZKTw0OQlH8FacyTOUV6i' WHERE users.id = 3;
 
+INSERT INTO `rapport` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,'2024-11-04 20:23:43',NULL,NULL),(2,'choisir un animal','choisir une race','','','','0000-00-00','2024-11-07 10:53:59',NULL,'ok'),(3,'choisir un animal','choisir une race','','','','0000-00-00','2024-11-07 10:55:58',NULL,'ok'),(4,'choisir un animal','choisir une race','','','','0000-00-00','2024-11-07 10:56:50',NULL,'ok'),(5,'choisir un animal','choisir une race','','','','0000-00-00','2024-11-07 11:02:23',NULL,'ok');
 
+INSERT INTO `repas` VALUES (1,NULL,1,'banane',50,'2024-11-04 20:18:56',NULL,NULL),(2,NULL,2,'pomme',50,'2024-11-05 00:00:00',NULL,NULL),(3,NULL,7,'pomme',12,'2024-11-14 00:00:00',NULL,NULL);

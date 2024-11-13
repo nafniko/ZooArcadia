@@ -1,7 +1,11 @@
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
+require_once  '../lib/config.php';
+require_once  '../lib/pdo.php';
+require_once  '../lib/session.php';
+require_once  '../lib/mongodb.php';
+require_once  '../lib/route.php';
+require_once  '../lib/content-index.php';
 
-require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -122,4 +126,4 @@ else{
  <?php
 };
 
-require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php";
+require_once __DIR__ . '/../templates/_footer.php';

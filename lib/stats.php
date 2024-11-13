@@ -1,9 +1,9 @@
 <?php    
-require_once "/xampp/htdocs/ZooArcadia/lib/config.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/pdo.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/mongodb.php";
-require_once "/xampp/htdocs/ZooArcadia/lib/content-index.php";
 
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/pdo.php';
+require_once __DIR__ . '/mongodb.php';
+require_once __DIR__ . '/content-index.php';
 
 $collection = $bdd->animaux; 
 

@@ -1,6 +1,14 @@
 <?php
+require_once  '../../vendor/autoload.php';
+require_once  '../../lib/config.php';
+require_once  '../../lib/pdo.php';
+require_once  '../../lib/session.php';
+require_once  '../../lib/mongodb.php';
+require_once  '../../lib/route.php';
+require_once  '../../lib/content-index.php';
+require_once  "../../lib/gestionboutons.php";
+require_once  './../templates/header.php';
 
-    require_once "/xampp/htdocs/ZooArcadia/admin/templates/header.php";
     $animaux=getAnimaux($pdo);
     $animauxcom=getAnimauxCom($pdo);
     $getRepas=getRepas($pdo);
@@ -20,7 +28,7 @@
 
     <?php
 
-    require_once "/xampp/htdocs/ZooArcadia/admin/templates/_rapport.php";
+require_once '../templates/_rapport.php';
 
     ?>
 
@@ -132,5 +140,7 @@
     </div>
 </div>
 <?php 
-require_once "/xampp/htdocs/ZooArcadia/admin/templates/footer.php";
+require_once  './../templates/footer.php';
+
+
 ?>
