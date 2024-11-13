@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 require_once  '../lib/config.php';
 require_once  '../lib/pdo.php';
 require_once  '../lib/session.php';
@@ -38,8 +39,8 @@ if(isset($_POST["submit"]) && isset($_POST["email"]) && isset($_POST["message"])
         $mail->isHTML(true);
         $mail->Subject = $objet;
         $mail->Body = $sendmessage;
-        $mail->setFrom("zooarcadianiko1960@gmail.com",'zoo'); 
-        $mail->addAddress("zooarcadianiko1960@gmail.com",'zoo'); 
+        $mail->setFrom("zooarcadianiko1960@gmail.com",'zoo');
+        $mail->addAddress("zooarcadianiko1960@gmail.com",'zoo');
         $mail->CharSet = 'UTF-8';
         $mail->Encoding = 'base64';
         $mail->send();
@@ -48,7 +49,7 @@ if(isset($_POST["submit"]) && isset($_POST["email"]) && isset($_POST["message"])
         }
 
   
-       ?> 
+       ?>
        <br>
        <br>
        <br>
@@ -74,7 +75,7 @@ if(isset($_POST["submit"]) && isset($_POST["email"]) && isset($_POST["message"])
     }
     else{
 
-        ?> 
+        ?>
         <br>
         <br>
         <br>
@@ -101,7 +102,7 @@ if(isset($_POST["submit"]) && isset($_POST["email"]) && isset($_POST["message"])
 }
 else{
 
-    ?> 
+    ?>
     <br>
     <br>
     <br>
@@ -124,6 +125,6 @@ else{
 <br>
 <br>
  <?php
-};
+}
 
 require_once __DIR__ . '/../templates/_footer.php';

@@ -61,7 +61,7 @@ exit();
                         <?php
                         foreach ($navLinks as $key => $navLink) { ?>
                             <li class="nav-item myhover">
-                                <a href="<?= htmlentities( $navLink['path'] )?>" class="nav-link d-flex flex-column justify-content-center align-items-center ms-5"><?=  $navLink["icons"] ?> <?= htmlentities( $navLink["title"] )?> </a>
+                                <a href="<?= htmlentities( $navLink['path'] )?>" class="nav-link d-flex flex-column justify-content-center align-items-center ms-5" aria-label="<?= htmlentities($navLink["title"]) ?>"><?= $navLink["icons"] ?> <?= htmlentities( $navLink["title"] )?></a>
                             </li>
                         <?php } ?>
 
@@ -78,4 +78,4 @@ exit();
     </div>
     <div class="filter-z-index"></div>
 </header>
-        <main> 
+        <main>
