@@ -1,86 +1,34 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/config.php';
 
-use Symfony\Component\Security\Csrf\CsrfTokenManager;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use MongoDB\Client;
-use MongoDB\BSON\ObjectId;
-use Exception;
-
+// try {
+//     $pdo = new PDO("mysql:dbname=". _DB_NAME_ .";host="._DOMAIN_.";charset=utf8mb4",_DB_USER_,_DB_PASSWORD_);
+   
+// } catch(Exception $e) {
+//     die('Erreur MySQL : ' . $e->getMessage());
+// }
+try {
+    $pdo = new PDO("mysql:dbname=sto2g9dado760ufv;host=uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com;charset=utf8mb4","h3wn8n8g66i1rour","i9j7we0uegcy6a5g");
 $uri = 'mongodb+srv://zoo:Azerty11@cluster0.njatc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-$connexion = new Client($uri);
-$bdd = $connexion->zooarcadia;
-$collection = $bdd->avis;
-
-// Test de connexion
-try {
-    $connexion->selectDatabase('admin')->command(['ping' => 1]);
-    echo "Pinged your deployment. Successfully connected to MongoDB!\n";
-} catch (Exception $e) {
-    die("Erreur de connexion : " . $e->getMessage());
+   
+} catch(Exception $e) {
+    die('Erreur MySQL : ' . $e->getMessage());
 }
 
-$csrfTokenManager = new CsrfTokenManager();
-$csrfToken = $csrfTokenManager->getToken('avis_form')->getValue();
+// Récupérer l'URL de la base de données depuis l'environnement (Heroku)
+// $dbUrl = getenv('JAWSDB_URL');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['poster'])) {
-        $token = new CsrfToken('avis_form', $_POST['csrf_token']);
-        
-        if (!$csrfTokenManager->isTokenValid($token)) {
-            die("Erreur : Jeton CSRF invalide. Veuillez réessayer.");
-        }
-        
-        $avis = htmlentities($_POST["avis"]);
-        $pseudo = htmlentities($_POST["pseudo"]);
-        
-        try {
-            $avisData = [
-                'pseudo' => $pseudo,
-                'avis' => $avis,
-                'validé' => false,
-            ];
-            $result = $collection->insertOne($avisData);
-            echo "Avis inséré : " . $result->getInsertedId();
-            header("Location: /index.php");
-            exit();
-        } catch (Exception $e) {
-            echo "Erreur lors de l'insertion : " . $e->getMessage();
-        }
-    }
-    
-    if (isset($_POST['valider'])) {
-        try {
-            $idAvis = new ObjectId($_POST['valider']);
-            $collection->updateOne(
-                ['_id' => $idAvis],
-                ['$set' => ['validé' => true]]
-            );
-            echo "Avis validé avec succès.";
-            header("Location: /admin/pages/avis.php");
-            exit();
-        } catch (Exception $e) {
-            echo "Erreur lors de la validation : " . $e->getMessage();
-        }
-    }
-    
-    if (isset($_POST['sup_avis'])) {
-        try {
-            $idAvis = new ObjectId($_POST['sup_avis']);
-            $collection->deleteOne(['_id' => $idAvis]);
-            echo "Avis supprimé avec succès.";
-            header("Location: /admin/pages/avis.php");
-            exit();
-        } catch (Exception $e) {
-            echo "Erreur lors de la suppression : " . $e->getMessage();
-        }
-    }
-}
+// // Extraire les composants de l'URL
+// $parsedUrl = parse_url($dbUrl);
 
-// Récupération des avis validés
-try {
-    $lesAvis = $collection->find(['validé' => true]);
-} catch (Exception $e) {
-    echo "Erreur lors de la récupération des avis : " . $e->getMessage();
-}
+// // Extraire chaque composant nécessaire
+// $dbHost = $parsedUrl['host'];
+// $dbPort = $parsedUrl['port'];
+// $dbName = ltrim($parsedUrl['path'], '/'); // Enlever le "/" initial
+// $dbUser = $parsedUrl['user'];
+// $dbPassword = $parsedUrl['pass'];
 
+// // Créer la connexion PDO avec ces informations
+// $pdo = new PDO("mysql:dbname=$dbName;host=$dbHost;port=$dbPort;charset=utf8mb4", $dbUser, $dbPassword);
+// $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
