@@ -1,90 +1,90 @@
 <?php  
 require_once __DIR__ . '/../vendor/autoload.php';
 
-
 use Symfony\Component\Security\Csrf\CsrfTokenManager;
 use Symfony\Component\Security\Csrf\CsrfToken;
+use MongoDB\Client;
 use MongoDB\BSON\ObjectId;
 use Exception;
-use MongoDB\Client;
-// Replace the placeholder with your Atlas connection string
-$uri = 'mongodb+srv://zoo:Azerty11@cluster0.njatc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-// Create a new client and connect to the server
-$connexion = new MongoDB\Client($uri);
+
+$uri = 'mongodb+srv://zoo:Azerty11>@zooarcadia.njatc.mongodb.net/?retryWrites=true&w=majority&appName=zooarcadia';
+$connexion = new Client($uri);
 $bdd = $connexion->zooarcadia;
 $collection = $bdd->avis;
-$lesAvis = $collection->find(['validé' => true]);
-$csrfTokenManager = new CsrfTokenManager();
-$csrfToken = $csrfTokenManager->getToken('avis_form')->getValue();
+
+// Test de connexion
 try {
-    // Send a ping to confirm a successful connection
     $connexion->selectDatabase('admin')->command(['ping' => 1]);
-    echo "Pinged your deployment. You successfully connected to MongoDB!\n";
+    echo "Pinged your deployment. Successfully connected to MongoDB!\n";
 } catch (Exception $e) {
-    printf($e->getMessage());
+    die("Erreur de connexion : " . $e->getMessage());
 }
 
-if (isset($_POST['poster'])) {
-    $token = new CsrfToken('avis_form', $_POST['csrf_token']);
-    if (!$csrfTokenManager->isTokenValid($token)) {
-        echo "Erreur : Jeton CSRF invalide. Veuillez réessayer.";
-        exit();
-    }
-if(isset($_POST['poster'])){
-    $avis= htmlentities($_POST["avis"]);
-    $pseudo= htmlentities($_POST["pseudo"]);
-    
-    $collection = $bdd->avis;
+$csrfTokenManager = new CsrfTokenManager();
+$csrfToken = $csrfTokenManager->getToken('avis_form')->getValue();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['poster'])) {
+        $token = new CsrfToken('avis_form', $_POST['csrf_token']);
+        
+        if (!$csrfTokenManager->isTokenValid($token)) {
+            die("Erreur : Jeton CSRF invalide. Veuillez réessayer.");
+        }
+        
+        $avis = htmlentities($_POST["avis"]);
+        $pseudo = htmlentities($_POST["pseudo"]);
+        
         try {
-            $avisdata = [
+            $avisData = [
                 'pseudo' => $pseudo,
                 'avis' => $avis,
                 'validé' => false,
-                
             ];
-            $result = $collection->insertOne($avisdata);
-            echo "avis inséré : " . $result->getInsertedId() . "<br>";
+            $result = $collection->insertOne($avisData);
+            echo "Avis inséré : " . $result->getInsertedId();
             header("Location: /index.php");
             exit();
         } catch (Exception $e) {
-            echo "Erreur lors de l'insertion : " . $e->getMessage() . "<br>";
+            echo "Erreur lors de l'insertion : " . $e->getMessage();
         }
     }
-   
-    
-    $lesAvis = $collection->find(['validé' => true]);
     
     if (isset($_POST['valider'])) {
-        try { 
-            $idAvis = new MongoDB\BSON\ObjectId($_POST['valider']);
+        try {
+            $idAvis = new ObjectId($_POST['valider']);
             $collection->updateOne(
-    
-        ['_id' => $idAvis ],
-        ['$set' => ['validé' => true]]);
-        echo "Avis validé avec succès.";
-        header("Location: /admin/pages/avis.php");
-    
-        
-    
-    } catch (Exception $e) {
-        echo "Erreur lors de la validation : " . $e->getMessage();
-    }
+                ['_id' => $idAvis],
+                ['$set' => ['validé' => true]]
+            );
+            echo "Avis validé avec succès.";
+            header("Location: /admin/pages/avis.php");
+            exit();
+        } catch (Exception $e) {
+            echo "Erreur lors de la validation : " . $e->getMessage();
+        }
     }
     
     if (isset($_POST['sup_avis'])) {
-        try {  
-             $idAvis = new ObjectId($_POST['sup_avis']);
+        try {
+            $idAvis = new ObjectId($_POST['sup_avis']);
             $collection->deleteOne(['_id' => $idAvis]);
-        echo "Avis validé avec succès.";
-        header("Location: /admin/pages/avis.php");
-    
-    } catch (Exception $e) {
-        echo "Erreur lors de la validation : " . $e->getMessage();
+            echo "Avis supprimé avec succès.";
+            header("Location: /admin/pages/avis.php");
+            exit();
+        } catch (Exception $e) {
+            echo "Erreur lors de la suppression : " . $e->getMessage();
+        }
     }
-    }
-   
-
 }
+
+// Récupération des avis validés
+try {
+    $lesAvis = $collection->find(['validé' => true]);
+} catch (Exception $e) {
+    echo "Erreur lors de la récupération des avis : " . $e->getMessage();
+}
+?>
+
 
 
 
