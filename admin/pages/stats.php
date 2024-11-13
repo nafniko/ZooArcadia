@@ -1,5 +1,5 @@
-<?php 
-require_once  '../../vendor/autoload.php';
+
+<?php require_once  '../../vendor/autoload.php';
 require_once  '../../lib/config.php';
 require_once  '../../lib/pdo.php';
 require_once  '../../lib/session.php';
@@ -50,7 +50,6 @@ $collection = $bdd->animaux;
       
 
         
-<?php 
-require_once __DIR__ . './../templates/footer.php';
+<?php require_once __DIR__ . './../templates/footer.php';
 
 ?>
