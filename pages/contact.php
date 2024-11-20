@@ -1,11 +1,11 @@
-<?php require_once  "/xampp/htdocs/ZooArcadia/templates/_header.php"; 
-
-
-
-
-
-
-
+<?php 
+require_once  '../lib/config.php';
+require_once  '../lib/pdo.php';
+require_once  '../lib/session.php';
+require_once  '../lib/mongodb.php';
+require_once  '../lib/route.php';
+require_once  '../lib/content-index.php';
+require_once  '../templates/_header.php';
 
 ?>
 
@@ -22,6 +22,10 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Pierre@visteur.fr" required>
                             </div>
                             <div class="mb-3 pt-3">
+                                <label for="email" class="form-label">objet</label>
+                                <input type="objet" class="form-control" id="objet" name="objet" placeholder="objet" required>
+                            </div>
+                            <div class="mb-3 pt-3">
                                 <label for="message" class="form-label">Votre Message</label>
                                 <textarea class="form-control" id="message" name="message" placeholder="Message !" rows="3" required></textarea>
                             </div>
@@ -33,4 +37,8 @@
                 </div>
             </div>
        
-<?php require_once "/xampp/htdocs/ZooArcadia/templates/_footer.php"; ?>
+<?php
+
+require_once __DIR__ . '/../templates/_footer.php';
+
+; ?>

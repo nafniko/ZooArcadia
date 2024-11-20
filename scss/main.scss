@@ -1,5 +1,16 @@
 @import 'custom';
+@import "~bootstrap/scss/bootstrap";
 
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  width: 100%;
+}
 
 body{
     width: 100%;
@@ -19,13 +30,18 @@ body{
 
   main {
     width: 100%;
-    height: 100%;
+   
     background-image: url('../asset/feuilles.png'), url('../asset/branc.png');
     background-repeat: no-repeat, no-repeat;
     background-position: top left, bottom right -10%;
+    padding-bottom: 10%;
+    padding-top: 2%;
 }
+h1, h2{
+  text-shadow: rgba(0, 0, 0, 0.37) 0px 5px 7px ;
 
 
+}
 
 .myimg{
     height: 400PX;
@@ -54,13 +70,21 @@ body{
     left:0%;
     top: 65%;
     height: auto;
-    
-
-      :hover{
-       
-        color: rgba(107, 142, 35, 1);
-      }
   }
+nav a{
+  color: white !important;
+}
+nav a:hover{
+  color: $secondary !important;
+}
+
+.mynav{
+  background-color: $primary;
+}
+.navbar-collapse.show {
+  background-color: $primary;
+}
+
 .filter-z-index {
     position: absolute;
     z-index: 2; 
@@ -84,7 +108,8 @@ body{
 footer{
     background-color:rgba(75, 64, 51, 1) ;
     width: 100%;
-    padding: 20px;
+    padding: 5%;
+    margin-top: auto;
   
     
 }
@@ -99,7 +124,48 @@ footer{
 
 .imgcontents{
 
-  width: 318px;
+  width: 325px;
   height: 240px;
   object-fit: cover;
+  box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2);
+  
 }
+
+
+.habitat-img {
+  width: 100%; 
+  max-width: 100%; 
+  height: 200px;
+  object-fit: cover; 
+  border-radius: 10%;
+  }
+.myhover :hover{
+ 
+
+  transition: all 400ms cubic-bezier(.47,1.64,.41,.8);
+  transform: scale(1.1);
+}
+
+.mycard{
+  border: 0px;
+  background-color: $primary;
+  color:white;
+}
+
+.fix{
+  height: 300px;
+}
+
+.color_dark{
+  background-color:rgba(75, 64, 51, 1) ;
+
+}
+
+.bulle{
+  width: 400px;
+  height: 200px;
+}
+
+
+
+

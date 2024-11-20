@@ -11965,9 +11965,54 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.mycard {
-  background-color: rgb(44, 95, 45);
-  color: white;
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgba(44, 95, 45, 1);
+  --bs-btn-border-color:rgba(44, 95, 45, 1);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #0b5ed7;
+  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #0a58ca;
+  --bs-btn-active-border-color: #0a53be;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #0d6efd;
+  --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-image: var(--bs-navbar-toggler-icon-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-color: rgb(107, 142, 35);
+}
+
+.navbar-toggler {
+  padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+  font-size: var(--bs-navbar-toggler-font-size);
+  line-height: 1;
+  color: rgb(0, 0, 0);
+  background-color: rgb(107, 142, 35);
+  border: var(--bs-border-width) solid rgba(11, 255, 56, 0.15);
+  border-radius: var(--bs-navbar-toggler-border-radius);
+  transition: var(--bs-navbar-toggler-transition);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
 }
 
 body {
@@ -11986,10 +12031,15 @@ body {
 
 main {
   width: 100%;
-  height: 100%;
   background-image: url("../asset/feuilles.png"), url("../asset/branc.png");
   background-repeat: no-repeat, no-repeat;
   background-position: top left, bottom right -10%;
+  padding-bottom: 10%;
+  padding-top: 2%;
+}
+
+h1, .h1, h2, .h2 {
+  text-shadow: rgba(0, 0, 0, 0.37) 0px 5px 7px;
 }
 
 .myimg {
@@ -12022,8 +12072,21 @@ main {
   top: 65%;
   height: auto;
 }
-.nav-z-index :hover {
-  color: rgb(107, 142, 35);
+
+nav a {
+  color: white !important;
+}
+
+nav a:hover {
+  color: rgb(44, 95, 45) !important;
+}
+
+.mynav {
+  background-color: rgb(107, 142, 35);
+}
+
+.navbar-collapse.show {
+  background-color: rgb(107, 142, 35);
 }
 
 .filter-z-index {
@@ -12050,7 +12113,8 @@ main {
 footer {
   background-color: rgb(75, 64, 51);
   width: 100%;
-  padding: 20px;
+  padding: 5%;
+  margin-top: auto;
 }
 
 .lien-buttons {
@@ -12062,8 +12126,42 @@ footer {
 }
 
 .imgcontents {
-  width: 318px;
+  width: 325px;
   height: 240px;
   -o-object-fit: cover;
      object-fit: cover;
+  box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2);
+}
+
+.habitat-img {
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10%;
+}
+
+.myhover :hover {
+  transition: all 400ms cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  transform: scale(1.1);
+}
+
+.mycard {
+  border: 0px;
+  background-color: rgb(107, 142, 35);
+  color: white;
+}
+
+.fix {
+  height: 300px;
+}
+
+.color_dark {
+  background-color: rgb(75, 64, 51);
+}
+
+.bulle {
+  width: 400px;
+  height: 200px;
 }/*# sourceMappingURL=main.css.map */

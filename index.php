@@ -1,49 +1,51 @@
 <?php
    
-   require_once "./lib/config.php";
-   require_once "./lib/pdo.php";
-   
-//    require_once "./lib/content-index.php";
-
+   require_once 'lib/config.php';
+require_once  './lib/pdo.php';
+require_once  './lib/session.php';
+require_once  './lib/mongodb.php';
+require_once  './lib/route.php';
+require_once  './lib/content-index.php';
    require_once "./templates/_header.php";
-
-$query=$pdo->prepare("SELECT *,images.chemin FROM contenu LEFT JOIN images ON contenu.id_contenu = images.id_images") ;
-$query->execute() ; 
-$contents=$query->fetchAll(PDO::FETCH_ASSOC) ;
-
-$query=$pdo->prepare("SELECT *,images.chemin FROM habitat LEFT JOIN images ON habitat.id_habitat = images.id_images") ;
-$query->execute() ; 
-$carousselHabits=$query->fetchAll(PDO::FETCH_ASSOC) ;
+    
+ $contents= getContents($pdo);
+ $contentimages=getContentImages($pdo);
+ $getAnimal =getAnimal ($pdo);
+ 
 
 ?>
- 
- <h1 class="container text-white pt-4 ">Bienvenue Au Zoo Arcadia</h1>
- 
- <?php    
-        var_dump(  $carousselHabits );
+
+<h1 class=" text-center text-white mb-4 ">Bienvenue Au Zoo Arcadia</h1>
+
+<?php    
+        
+        
     foreach ($contents as $key=>$content) {
-        if ($key===0 || $key===1) {
-            require "./templates/_content.php";
+        if ($key===0 ||$key===1) {
+           
+            require __DIR__ . '/./templates/_content.php';
+
         }
     } 
     
-    foreach ($carousselHabits as $key=>$carousselHabit) {
-        if ($key===0) {
-            require "./templates/_caroussel.php";
-        } 
+    foreach ($contents as $key=>$content) {
+        if ($key===6) {
+            
+    require_once __DIR__ . '/./templates/_caroussel.php';
+
+            
+        }
     
     }
 
     
     foreach ($contents as $key=>$content) {
         if ($key===2) {
-            require "./templates/_content.php";
+            
+            require __DIR__ . '/./templates/_content.php';
+
         }
     } 
-    
-    require_once "templates/_avis.php";
-    
-    
-    require_once "templates/_footer.php";?>
+    require_once __DIR__ . '/./templates/_avis.php';
 
-
+    require_once  '././templates/_footer.php';?>
