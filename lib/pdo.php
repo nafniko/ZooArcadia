@@ -2,53 +2,45 @@
  require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/config.php';
 
-// try {
-//     $pdo = new PDO("mysql:dbname=". _DB_NAME_ .";host="._DOMAIN_.";charset=utf8mb4",_DB_USER_,_DB_PASSWORD_);
-   
-// } catch(Exception $e) {
-//     die('Erreur MySQL : ' . $e->getMessage());
-// }
-// $uri = getenv('JAWSDB_URL');
 
-// try {
-//     $pdo = new PDO($uri);
-   
-// } catch(Exception $e) {
-//     die('Erreur MySQL : ' . $e->getMessage());
-// }
+
 
 // $host = getenv('DB_HOST');
 // $user = getenv('DB_USER');
 // $password = getenv('DB_PASSWORD');
 // $database = getenv('DB_NAME');
 
+// $host = 'uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com'
+// ;
+// $user = 'h3wn8n8g66i1rour'
+// ;
+// $password = 'i9j7we0uegcy6a5g';
+// $database = 'sto2g9dado760ufv';
+
 // try {
-//     $pdo = new PDO("mysql:host=$host;dbname=$database;charset=utf8mb4", $user, $password);
+    // $pdo = new PDO("mysql:host=$host;dbname=$database;charset=utf8mb4", $user, $password);
+    // $pdo = getenv('DB');
+
+// echo'ok';
+    // $pdo = new PDO("mysql:dbname=sto2g9dado760ufv;host=uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com;charset=utf8mb4","h3wn8n8g66i1rour","i9j7we0uegcy6a5g");
+   
 // } catch(Exception $e) {
 //     die('Erreur MySQL : ' . $e->getMessage());
 // }
 
+$url = getenv('JAWSDB_URL');
+$dbparts = parse_url($url);
+$hostname = $dbparts['host'];
+$username = $dbparts['user'];
+$password = $dbparts['pass'];
+$database = ltrim($dbparts['path'],'/');
+
 try {
-    $pdo = new PDO("mysql:dbname=sto2g9dado760ufv;host=uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com;charset=utf8mb4","h3wn8n8g66i1rour","i9j7we0uegcy6a5g");
-   
-} catch(Exception $e) {
-    die('Erreur MySQL : ' . $e->getMessage());
-}
-
-// Récupérer l'URL de la base de données depuis l'environnement (Heroku)
-// $dbUrl = getenv('JAWSDB_URL');
-
-// // Extraire les composants de l'URL
-// $parsedUrl = parse_url($dbUrl);
-
-// // Extraire chaque composant nécessaire
-// $dbHost = $parsedUrl['host'];
-// $dbPort = $parsedUrl['port'];
-// $dbName = ltrim($parsedUrl['path'], '/'); // Enlever le "/" initial
-// $dbUser = $parsedUrl['user'];
-// $dbPassword = $parsedUrl['pass'];
-
-// // Créer la connexion PDO avec ces informations
-// $pdo = new PDO("mysql:dbname=$dbName;host=$dbHost;port=$dbPort;charset=utf8mb4", $dbUser, $dbPassword);
-// $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+    // set the PDO error mode to exception
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }

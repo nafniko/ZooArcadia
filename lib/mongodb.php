@@ -5,9 +5,10 @@ use Symfony\Component\Security\Csrf\CsrfTokenManager;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use MongoDB\Client;
 use MongoDB\BSON\ObjectId;
-use Exception;
 
-$uri = 'mongodb+srv://zoo:Azerty11@cluster0.njatc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
+$uri =getenv('MONGODB_URI');
+
 $connexion = new Client($uri);
 $bdd = $connexion->zooarcadia;
 $collection = $bdd->avis;
@@ -15,7 +16,6 @@ $collection = $bdd->avis;
 // Test de connexion
 try {
     $connexion->selectDatabase('admin')->command(['ping' => 1]);
-    echo "Pinged your deployment. Successfully connected to MongoDB!\n";
 } catch (Exception $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
@@ -83,8 +83,4 @@ try {
 } catch (Exception $e) {
     echo "Erreur lors de la récupération des avis : " . $e->getMessage();
 }
-?>
-
-
-
 

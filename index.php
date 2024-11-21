@@ -17,7 +17,7 @@ require_once  './lib/content-index.php';
 
 <h1 class=" text-center text-white mb-4 ">Bienvenue Au Zoo Arcadia</h1>
 
-<?php    
+<?php
         
         
     foreach ($contents as $key=>$content) {
@@ -45,7 +45,7 @@ require_once  './lib/content-index.php';
             require __DIR__ . '/./templates/_content.php';
 
         }
-    } 
+    }
     require_once __DIR__ . '/./templates/_avis.php';
 
     require_once  '././templates/_footer.php';?>
