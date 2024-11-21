@@ -12,7 +12,7 @@ $connexion = new Client($uri);
 $bdd = $connexion->zooarcadia;
 $collection = $bdd->avis;
 
-// Test de connexion
+
 try {
     $connexion->selectDatabase('admin')->command(['ping' => 1]);
 } catch (Exception $e) {
@@ -76,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Récupération des avis validés
 try {
     $lesAvis = $collection->find(['validé' => true]);
 } catch (Exception $e) {
