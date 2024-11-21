@@ -15,7 +15,7 @@
                 <p class="text-white "><?= htmlentities( $getServices["descriptions"]) ?></p>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-                <a href="<?= htmlentities( $getServices["liens"] )?>" class="lien-buttons <?php if( $key !==2){ echo "visually-hidden";} ?> text-center btn align-middle mb-4">Voir</a>
+                <a href="<?= htmlentities( $getServices["liens"] )?>" class="lien-buttons <?php if( $key !==1){ echo "visually-hidden";} ?> text-center btn align-middle mb-4">Voir</a>
             </div>
         </div>
     </div>
