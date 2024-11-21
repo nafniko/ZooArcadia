@@ -7,7 +7,6 @@ use MongoDB\Client;
 use MongoDB\BSON\ObjectId;
 
 
-// $uri = 'mongodb+srv://zoo:Azerty11@cluster0.njatc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 $uri =getenv('MONGODB_URI');
 
 $connexion = new Client($uri);
@@ -84,5 +83,4 @@ try {
 } catch (Exception $e) {
     echo "Erreur lors de la récupération des avis : " . $e->getMessage();
 }
-?>
 

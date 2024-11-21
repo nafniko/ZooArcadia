@@ -45,7 +45,7 @@ require_once  './lib/content-index.php';
             require __DIR__ . '/./templates/_content.php';
 
         }
-    } 
+    }
     require_once __DIR__ . '/./templates/_avis.php';
 
     require_once  '././templates/_footer.php';?>
