@@ -36,7 +36,12 @@ CREATE TABLE service
 (
     id integer AUTO_INCREMENT PRIMARY KEY,
     titre varchar(250) not null,
-    liens varchar(250)
+    descriptions text,
+    images integer,
+    liens varchar(250),
+    categorie varchar(250) not null,
+    foreign key (images) REFERENCES images(id)
+
 );
 
 CREATE TABLE animaux
@@ -63,8 +68,6 @@ CREATE TABLE rapport
     detail_animal integer,
     commentaire text,
     foreign key (detail_animal) REFERENCES animaux(id)
-
-   
 );
 
 CREATE TABLE animal_images (
@@ -85,29 +88,11 @@ CREATE TABLE contenu
     descriptions text,
     images integer,
     liens varchar(250),
-    idHabitat int,
+    categorie varchar(250) not null,
     foreign key (images) REFERENCES images(id)
 
 );
-CREATE TABLE contenu_service
-(
-    id_contenu integer,
-    id_service integer,
-    primary key (id_contenu , id_service),
-    foreign key (id_contenu) REFERENCES contenu(id),
-    foreign key (id_service) REFERENCES service(id)
 
-);
-
-CREATE TABLE contenu_habitat
-(
-    id_contenu integer,
-    id_habitat integer,
-    primary key (id_contenu , id_habitat),
-    foreign key (id_contenu) REFERENCES contenu(id),
-    foreign key (id_habitat) REFERENCES service(id)
-
-);
 CREATE TABLE avis_veto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     veto_id INT NOT NULL,               
@@ -135,10 +120,6 @@ CREATE TABLE mail (
     body TEXT NOT NULL,                           
     date_creation DATETIME DEFAULT CURRENT_TIMESTAMP 
 );
-
-
-
-   
 
 INSERT INTO images (chemin, infos) VALUES 
 ('/asset/zoo arcadia(2)1.png', 'logo') ,
@@ -174,27 +155,12 @@ INSERT INTO images (chemin, infos) VALUES
 ('/asset/salamandre.jpeg','animal marais'), 
 ('/asset/zebre.webp','animal savane');
 
+INSERT INTO service (titre, descriptions,images, liens,categorie) VALUES
 
-INSERT INTO contenu (titre, descriptions,images, liens) VALUES
-('Le Zoo', 'Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de Plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d''Afrique à l''élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.',2, NULL),
-
-('Les services', 'Au Zoo Arcadia, nous mettons à votre disposition plusieurs services pour rendre votre visite inoubliable, tout en respectant notre engagement écologique. Restauration éco-responsable : Faites une pause gourmande dans notre espace de restauration, où nous privilégions des produits locaux et biologiques. Profitez de plats savoureux tout en contribuant à la réduction de notre empreinte environnementale. Visites guidées des habitats : Explorez les différents habitats du zoo avec un guide expert, gratuitement. Découvrez les espèces animales dans leur environnement recréé, et apprenez-en plus sur leurs comportements et les efforts de conservation. Balade en petit train : Montez à bord de notre petit train écologique pour une visite relaxante à travers le zoo. Une manière amusante et tranquille de découvrir tous nos animaux sans trop marcher !',3, '/pages/services.php'),
-
-("Les animaux","À la rencontre des animaux du Zoo Arcadia
-                    Le Zoo Arcadia vous invite à découvrir la richesse de la faune à travers trois écosystèmes fascinants : la savane, le marais et la jungle.
-
-                    Les animaux de la savane
-                    Traversez les vastes étendues de la savane et rencontrez ses majestueux habitants. Du lion, roi des animaux, aux éléphants imposants en passant par les élégantes girafes, chaque espèce vous fascine par son adaptation à cet environnement aride.
-
-                    Les habitants des marais
-                    Dans les marais, un monde discret mais captivant vous attend. Observez les crocodiles se prélassant au soleil, les oiseaux aquatiques glissant sur l'eau, et découvrez la faune surprenante des zones humides, où la biodiversité est riche et variée.
-
-                    Les créatures de la jungle
-                    Pénétrez dans l’épaisse végétation tropicale de la jungle pour y découvrir des espèces colorées et exotiques. Singes agiles, serpents mystérieux et oiseaux multicolores font de cet environnement une aventure inoubliable, où chaque pas révèle une nouvelle espèce fascinante.",9,"/pages/animaux.php"),
 
 ('Visite guidé des habitats','Visite Guidée des Habitats au Zoo Arcadia
 Profitez d''une expérience unique avec notre visite guidée gratuite des habitats au Zoo Arcadia !
-Explorez les différents écosystèmes du zoo avec nos guides passionnés qui vous plongeront au cœur de la biodiversité. Chaque visite vous offre l''occasion d''en apprendre davantage sur les animaux qui y résident et leur habitat naturel.Au cours de cette expérience enrichissante, vous découvrirez les adaptations étonnantes des espèces, leurs comportements et les efforts de conservation déployés pour protéger ces animaux dans la nature. Que vous soyez un amoureux des animaux ou simplement curieux d''en savoir plus, cette visite guidée est l''occasion parfaite pour explorer et apprécier la beauté de la faune.Rejoignez-nous pour une aventure éducative et inoubliable au Zoo Arcadia !',5,'#'),
+Explorez les différents écosystèmes du zoo avec nos guides passionnés qui vous plongeront au cœur de la biodiversité. Chaque visite vous offre l''occasion d''en apprendre davantage sur les animaux qui y résident et leur habitat naturel.Au cours de cette expérience enrichissante, vous découvrirez les adaptations étonnantes des espèces, leurs comportements et les efforts de conservation déployés pour protéger ces animaux dans la nature. Que vous soyez un amoureux des animaux ou simplement curieux d''en savoir plus, cette visite guidée est l''occasion parfaite pour explorer et apprécier la beauté de la faune.Rejoignez-nous pour une aventure éducative et inoubliable au Zoo Arcadia !',5,'#','service'),
 
 ('Les Restaurants','Nos Restaurants au Zoo Arcadia
 Lors de votre visite au Zoo Arcadia, profitez d''une expérience culinaire unique grâce à nos trois restaurants thématiques, chacun inspiré par un écosystème naturel.Au Marais
@@ -202,24 +168,14 @@ Immergez-vous dans l’atmosphère paisible des zones humides tout en savourant 
 À la Savane
 Voyagez au cœur de l’Afrique avec une cuisine aux saveurs épicées et exotiques. Ce restaurant est parfait pour les aventuriers à la recherche de plats qui évoquent la chaleur et les traditions des grandes plaines africaines.
 Dans la Jungle
-Entrez dans une ambiance tropicale, où vous pourrez déguster des plats exotiques, riches en fruits et légumes. Ce restaurant est un véritable voyage sensoriel, au milieu d''une végétation luxuriante.',4,'/pages/Restaurants.php'),
+Entrez dans une ambiance tropicale, où vous pourrez déguster des plats exotiques, riches en fruits et légumes. Ce restaurant est un véritable voyage sensoriel, au milieu d''une végétation luxuriante.',4,'/pages/Restaurants.php','service'),
 
 ('Visitez avec le petit train','Visite du Zoo en Petit Train
 Envie de découvrir le Zoo Arcadia de manière ludique et confortable ? Montez à bord de notre petit train et laissez-vous guider à travers les différents habitats !
 
 Cette promenade paisible est idéale pour toute la famille. Vous traverserez la savane, les marais et la jungle tout en profitant de vues imprenables sur les animaux et la nature environnante. Les guides présents à bord vous fourniront des informations fascinantes sur les espèces que vous croiserez, rendant cette visite à la fois amusante et éducative.
 
-Montez à bord du petit train et partez pour une aventure inoubliable à travers le monde fascinant des animaux au Zoo Arcadia !',7,'#'),
-
-('Les Habitats', 'Visite Guidée des Habitats au Zoo Arcadia. Profitez d''une expérience unique avec notre visite guidée gratuite des habitats au Zoo Arcadia ! Explorez les différents écosystèmes du zoo avec nos guides passionnés qui vous plongeront au cœur de la biodiversité. Chaque visite vous offre l''occasion d''en apprendre davantage sur les animaux qui y résident et leur habitat naturel.',NULL, '/pages/habitat.php'),
-
-('Voici la galerie des animaux', 'Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de Plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d''Afrique à l''élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.',NULL, '/pages/animaux.php?id=2'),
-
-('La savane', 'Explorez la Savane au Zoo Arcadia. La savane est un écosystème vaste et ouvert, rempli de vie sauvage fascinante. Lors de votre visite, vous aurez l''occasion de rencontrer des animaux emblématiques tels que les lions majestueux, les éléphants imposants et les élégantes girafes.',10, '#'),
-
-('La jungle', 'Immersion dans la Jungle. Entrez dans le monde luxuriant de la jungle au Zoo Arcadia, un habitat tropical riche en biodiversité. Ici, la végétation dense abrite une multitude d''espèces colorées et exotiques.',6, '#'),
-
-('Le marais', 'À la Découverte du Marais. Le marais, avec son écosystème humide et riche, est un habitat unique à explorer au Zoo Arcadia.',8, '#'),
+Montez à bord du petit train et partez pour une aventure inoubliable à travers le monde fascinant des animaux au Zoo Arcadia !',7,'#','service'),
 
 ('Resto savane', 'Entrées
 
@@ -237,7 +193,7 @@ Desserts
 
 Tarte banane-caramel - 7,00 €
 
-Coupe de fruits tropicaux - 6,50 €',2, '#'),
+Coupe de fruits tropicaux - 6,50 €',2, '#','restau'),
 
 ('Jungle buger', 'Burgers
 
@@ -257,7 +213,7 @@ Boissons
 
 Smoothie mangue-passion - 5,00 €
 
-Limonade maison - 4,00 €',2, '#'),
+Limonade maison - 4,00 €',2, '#','restau'),
 
 ('Le Marais écrémé', 'Entrées
 
@@ -275,7 +231,37 @@ Desserts
 
 Crème brûlée à la vanille Bourbon - 6,50 €
 
-Soufflé glacé au citron vert - 7,50 €',2, '#');
+Soufflé glacé au citron vert - 7,50 €',2, '#','restau');
+
+
+
+INSERT INTO contenu (titre, descriptions,images, liens,categorie) VALUES
+('Le Zoo', 'Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de Plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d''Afrique à l''élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.',2, NULL,'accueil'),
+('Les services', 'Au Zoo Arcadia, nous mettons à votre disposition plusieurs services pour rendre votre visite inoubliable, tout en respectant notre engagement écologique. Restauration éco-responsable : Faites une pause gourmande dans notre espace de restauration, où nous privilégions des produits locaux et biologiques. Profitez de plats savoureux tout en contribuant à la réduction de notre empreinte environnementale. Visites guidées des habitats : Explorez les différents habitats du zoo avec un guide expert, gratuitement. Découvrez les espèces animales dans leur environnement recréé, et apprenez-en plus sur leurs comportements et les efforts de conservation. Balade en petit train : Montez à bord de notre petit train écologique pour une visite relaxante à travers le zoo. Une manière amusante et tranquille de découvrir tous nos animaux sans trop marcher !',3, '/pages/services.php','accueil'),
+
+("Les Animaux","À la rencontre des animaux du Zoo Arcadia
+                    Le Zoo Arcadia vous invite à découvrir la richesse de la faune à travers trois écosystèmes fascinants : la savane, le marais et la jungle.
+
+                    Les animaux de la savane
+                    Traversez les vastes étendues de la savane et rencontrez ses majestueux habitants. Du lion, roi des animaux, aux éléphants imposants en passant par les élégantes girafes, chaque espèce vous fascine par son adaptation à cet environnement aride.
+
+                    Les habitants des marais
+                    Dans les marais, un monde discret mais captivant vous attend. Observez les crocodiles se prélassant au soleil, les oiseaux aquatiques glissant sur l'eau, et découvrez la faune surprenante des zones humides, où la biodiversité est riche et variée.
+
+                    Les créatures de la jungle
+                    Pénétrez dans l’épaisse végétation tropicale de la jungle pour y découvrir des espèces colorées et exotiques. Singes agiles, serpents mystérieux et oiseaux multicolores font de cet environnement une aventure inoubliable, où chaque pas révèle une nouvelle espèce fascinante.",9,"/pages/animaux.php",'accueil'),
+
+('Les Habitats', 'Visite Guidée des Habitats au Zoo Arcadia. Profitez d''une expérience unique avec notre visite guidée gratuite des habitats au Zoo Arcadia ! Explorez les différents écosystèmes du zoo avec nos guides passionnés qui vous plongeront au cœur de la biodiversité. Chaque visite vous offre l''occasion d''en apprendre davantage sur les animaux qui y résident et leur habitat naturel.',NULL, '/pages/habitat.php','accueil'),
+
+('Voici la galerie des animaux', 'Découvrez un monde fascinant où la nature prend vie ! Niché au cœur de Plouah, notre zoo est un véritable sanctuaire pour plus de 300 animaux représentant 150 espèces venant des quatre coins du globe. Du majestueux lion d''Afrique à l''élégant panda géant, chaque visite vous transporte dans un voyage unique à travers les différents écosystèmes de notre planète.',NULL, '/pages/animaux.php?id=2','animaux'),
+
+('La savane', 'Explorez la Savane au Zoo Arcadia. La savane est un écosystème vaste et ouvert, rempli de vie sauvage fascinante. Lors de votre visite, vous aurez l''occasion de rencontrer des animaux emblématiques tels que les lions majestueux, les éléphants imposants et les élégantes girafes.',10, '#','savane'),
+
+('La jungle', 'Immersion dans la Jungle. Entrez dans le monde luxuriant de la jungle au Zoo Arcadia, un habitat tropical riche en biodiversité. Ici, la végétation dense abrite une multitude d''espèces colorées et exotiques.',6, '#','jungle'),
+
+('Le marais', 'À la Découverte du Marais. Le marais, avec son écosystème humide et riche, est un habitat unique à explorer au Zoo Arcadia.',8, '#','marais');
+
+
 
 
 
@@ -287,7 +273,7 @@ VALUES
 
 
 
-INSERT INTO animaux (prénom, race, habitat, images)
+INSERT INTO animaux (prénom, race, habitat, images,)
 VALUES 
 ('Giny', 'Girafe Masai', 1, 22),
 ('zaza', 'zebre ', 1, 32 ),

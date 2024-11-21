@@ -13,14 +13,14 @@
             </div>
             <div class="align-self-end mt-4 col-2"><p><a href="mailto:zooArcadia@arcadiabretagne.fr" class=" text-white  ">zooArcadia@arcadiabretagne.fr</a></p>
              </div>
-            <div class="mt-4 col-3 "><p >20, rue de la bretagne 
-                33000 BRETAGNE</p>
+            <div class="mt-4 col-3 "><p >20, rue de la bretagne
             </div>
         </div>
    
     </footer>
 
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
     <script src="/animations.js"></script>
+    
         </body>
 </html>

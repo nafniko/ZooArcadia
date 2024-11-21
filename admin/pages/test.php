@@ -25,12 +25,37 @@ $getService= getService($pdo);
   <div class="row">
     
     <?php
-require_once  './../templates/tab_service.php';
+require  './../templates/tab_service.php';
 
 ?>
   
     <?php
-require_once  './../templates/_tab_article.php';
+require './../templates/_tab_article.php';
+
+?>
+    
+   
+  </div>
+</div>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+    <h1 class="text-white text-center">Bienvenue sur le dasboard</h1>
+    </div>
+   
+  </div>
+  <div class="row">
+    
+    <?php
+require  './../templates/tab_service.php';
+
+?>
+  
+  <?php
+
+
+require_once  './../templates/creer_article.php';
+
 
 ?>
     
@@ -38,20 +63,6 @@ require_once  './../templates/_tab_article.php';
   </div>
 </div>
 
-            
-            <?php
-require_once  './../templates/creer_article.php';
-
-?>
-
-</div>
 
 
-<?php
-require_once  './../templates/creer_article.php';
-
-
-require_once  './../templates/footer.php';
-
-
-?>
+    

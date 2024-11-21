@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once  '../lib/config.php';
 require_once  '../lib/pdo.php';
@@ -10,16 +10,18 @@ require_once  '../templates/_header.php';
 
 
 
-$contents= getContents($pdo);
+$getService= getService($pdo);
 ?>
 <h1 class="text-center text-white mb-4">Nos Services</h1>
 
-<?php 
-    foreach ($contents as $key=>$content) {
-        if( $key===3 || $key===4 || $key===5){
+<?php
+$filtre_service=array_filter($getService,fn($getService) => $getService['categorie'] === 'service');
+    foreach ($filtre_service as $key=>$getServices) {
+      
+        {
           
-            require __DIR__ . '/../templates/_content.php';
-    };
-};
+            require __DIR__ . '/../templates/_service.php';
+    }
+}
 
 require_once __DIR__ . '/../templates/_footer.php';

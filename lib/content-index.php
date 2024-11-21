@@ -2,7 +2,7 @@
 
 function getContents($pdo){
 
-    $query=$pdo->prepare("SELECT contenu.id AS idcontent,titre,descriptions,images.chemin,liens FROM `contenu` Left JOIN images on contenu.images =images.id;") ;
+    $query=$pdo->prepare("SELECT contenu.id AS idcontent,titre,descriptions,images.chemin,liens,categorie FROM `contenu` Left JOIN images on contenu.images =images.id;") ;
     $query->execute() ; 
     $contents=$query->fetchAll(PDO::FETCH_ASSOC) ;
     return $contents;
@@ -279,4 +279,55 @@ function deleteAnimaux($pdo) {
     $query->execute();
     $deleteAnimaux =$query;
     return $deleteAnimaux;
+}
+
+function createArticle($pdo,$type) {
+try{
+
+    $image= basename($_FILES['imageUpload']['name']);
+    $path='ZooArcadia/asset/';
+    $upload=$path.$image;
+    $chemin='/asset/'.$image;
+    move_uploaded_file (  $_FILES['imageUpload']['tmp_name'] ,  $upload );
+    
+    $query = $pdo->prepare("INSERT INTO images (chemin) VALUES (:chemin)");
+    $query->bindValue(":chemin",$chemin, PDO::PARAM_STR);
+    $query->execute();
+    $imageId  = $pdo->lastInsertId();
+    
+    $query = $pdo->prepare("INSERT INTO  $type ( titre, descriptions, images) VALUES (:titre, :descriptions, :images )");
+    $query->bindValue(":titre",  $_POST['nextitre'], PDO::PARAM_STR);
+    $query->bindValue(":descriptions",  $_POST['descriptionsArticle'], PDO::PARAM_STR);
+    $query->bindValue(":images", $imageId  , PDO::PARAM_INT);
+    $query->execute();
+    
+    header("Location: /index.php");
+    
+    $createArticle= $query;
+    
+    
+    return $createArticle;
+}catch (Exception $e) {
+    echo 'marche pas' ;
+}
+}
+
+function getService($pdo){
+
+    $query=$pdo->prepare("SELECT service.id AS idcontent,titre,descriptions,images.chemin,liens,categorie FROM `service` Left JOIN images on service.images =images.id;") ;
+    $query->execute() ;
+    $getService=$query->fetchAll(PDO::FETCH_ASSOC) ;
+    return $getService;
+}
+
+
+function getById(PDO $pdo, int $id): array|bool {
+    $query = $pdo->prepare("SELECT habitat.id,habitat.titre,contenu.descriptions,contenu.images,images.chemin FROM habitat
+            LEFT JOIN contenu ON habitat.titre = contenu.categorie
+           LEFT JOIN  images on images.id =habitat.images
+            WHERE habitat.id = :id");
+    $query->bindValue(":id",  $id, PDO::PARAM_INT);
+    $query->execute();
+    $ById=$query->fetchAll(PDO::FETCH_ASSOC);
+    return $ById;
 }

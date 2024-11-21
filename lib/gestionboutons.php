@@ -124,3 +124,18 @@ if(isset($_GET['recent'])){
     exit();
     
     };
+
+    if(isset($_POST['createArticle'])){
+  
+        if($_POST['page']==='Article' ){
+ 
+         $type='contenu';
+        }
+        
+        if($_POST['page']==='Service' ){
+ 
+         $type='service';
+     }
+     
+     $createArticle=createArticle($pdo,$type);
+    }

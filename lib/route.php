@@ -29,7 +29,7 @@ $navLinks =[
 $route =[
 
     "index.php"=>[
-        "head_title"=> "Acceuil : Zoo Arcadia",
+        "head_title"=> " Zoo Arcadia",
       
         "meta-description"=>"Découvrez le Zoo Arcadia, un espace écologique dédié à la préservation des espèces et à l’éducation environnementale. Visitez des habitats naturels recréés et soutenez nos initiatives de conservation durable."
     

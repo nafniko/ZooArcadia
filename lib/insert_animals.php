@@ -14,7 +14,7 @@ foreach ($getAnimal as $animal) {
             'prénom' => $animal['prénom'],
             'race' => $animal['race'],
             'image_path' => $animal['image_path'],
-            'counter' => 0 
+            'counter' => 0
         ];
 
         $result = $collection->insertOne($animalData);

@@ -5,7 +5,7 @@
 header("X-Frame-Options: SAMEORIGIN");
 header("Content-Security-Policy: frame-ancestors 'self';");
 header("Content-Security-Policy: default-src 'self'; style-src 'self' https://fonts.googleapis.com; script-src 'self'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://fonts.gstatic.com data:");
-
+header('Content-Type: application/json; charset=utf-8');
 header("Content-Type: text/html; charset=UTF-8");
 header("X-Content-Type-Options: nosniff");
 

@@ -6,17 +6,17 @@
             
             <div id="carouselExampleFade" class="carousel slide carousel-fade">
                 <div class="carousel-inner rounded-4 mt-4 mb-2">
-                    <?php 
+                    <?php
                     foreach($contentimages as $key =>$contentimage){
                             if($key===12 || $key===10 || $key===11){
                      ?>
-                    <div class="carousel-item active"> 
+                    <div class="carousel-item active">
                         <img src= <?= htmlentities( $contentimage["chemin"]) ?> class="d-block rounded-4 w-100 img-fluid " alt="photo de la savane">
                     </div>
-                    <?php 
+                    <?php
                      };
                          ?>
-                    <?php 
+                    <?php
                      };
                     ?>
 

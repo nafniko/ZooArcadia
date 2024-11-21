@@ -6,7 +6,7 @@ require_once  './lib/session.php';
 require_once  './lib/mongodb.php';
 require_once  './lib/route.php';
 require_once  './lib/content-index.php';
-   require_once "./templates/_header.php";
+require_once "./templates/_header.php";
     
  $contents= getContents($pdo);
  $contentimages=getContentImages($pdo);
@@ -19,33 +19,21 @@ require_once  './lib/content-index.php';
 
 <?php
         
-        
-    foreach ($contents as $key=>$content) {
-        if ($key===0 ||$key===1) {
-           
-            require __DIR__ . '/./templates/_content.php';
+$filtre_accueil=(array_filter($contents, fn($content) => $content['categorie'] === 'accueil')) ;
 
-        }
-    } 
-    
-    foreach ($contents as $key=>$content) {
-        if ($key===6) {
+foreach ($filtre_accueil as $key=>$content) {
+
+    require __DIR__ . '/./templates/_content.php';
+}
+        
+$filtre_caroussel=(array_filter($contents, fn($content) => $content['categorie'] === 'carrousel')) ;
+
+foreach ($filtre_caroussel as $key=>$content) {
+        
             
     require_once __DIR__ . '/./templates/_caroussel.php';
-
-            
-        }
+}
     
-    }
-
-    
-    foreach ($contents as $key=>$content) {
-        if ($key===2) {
-            
-            require __DIR__ . '/./templates/_content.php';
-
-        }
-    }
     require_once __DIR__ . '/./templates/_avis.php';
 
     require_once  '././templates/_footer.php';?>
