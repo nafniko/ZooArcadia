@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once  '../lib/config.php';
 require_once  '../lib/pdo.php';
@@ -9,7 +9,7 @@ require_once  '../lib/content-index.php';
 require_once  '../templates/_header.php';
 
 
-    $contentHabitats=getContentHabitat($pdo);
+$contentHabitats=getContentHabitat($pdo);
 ?>
 <h1 class="text-center text-white pt-4 mb-4"> Les habitats</h1>
 <div class="pb-3 ">
@@ -24,9 +24,8 @@ require_once  '../templates/_header.php';
                             <img src="<?= htmlentities($contentHabitat["chemin"]) ?>" class="habitat-img img-fluid" alt="image du zoo">
                             <h2 class="text-center text-white"><?= htmlentities($contentHabitat["titre"]) ?></h2>
                     </a>
-                </div> 
+                </div>
             <?php } ?>
-
         </div>
 </div>
 </div>

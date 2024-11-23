@@ -1,4 +1,4 @@
-<?php    
+<?php
 require_once  '../lib/config.php';
 require_once  '../lib/pdo.php';
 require_once  '../lib/session.php';

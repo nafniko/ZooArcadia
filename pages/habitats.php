@@ -74,7 +74,7 @@ foreach ($ById as $key=>$ByIdx) {
     <a href="<?= $contentHabitat["liens"] ?>"
         class="lien-buttons text-center btn align-middle mb-4"><?= $contentHabitat["titre"] ?></a>
     <?php
- };
+ }
  ?>
 </div>
 
