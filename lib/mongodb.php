@@ -8,7 +8,8 @@ use MongoDB\BSON\ObjectId;
 
 
 $uri =getenv('MONGODB_URI');
-$connexion = new Client($uri);
+// $uri =getenv('MONGODB_URI');
+$connexion = new Client('mongodb://localhost:27017');
 $bdd = $connexion->zooarcadia;
 $collection = $bdd->avis;
 

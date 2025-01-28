@@ -132,7 +132,6 @@ function getAnimauxById($pdo,$id) {
     animaux.race,  habitat.titre AS habitat_titre, 
     avis_veto.commentaire AS commentaire_veto, avis_veto.date_creation AS date_avis, 
     images.chemin AS image_path FROM habitat LEFT JOIN animaux ON animaux.habitat = habitat.id LEFT JOIN images ON images.id = animaux.images LEFT JOIN avis_veto ON avis_veto.animal_id = animaux.id AND avis_veto.date_creation = ( SELECT MAX(date_creation) FROM avis_veto AS av WHERE av.animal_id = animaux.id ) WHERE habitat.id = :id ;
-        
     ");
     $query->bindValue(":id",  $id, PDO::PARAM_INT);
     $query->execute();
@@ -159,7 +158,6 @@ function createAvis($pdo){
     return $createAvis;
 }
 
-
 function getRapportAsc($pdo) {
     $query = $pdo->prepare("SELECT * FROM `rapport` ORDER BY `rapport`.`date_creation` DESC
 
@@ -167,7 +165,6 @@ function getRapportAsc($pdo) {
     $query->execute();
     $rapports=$query->fetchAll(PDO::FETCH_ASSOC);
     return $rapports;
-
 };
 function getRapportDesc($pdo) {
     $query = $pdo->prepare("SELECT * FROM `rapport` ORDER BY `rapport`.`date_creation` ASC
@@ -176,7 +173,6 @@ function getRapportDesc($pdo) {
     $query->execute();
     $rapports=$query->fetchAll(PDO::FETCH_ASSOC);
     return $rapports;
-
 };
 function getRapportRace($pdo) {
     $query = $pdo->prepare("SELECT * FROM `rapport` ORDER BY `rapport`.`race` ASC

@@ -24,11 +24,10 @@ if (isset($_POST["connexion"])){
         
     }else{
         $errors[]= "L'email ou le mot de passe est incorrect" ;
-    }      
+    }
 };
 
 require_once  '../templates/_header.php';
-
 
     ?>
 

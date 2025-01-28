@@ -2,7 +2,9 @@
     "name": "pc/zoo-arcadia",
     "autoload": {
         "psr-4": {
-            "Pc\\ZooArcadia\\": "src/"
+            "Pc\\ZooArcadia\\": "src/",
+             "Controllers\\": "src/Controllers/",
+             "Models\\": "src/Models/"
         }
     },
     "authors": [

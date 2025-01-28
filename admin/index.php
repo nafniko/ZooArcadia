@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once  '../vendor/autoload.php';
 require_once  '../lib/config.php';
@@ -19,7 +19,7 @@ $getAnimauxList= getAnimauxList($pdo );
 ?>
 <div class=" container col-sm-12">
     <h1 class="text-white text-center m-4">Bienvenue dans le dashboard</h1>
-<?php 
+<?php
 
 require_once  './templates/_rapport.php';
 require_once  './templates/_repas.php';
@@ -31,4 +31,4 @@ require_once  './templates/footer.php';
 ?>
 
 </div>
-<?php 
+<?php
