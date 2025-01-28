@@ -28,7 +28,7 @@ foreach ($ById as $key=>$ByIdx) {
     <div class="d-flex justify-content-center block-contain container rounded-4">
         <div class="row g-0  position-relative align-items-center">
             <div class="col-md-6 mb-md-0 p-md-4 ">
-                <img src="<?= htmlentities($ByIdx["chemin"]) ?>" class="w-100 " alt="image du zoo">
+                <img src="<?= htmlentities($ByIdx["chemin"]) ?>" class="w-100 " alt=" zoo">
             </div>
             <div class="col-md-6 p-4 ps-md-0">
                 <p class="text-white "><?= htmlentities($ByIdx["descriptions"]) ?></p>
@@ -50,7 +50,8 @@ foreach ($ById as $key=>$ByIdx) {
         <div data-animal-id="<?= $animauxByIdx['animal_id'] ?>" class="card mycard m-4 text-center rounded-4">
 
 
-            <img src="<?= htmlentities($animauxByIdx["image_path"])?>" class="imgcontents rounded-4  img-fluid" alt="...">
+            <img src="<?= htmlentities($animauxByIdx["image_path"])?>" class="imgcontents rounded-4  img-fluid"
+                alt="...">
             <h3 class="mt-3"><?= htmlentities($animauxByIdx["prénom"])?></h3>
 
 

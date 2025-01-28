@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-center align-items-center flex-column">
         <div data-animal-id="<?= $getAnimals['animal_id'] ?>" class="card mycard m-4 text-center rounded-4">
             <img src="<?= htmlentities( $getAnimals["image_path"]) ?>" class="imgcontents rounded-4 img-fluid"
-                alt="Image de <?= htmlentities($getAnimals["prénom"]) ?>">
+                alt=" <?= htmlentities($getAnimals["prénom"]) ?>">
             <h3 class="mt-3"><?= htmlspecialchars(htmlentities( $getAnimals["prénom"])) ?></h3>
             <div class="details visually-hidden-focusable text-center">
                 <div class="card-body">
