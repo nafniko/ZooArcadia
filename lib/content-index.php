@@ -39,7 +39,7 @@ function getAnimaux($pdo){
 };
 function getAnimauxList($pdo){
 
-    $query=$pdo->prepare("SELECT animaux.id,animaux.prénom,animaux.race,habitat.titre FROM animaux LEFT JOIN habitat ON habitat.id=animaux.habitat;
+    $query=$pdo->prepare("SELECT animaux.id,animaux.prénom,animaux.race,habitat.titres FROM animaux LEFT JOIN habitat ON habitat.id=animaux.habitat;
 ") ;
     $query->execute() ; 
     $getAnimauxList=$query->fetchAll(PDO::FETCH_ASSOC) ;
@@ -306,6 +306,14 @@ try{
 }catch (Exception $e) {
     echo 'marche pas' ;
 }
+}
+
+function deleteArticle($pdo) {
+    $query = $pdo->prepare("DELETE FROM contenu WHERE contenu.id = :id");
+    $query->bindValue(":id",  $_POST['idcontent'], PDO::PARAM_INT);
+    $query->execute();
+    $deleteArticle =$query;
+    return $deleteArticle;
 }
 
 function getService($pdo){

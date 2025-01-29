@@ -13,6 +13,9 @@ require_once  './../templates/header.php';
 
 $contents= getContents($pdo);
 $getService= getService($pdo);
+if(isset($_POST["deleteArticle"])){
+    $article=deleteArticle($pdo);
+}
 
 ?>
 <div class="container text-center">

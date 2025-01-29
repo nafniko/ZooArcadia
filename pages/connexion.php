@@ -7,7 +7,8 @@ require_once  '../lib/mongodb.php';
 require_once  '../lib/route.php';
 require_once  '../lib/content-index.php';
 
-
+$o=password_hash('ok',PASSWORD_DEFAULT);
+var_dump($o);
 
 $errors=[];
 

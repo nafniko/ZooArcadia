@@ -1,9 +1,3 @@
-<?php
-
-
-
-?>
-
 
             <div class="col-lg-6 col-sm-12">
                 <div class=" container block-contain rounded-4">
@@ -13,6 +7,20 @@
                             <select class="form-select" name="page" id="page">
                                 <option selected>choisir la page </option>
                                 <option value="Article">Article </option>
+                                <option value="Service">Service </option>
+                            </select>
+                        </div>
+                        <div class="mb-3 pt-3">
+                            <label for="page" class="form-label">ajouter </label>
+                            <select class="form-select" name="page" id="page">
+                                <option selected>choisir la page </option>
+                                <?php
+
+foreach ($contents as $content) {
+    ?>
+                                <option value="<?= htmlentities($content["idcontent"])?>"><?= htmlentities($content["titre"])?> </option>
+                            
+<?php var_dump($content["idcontent"]) ; } ?>
                                 <option value="Service">Service </option>
                             </select>
                         </div>
@@ -33,7 +41,14 @@
                                 <button type="submit" name="createArticle" class="btn btn-primary mb-3">creer
                                     l'article</button>
                             </div>
-                    </form>
+                                            <div class="col-auto mt-4">
+                                              <button type="submit" name="updateArticle" class="btn btn-warning mb-3">modifier
+                                                l'article</button>
+                                            </div>
+                                            <div class="col-auto mt-4">
+                                              <button type="submit" name="deleteArticle" class="btn btn-danger mb-3">supprimer
+                                                l'article</button>
+                                            </div>              </form>
                 </div>
             </div>
    
